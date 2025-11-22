@@ -213,9 +213,26 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             "rating": 0
         }
         
-        # Add layout field for investigator cards
+        # Add layout field and related_cards for investigator cards
         if card.get('type_code') == 'investigator':
             draftmancer_card["layout"] = "split_left"
+            
+            # Add related_cards based on deck_requirements
+            related_cards = []
+            deck_requirements = card.get('deck_requirements', {})
+            if 'card' in deck_requirements:
+                card_data = deck_requirements['card']
+                if isinstance(card_data, dict):
+                    # Get card codes from the keys of the card dictionary
+                    related_card_codes = list(card_data.keys())
+                    # Find the names of these cards
+                    for code in related_card_codes:
+                        related_card = next((c for c in arkham_cards if c.get('code') == code), None)
+                        if related_card:
+                            related_cards.append(related_card.get('name', ''))
+            
+            if related_cards:
+                draftmancer_card["related_cards"] = related_cards
         
         # Handle back image - check for linked back card first, then backimagesrc
         card_code = card.get('code', '')
