@@ -192,7 +192,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                 if back_card:
                     linked_back_lookup[card.get('code')] = back_card
     
-    # Convert to Draftmancer format
+    # Convert  to Draftmancer format for CustomCards section
     draftmancer_cards = []
     for card in filtered_cards:
         # Convert cost to string, handle special cases
@@ -265,8 +265,54 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
     return {
         "cards": draftmancer_cards,
         "count": len(draftmancer_cards),
-        "selected_packs": selected_pack_names
+        "selected_packs": selected_pack_names,
+        "filtered_cards": filtered_cards  # Include filtered cards for MainSlot generation
     }
+
+def generate_main_slot_cards(filtered_cards):
+    """Generate the MainSlot section with non-investigator cards (2 copies each)."""
+    main_slot_lines = []
+    
+    for card in filtered_cards:
+        # Skip investigators and cards with restrictions field
+        if card.get('type_code') == 'investigator':
+            continue
+        if 'restrictions' in card and card['restrictions']:
+            continue
+        # Skip basic weakness cards
+        if card.get('subtype_code') == 'basicweakness':
+            continue
+            
+        card_name = card.get('name', '')
+        if card_name:
+            main_slot_lines.append(f"2 {card_name}")
+    
+    return main_slot_lines
+
+def generate_draftmancer_file_content(cards, main_slot_cards, selected_pack_names):
+    """Generate the complete Draftmancer file content in .txt format."""
+    lines = []
+    
+    # CustomCards section
+    lines.append("[CustomCards]")
+    import json
+    lines.append(json.dumps(cards, indent=2, ensure_ascii=False))
+    
+    # Settings section  
+    lines.append("[Settings]")
+    settings = {
+        "boostersPerPlayer": 3,
+        "name": "AH LCG - Draft",
+        "cardBack": "https://images.steamusercontent.com/ugc/786371626459887968/96D099C4BBCD944EF3935E613FDF5706E46CA25A/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+        "withReplacement": False
+    }
+    lines.append(json.dumps(settings, indent=4))
+    
+    # MainSlot section
+    lines.append("[MainSlot(15)]")
+    lines.extend(main_slot_cards)
+    
+    return "\n".join(lines)
 
 def get_arkham_sets():
     """Get Arkham Horror sets, either from cache or API."""
@@ -329,22 +375,35 @@ def draft():
         return render_template('draft_result.html', selected_sets=selected_sets, 
                              error=draftmancer_data["error"])
     
-    # Generate filename with timestamp
+    # Generate MainSlot cards
+    main_slot_cards = generate_main_slot_cards(draftmancer_data["filtered_cards"])
+    
+    # Generate complete Draftmancer file content
+    file_content = generate_draftmancer_file_content(
+        draftmancer_data["cards"],
+        main_slot_cards,
+        selected_sets
+    )
+    
+    # Generate filename with timestamp and new extension
     from datetime import datetime
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"arkham_draft_{timestamp}.json"
+    filename = f"arkham_draft_{timestamp}.draftmancer.txt"
     filepath = os.path.join(os.getcwd(), filename)
     
     # Save Draftmancer format file
     try:
         with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(draftmancer_data["cards"], f, indent=2, ensure_ascii=False)
+            f.write(file_content)
         
-        print(f"Generated Draftmancer file: {filename} with {draftmancer_data['count']} cards")
+        investigator_count = draftmancer_data['count']
+        main_slot_count = len(main_slot_cards)
+        print(f"Generated Draftmancer file: {filename} with {investigator_count} investigators and {main_slot_count} main slot cards")
         
         return render_template('draft_result.html', 
                              selected_sets=selected_sets,
-                             card_count=draftmancer_data['count'],
+                             card_count=investigator_count,
+                             main_slot_count=main_slot_count,
                              filename=filename,
                              filepath=filepath)
     
@@ -385,7 +444,7 @@ def refresh_cards_cache():
 def download_file(filename):
     """Download a generated draft file."""
     # Security check - only allow arkham_draft files
-    if not filename.startswith('arkham_draft_') or not filename.endswith('.json'):
+    if not filename.startswith('arkham_draft_') or not filename.endswith('.draftmancer.txt'):
         return "File not found", 404
     
     filepath = os.path.join(os.getcwd(), filename)
