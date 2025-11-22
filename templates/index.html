@@ -68,6 +68,39 @@
             margin-right: 10px;
             transform: scale(1.1);
         }
+        .pack-label {
+            cursor: pointer;
+            flex: 1;
+            margin-right: 10px;
+        }
+        .quantity-controls {
+            display: none;
+            align-items: center;
+            transition: opacity 0.3s;
+        }
+        .quantity-controls.enabled {
+            display: flex;
+            opacity: 1;
+        }
+        .quantity-label {
+            font-size: 0.9em;
+            color: #ccc;
+            margin-right: 5px;
+        }
+        .quantity-input {
+            width: 60px;
+            padding: 4px 8px;
+            background-color: #2a2a2a;
+            border: 1px solid #666;
+            border-radius: 3px;
+            color: #e0e0e0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .quantity-input:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
         label {
             cursor: pointer;
             flex: 1;
@@ -180,8 +213,19 @@
                                name="sets" 
                                value="{{ pack_name }}"
                                class="pack-checkbox cycle-{{ cycle.cycle_position }}-pack"
-                               onchange="updateCycleCheckbox({{ cycle.cycle_position }})">
-                        <label for="pack_{{ cycle.cycle_position }}_{{ loop.index }}">{{ pack_name }}</label>
+                               onchange="updateCycleCheckbox({{ cycle.cycle_position }}); toggleQuantityInput('{{ pack_name }}')">
+                        <label for="pack_{{ cycle.cycle_position }}_{{ loop.index }}" class="pack-label">{{ pack_name }}</label>
+                        <div class="quantity-controls" id="quantity_controls_{{ pack_name|replace(' ', '_')|replace('-', '_')|replace(':', '')|replace(',', '')|replace('!', '')|replace('.', '') }}">
+                            <span class="quantity-label">Qty:</span>
+                            <input type="number" 
+                                   name="quantity_{{ pack_name }}" 
+                                   id="quantity_{{ pack_name|replace(' ', '_')|replace('-', '_')|replace(':', '')|replace(',', '')|replace('!', '')|replace('.', '') }}"
+                                   class="quantity-input"
+                                   min="1" 
+                                   max="10" 
+                                   value="1"
+                                   disabled>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
@@ -206,12 +250,24 @@
     <script>
         function selectAll() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => checkbox.checked = true);
+            checkboxes.forEach(checkbox => {
+                if (checkbox.name === 'sets') {
+                    checkbox.checked = true;
+                    toggleQuantityInput(checkbox.value);
+                } else {
+                    checkbox.checked = true;
+                }
+            });
         }
         
         function selectNone() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => checkbox.checked = false);
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+                if (checkbox.name === 'sets') {
+                    toggleQuantityInput(checkbox.value);
+                }
+            });
         }
         
         function toggleCycle(cyclePosition) {
@@ -220,7 +276,24 @@
             
             packCheckboxes.forEach(checkbox => {
                 checkbox.checked = cycleCheckbox.checked;
+                toggleQuantityInput(checkbox.value);
             });
+        }
+        
+        function toggleQuantityInput(packName) {
+            const checkbox = document.querySelector(`input[value="${packName}"]`);
+            const sanitizedName = packName.replace(/[\s\-:,.!]/g, '_');
+            const quantityControls = document.getElementById(`quantity_controls_${sanitizedName}`);
+            const quantityInput = document.getElementById(`quantity_${sanitizedName}`);
+            
+            if (checkbox && checkbox.checked) {
+                quantityControls.classList.add('enabled');
+                quantityInput.disabled = false;
+            } else {
+                quantityControls.classList.remove('enabled');
+                quantityInput.disabled = true;
+                quantityInput.value = 1; // Reset to 1 when unchecked
+            }
         }
         
         function updateCycleCheckbox(cyclePosition) {
@@ -247,6 +320,12 @@
             {% for cycle in cycles %}
             updateCycleCheckbox({{ cycle.cycle_position }});
             {% endfor %}
+            
+            // Initialize quantity inputs
+            const packCheckboxes = document.querySelectorAll('input[name="sets"]');
+            packCheckboxes.forEach(checkbox => {
+                toggleQuantityInput(checkbox.value);
+            });
         });
     </script>
 </body>

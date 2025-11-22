@@ -338,7 +338,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
         "filtered_cards": filtered_cards  # Include filtered cards for MainSlot generation
     }
 
-def generate_main_slot_cards(selected_pack_codes):
+def generate_main_slot_cards(selected_pack_codes, pack_quantities=None):
     """Generate the MainSlot section with actual card quantities from pack data."""
     card_quantities = {}
     
@@ -346,9 +346,17 @@ def generate_main_slot_cards(selected_pack_codes):
     main_cards = get_arkham_cards()
     player_card_codes = set(card.get('code') for card in main_cards if card.get('code'))
     
+    # Create pack code to name mapping for quantity lookup
+    packs_data = load_cached_packs()
+    pack_code_to_name = {pack['code']: pack['name'] for pack in packs_data} if packs_data else {}
+    
     # Fetch pack-specific card data for each selected pack
     for pack_code in selected_pack_codes:
         pack_cards = get_pack_cards(pack_code)
+        
+        # Get the multiplier for this pack (default to 1 if not specified)
+        pack_name = pack_code_to_name.get(pack_code, pack_code)
+        pack_multiplier = pack_quantities.get(pack_name, 1) if pack_quantities else 1
         
         for card in pack_cards:
             # Only include cards that exist in the main cards cache (player cards)
@@ -370,13 +378,14 @@ def generate_main_slot_cards(selected_pack_codes):
                 continue
             
             card_name = card.get('name', '')
-            quantity = card.get('quantity', 0)
+            base_quantity = card.get('quantity', 0)
+            final_quantity = base_quantity * pack_multiplier
             
-            if card_name and quantity > 0:
+            if card_name and final_quantity > 0:
                 if card_name in card_quantities:
-                    card_quantities[card_name] += quantity
+                    card_quantities[card_name] += final_quantity
                 else:
-                    card_quantities[card_name] = quantity
+                    card_quantities[card_name] = final_quantity
     
     # Generate main slot lines with actual quantities
     main_slot_lines = []
@@ -506,8 +515,15 @@ def draft():
     if not selected_sets:
         return render_template('draft_result.html', selected_sets=[], error="No sets selected")
     
+    # Process pack quantities - get quantities for each selected pack
+    pack_quantities = {}
+    for pack_name in selected_sets:
+        quantity_key = f'quantity_{pack_name}'
+        quantity = int(request.form.get(quantity_key, 1))  # Default to 1 if not specified
+        pack_quantities[pack_name] = quantity
+    
     # Get all cards and convert to Draftmancer format
-    print(f"Generating Draftmancer format for {len(selected_sets)} selected sets")
+    print(f"Generating Draftmancer format for {len(selected_sets)} selected sets with quantities: {pack_quantities}")
     arkham_cards = get_arkham_cards()
     
     if not arkham_cards:
@@ -520,8 +536,8 @@ def draft():
         return render_template('draft_result.html', selected_sets=selected_sets, 
                              error=draftmancer_data["error"])
     
-    # Generate MainSlot cards with actual quantities
-    main_slot_cards = generate_main_slot_cards(draftmancer_data["selected_pack_codes"])
+    # Generate MainSlot cards with actual quantities and pack multipliers
+    main_slot_cards = generate_main_slot_cards(draftmancer_data["selected_pack_codes"], pack_quantities)
     
     # Generate complete Draftmancer file content
     file_content = generate_draftmancer_file_content(
