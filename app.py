@@ -277,6 +277,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             "colors": FACTION_COLOR_MAP.get(card.get('faction_code', 'neutral'), []),
             "mana_cost": mana_cost_str,
             "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant'),
+            "set": f"AH-{card.get('pack_code', '').upper()}",
             "rating": 0
         }
         
