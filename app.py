@@ -12,6 +12,7 @@ CARDS_CACHE_FILE = 'arkham_cards_cache.json'
 CACHE_DURATION_HOURS = 24  # Cache for 24 hours
 PACKS_API_URL = 'https://arkhamdb.com/api/public/packs/'
 CARDS_API_URL = 'https://arkhamdb.com/api/public/cards/'
+ARKHAMDB_BASE_URL = 'https://arkhamdb.com'
 
 # Faction to Magic color mapping
 FACTION_COLOR_MAP = {
@@ -22,6 +23,23 @@ FACTION_COLOR_MAP = {
     'survivor': ['G'], 
     'neutral': [],     
 }
+
+# Type code to Magic type mapping
+TYPE_CODE_MAP = {
+    'investigator': 'Creature',
+    'asset': 'Artifact',
+    'event': 'Instant',
+    'skill': 'Sorcery', 
+    'treachery': 'Enchantment',
+}
+
+def format_image_url(image_src):
+    """Format image URL by prepending ArkhamDB base URL if needed."""
+    if not image_src:
+        return ''
+    if image_src.startswith('http'):
+        return image_src  # Already a full URL
+    return ARKHAMDB_BASE_URL + image_src
 
 def is_cache_valid(cache_file):
     """Check if the cache file exists and is still valid."""
@@ -140,27 +158,90 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
         if pack_code:
             selected_pack_codes.add(pack_code)
     
-    # Filter cards from selected packs
+    # Filter cards from selected packs and exclude cards with XP > 0
     filtered_cards = []
     for card in arkham_cards:
         if card.get('pack_code') in selected_pack_codes:
-            filtered_cards.append(card)
+            # Filter out cards with XP > 0
+            xp = card.get('xp', 0)
+            if xp is None or xp <= 0:
+                # Skip cards with 'b' suffix that are linked backs of other cards
+                code = card.get('code', '')
+                if code.endswith('b'):
+                    # Check if there's a corresponding front card that links to this
+                    base_code = code[:-1]
+                    front_card_exists = any(
+                        c.get('code') == base_code and c.get('linked_to_code') == code 
+                        for c in arkham_cards if c.get('pack_code') in selected_pack_codes
+                    )
+                    if not front_card_exists:
+                        # This 'b' card is not a linked back, include it
+                        filtered_cards.append(card)
+                    # If it is a linked back, skip it (it will be used as back image)
+                else:
+                    filtered_cards.append(card)
+    
+    # Create a lookup for linked back cards
+    linked_back_lookup = {}
+    for card in arkham_cards:
+        if card.get('pack_code') in selected_pack_codes:
+            linked_to = card.get('linked_to_code')
+            if linked_to and linked_to.endswith('b'):
+                # Find the linked back card
+                back_card = next((c for c in arkham_cards if c.get('code') == linked_to), None)
+                if back_card:
+                    linked_back_lookup[card.get('code')] = back_card
     
     # Convert to Draftmancer format
     draftmancer_cards = []
     for card in filtered_cards:
+        # Convert cost to string, handle special cases
+        cost = card.get('cost')
+        if cost == -2:
+            mana_cost_str = "X"
+        elif cost is not None:
+            mana_cost_str = str(cost)
+        else:
+            mana_cost_str = "0"
+        
         draftmancer_card = {
             "name": card.get('name', ''),
-            "image_uris": card.get('imagesrc', ''),
-            "colors": FACTION_COLOR_MAP.get(card.get('faction_code', 'neutral'), ['C']),
+            "image": format_image_url(card.get('imagesrc', '')),
+            "colors": FACTION_COLOR_MAP.get(card.get('faction_code', 'neutral'), []),
+            "mana_cost": mana_cost_str,
+            "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant'),
             "rating": 0
         }
         
-        # Handle back image if it exists
-        if card.get('backimagesrc'):
-            draftmancer_card["back"] = {
-                "image": card.get('backimagesrc', '')
+        # Add layout field for investigator cards
+        if card.get('type_code') == 'investigator':
+            draftmancer_card["layout"] = "split_left"
+        
+        # Handle back image - check for linked back card first, then backimagesrc
+        card_code = card.get('code', '')
+        if card_code in linked_back_lookup:
+            # Use the linked back card's image
+            back_card = linked_back_lookup[card_code]
+            back_card_data = {
+                "name": card.get('name', '') + " - back",
+                "image": format_image_url(back_card.get('imagesrc', '')),
+                "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant')
             }
+            # Add layout field for investigator back cards
+            if card.get('type_code') == 'investigator':
+                back_card_data["layout"] = "split_left"
+            draftmancer_card["back"] = back_card_data
+        elif card.get('backimagesrc'):
+            # Use the standard backimagesrc
+            back_card_data = {
+                "name": card.get('name', '') + " - back",
+                "image": format_image_url(card.get('backimagesrc', '')),
+                "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant')
+            }
+            # Add layout field for investigator back cards
+            if card.get('type_code') == 'investigator':
+                back_card_data["layout"] = "split_left"
+            draftmancer_card["back"] = back_card_data
         
         draftmancer_cards.append(draftmancer_card)
     
