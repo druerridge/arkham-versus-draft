@@ -342,11 +342,20 @@ def generate_main_slot_cards(selected_pack_codes):
     """Generate the MainSlot section with actual card quantities from pack data."""
     card_quantities = {}
     
+    # Get the main cards cache to verify which cards are player cards
+    main_cards = get_arkham_cards()
+    player_card_codes = set(card.get('code') for card in main_cards if card.get('code'))
+    
     # Fetch pack-specific card data for each selected pack
     for pack_code in selected_pack_codes:
         pack_cards = get_pack_cards(pack_code)
         
         for card in pack_cards:
+            # Only include cards that exist in the main cards cache (player cards)
+            card_code = card.get('code', '')
+            if card_code not in player_card_codes:
+                continue
+                
             # Skip investigators and cards with restrictions field
             if card.get('type_code') == 'investigator':
                 continue
