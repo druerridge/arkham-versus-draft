@@ -1,3 +1,6 @@
+# Cache files
+arkham_packs_cache.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

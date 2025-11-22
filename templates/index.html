@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkham Horror Team Draft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sets-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .set-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+        .set-item:hover {
+            background-color: #3a3a3a;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        label {
+            cursor: pointer;
+            flex: 1;
+        }
+        .draft-button {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .draft-button:hover {
+            background-color: #a00000;
+        }
+        .select-all {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .select-all button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .select-all button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arkham Horror: The Card Game - Team Draft</h1>
+    
+    <form method="POST" action="/draft">
+        <div class="select-all">
+            <button type="button" onclick="selectAll()">Select All</button>
+            <button type="button" onclick="selectNone()">Select None</button>
+        </div>
+        
+        <div class="sets-container">
+            {% for set_name in sets %}
+            <div class="set-item">
+                <input type="checkbox" id="set_{{ loop.index }}" name="sets" value="{{ set_name }}">
+                <label for="set_{{ loop.index }}">{{ set_name }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <button type="submit" class="draft-button">DRAFT</button>
+    </form>
+
+    <script>
+        function selectAll() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = true);
+        }
+        
+        function selectNone() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+        }
+    </script>
+</body>
+</html>

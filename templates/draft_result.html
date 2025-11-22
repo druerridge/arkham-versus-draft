@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft Results - Arkham Horror Team Draft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .selected-sets {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            margin-bottom: 20px;
+        }
+        .set-list {
+            list-style: none;
+            padding: 0;
+        }
+        .set-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+        .set-list li:last-child {
+            border-bottom: none;
+        }
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            background-color: #444;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #555;
+        }
+        .count {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .no-sets {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Draft Results</h1>
+    
+    <div class="selected-sets">
+        {% if selected_sets %}
+            <h3>Selected Sets (<span class="count">{{ selected_sets|length }}</span>):</h3>
+            <ul class="set-list">
+                {% for set_name in selected_sets %}
+                <li>{{ set_name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-sets">No sets were selected for the draft.</p>
+        {% endif %}
+    </div>
+    
+    <a href="/" class="back-button">Back to Selection</a>
+</body>
+</html>
