@@ -1,5 +1,9 @@
 # Cache files
 arkham_packs_cache.json
+arkham_cards_cache.json
+
+# Generated draft files
+arkham_draft_*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

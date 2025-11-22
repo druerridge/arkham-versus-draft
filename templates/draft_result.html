@@ -67,13 +67,35 @@
     <h1>Draft Results</h1>
     
     <div class="selected-sets">
-        {% if selected_sets %}
+        {% if error %}
+            <h3 style="color: #ff6b6b;">Error:</h3>
+            <p style="color: #ff6b6b;">{{ error }}</p>
+        {% elif selected_sets %}
             <h3>Selected Sets (<span class="count">{{ selected_sets|length }}</span>):</h3>
             <ul class="set-list">
                 {% for set_name in selected_sets %}
                 <li>{{ set_name }}</li>
                 {% endfor %}
             </ul>
+            
+            {% if card_count %}
+            <div style="margin-top: 20px; padding: 15px; background-color: #1a4a1a; border-radius: 5px;">
+                <h4 style="color: #90EE90; margin: 0 0 10px 0;">Draft File Generated Successfully!</h4>
+                <p><strong>Cards exported:</strong> {{ card_count }}</p>
+                <p><strong>Filename:</strong> <code>{{ filename }}</code></p>
+                <p><strong>Location:</strong> <code>{{ filepath }}</code></p>
+                {% if filename %}
+                <div style="margin-top: 15px;">
+                    <a href="/download/{{ filename }}" class="back-button" style="display: inline-block; width: auto; padding: 10px 20px; background-color: #d4af37; color: #1a1a1a; font-weight: bold;">
+                        Download Draft File
+                    </a>
+                </div>
+                {% endif %}
+                <p style="margin-top: 15px; font-size: 0.9em; color: #ccc;">
+                    This file can be imported into Draftmancer as a custom card list for drafting.
+                </p>
+            </div>
+            {% endif %}
         {% else %}
             <p class="no-sets">No sets were selected for the draft.</p>
         {% endif %}
