@@ -401,6 +401,58 @@ def generate_draftmancer_file_content(cards, main_slot_cards, selected_pack_name
     
     return "\n".join(lines)
 
+def get_arkham_sets_grouped():
+    """Get Arkham Horror sets grouped by cycle."""
+    # Check if we have a valid cache
+    if is_cache_valid(PACKS_CACHE_FILE):
+        print("Using cached packs data")
+        packs_data = load_cached_packs()
+        if packs_data:
+            # Sort packs by cycle_position first, then by position
+            sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+            return group_packs_by_cycle(sorted_packs)
+    
+    # Cache is invalid or doesn't exist, fetch from API
+    packs_data = fetch_and_cache_packs()
+    if packs_data:
+        # Sort packs by cycle_position first, then by position
+        sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+        return group_packs_by_cycle(sorted_packs)
+    
+    # If API fails, try to use stale cache
+    print("API failed, attempting to use stale cache")
+    packs_data = load_cached_packs()
+    if packs_data:
+        # Sort packs by cycle_position first, then by position
+        sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+        return group_packs_by_cycle(sorted_packs)
+    
+    # All methods failed
+    print("All methods failed, unable to load pack data")
+    return None
+
+def group_packs_by_cycle(packs_data):
+    """Group packs by cycle_position and return structured data."""
+    cycles = {}
+    
+    for pack in packs_data:
+        cycle_pos = pack.get('cycle_position', 99)
+        if cycle_pos not in cycles:
+            # Special case for cycle_position 60 (Starter Decks)
+            if cycle_pos == 60:
+                cycle_name = "Starter Decks"
+            else:
+                cycle_name = pack['name']  # First pack in cycle becomes the cycle name
+            
+            cycles[cycle_pos] = {
+                'cycle_name': cycle_name,
+                'packs': []
+            }
+        cycles[cycle_pos]['packs'].append(pack['name'])
+    
+    # Convert to sorted list
+    return [{'cycle_position': pos, **data} for pos, data in sorted(cycles.items())]
+
 def get_arkham_sets():
     """Get Arkham Horror sets, either from cache or API."""
     # Check if we have a valid cache
@@ -408,38 +460,35 @@ def get_arkham_sets():
         print("Using cached packs data")
         packs_data = load_cached_packs()
         if packs_data:
-            return [pack['name'] for pack in packs_data]
+            # Sort packs by cycle_position first, then by position
+            sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+            return [pack['name'] for pack in sorted_packs]
     
     # Cache is invalid or doesn't exist, fetch from API
     packs_data = fetch_and_cache_packs()
     if packs_data:
-        return [pack['name'] for pack in packs_data]
+        # Sort packs by cycle_position first, then by position
+        sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+        return [pack['name'] for pack in sorted_packs]
     
     # If API fails, try to use stale cache
-    print("API failed, attempting to use stale cache")
+    print("API failed, attempting to use stale cards cache")
     packs_data = load_cached_packs()
     if packs_data:
-        return [pack['name'] for pack in packs_data]
+        # Sort packs by cycle_position first, then by position
+        sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+        return [pack['name'] for pack in sorted_packs]
     
-    # Fallback to hardcoded list if everything fails
-    print("All methods failed, using fallback hardcoded list")
-    return [
-        "Core Set",
-        "The Dunwich Legacy",
-        "The Path to Carcosa", 
-        "The Forgotten Age",
-        "The Circle Undone",
-        "The Dream-Eaters",
-        "The Innsmouth Conspiracy",
-        "Edge of the Earth",
-        "The Scarlet Keys",
-        "The Feast of Hemlock Vale"
-    ]
+    # All methods failed
+    print("All methods failed, unable to load pack data")
+    return []
 
 @app.route('/')
 def index():
-    arkham_sets = get_arkham_sets()
-    return render_template('index.html', sets=arkham_sets)
+    arkham_sets_grouped = get_arkham_sets_grouped()
+    if arkham_sets_grouped is None:
+        return render_template('index.html', cycles=[], error="Unable to load pack data from ArkhamDB. Please try again later or check your internet connection.")
+    return render_template('index.html', cycles=arkham_sets_grouped)
 
 @app.route('/draft', methods=['POST'])
 def draft():

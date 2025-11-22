@@ -18,30 +18,64 @@
             text-align: center;
             margin-bottom: 30px;
         }
-        .sets-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 10px;
+        .cycles-container {
             margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-        .set-item {
+        @media (max-width: 768px) {
+            .cycles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .cycle-group {
+            margin-bottom: 20px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            border: 1px solid #444;
+            padding: 15px;
+            break-inside: avoid;
+        }
+        .cycle-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        .cycle-checkbox {
+            margin-right: 10px;
+            transform: scale(1.3);
+        }
+        .cycle-packs {
+            margin-left: 30px;
+        }
+        .pack-item {
             display: flex;
             align-items: center;
             padding: 8px;
-            background-color: #2a2a2a;
-            border-radius: 5px;
-            border: 1px solid #444;
-        }
-        .set-item:hover {
+            margin-bottom: 5px;
             background-color: #3a3a3a;
+            border-radius: 5px;
+            border: 1px solid #555;
         }
-        input[type="checkbox"] {
+        .pack-item:hover {
+            background-color: #4a4a4a;
+        }
+        .pack-checkbox {
             margin-right: 10px;
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
         label {
             cursor: pointer;
             flex: 1;
+        }
+        .cycle-label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.1em;
         }
         .draft-button {
             display: block;
@@ -94,6 +128,22 @@
         .footer a:hover {
             text-decoration: underline;
         }
+        .error-message {
+            background-color: #4a1a1a;
+            border: 1px solid #ff6b6b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .error-message h3 {
+            color: #ff6b6b;
+            margin: 0 0 10px 0;
+        }
+        .error-message p {
+            color: #ffcccc;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -105,14 +155,45 @@
             <button type="button" onclick="selectNone()">Select None</button>
         </div>
         
-        <div class="sets-container">
-            {% for set_name in sets %}
-            <div class="set-item">
-                <input type="checkbox" id="set_{{ loop.index }}" name="sets" value="{{ set_name }}">
-                <label for="set_{{ loop.index }}">{{ set_name }}</label>
+        {% if error %}
+        <div class="error-message">
+            <h3>Error Loading Pack Data</h3>
+            <p>{{ error }}</p>
+            <p>Please check your internet connection and try refreshing the page.</p>
+        </div>
+        {% elif cycles %}
+        <div class="cycles-container">
+            {% for cycle in cycles %}
+            <div class="cycle-group">
+                <div class="cycle-header">
+                    <input type="checkbox" 
+                           id="cycle_{{ cycle.cycle_position }}" 
+                           class="cycle-checkbox"
+                           onchange="toggleCycle({{ cycle.cycle_position }})">
+                    <label for="cycle_{{ cycle.cycle_position }}" class="cycle-label">{{ cycle.cycle_name }}</label>
+                </div>
+                <div class="cycle-packs">
+                    {% for pack_name in cycle.packs %}
+                    <div class="pack-item">
+                        <input type="checkbox" 
+                               id="pack_{{ cycle.cycle_position }}_{{ loop.index }}" 
+                               name="sets" 
+                               value="{{ pack_name }}"
+                               class="pack-checkbox cycle-{{ cycle.cycle_position }}-pack"
+                               onchange="updateCycleCheckbox({{ cycle.cycle_position }})">
+                        <label for="pack_{{ cycle.cycle_position }}_{{ loop.index }}">{{ pack_name }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             {% endfor %}
         </div>
+        {% else %}
+        <div class="error-message">
+            <h3>No Pack Data Available</h3>
+            <p>Unable to load Arkham Horror pack data. Please try again later.</p>
+        </div>
+        {% endif %}
         
         <button type="submit" class="draft-button">DRAFT</button>
     </form>
@@ -132,6 +213,41 @@
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => checkbox.checked = false);
         }
+        
+        function toggleCycle(cyclePosition) {
+            const cycleCheckbox = document.getElementById(`cycle_${cyclePosition}`);
+            const packCheckboxes = document.querySelectorAll(`.cycle-${cyclePosition}-pack`);
+            
+            packCheckboxes.forEach(checkbox => {
+                checkbox.checked = cycleCheckbox.checked;
+            });
+        }
+        
+        function updateCycleCheckbox(cyclePosition) {
+            const cycleCheckbox = document.getElementById(`cycle_${cyclePosition}`);
+            const packCheckboxes = document.querySelectorAll(`.cycle-${cyclePosition}-pack`);
+            
+            const checkedPacks = Array.from(packCheckboxes).filter(cb => cb.checked).length;
+            const totalPacks = packCheckboxes.length;
+            
+            if (checkedPacks === totalPacks) {
+                cycleCheckbox.checked = true;
+                cycleCheckbox.indeterminate = false;
+            } else if (checkedPacks === 0) {
+                cycleCheckbox.checked = false;
+                cycleCheckbox.indeterminate = false;
+            } else {
+                cycleCheckbox.checked = false;
+                cycleCheckbox.indeterminate = true;
+            }
+        }
+        
+        // Initialize cycle checkboxes on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            {% for cycle in cycles %}
+            updateCycleCheckbox({{ cycle.cycle_position }});
+            {% endfor %}
+        });
     </script>
 </body>
 </html>
