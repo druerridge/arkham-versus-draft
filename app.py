@@ -640,6 +640,15 @@ def group_packs_by_cycle(packs_data):
             # Special case for cycle_position 60 (Starter Decks)
             if cycle_pos == 60:
                 cycle_name = "Starter Decks"
+            # Special case for cycle_position 70 (Side Stories)
+            elif cycle_pos == 70:
+                cycle_name = "Side Stories"
+            # Special case for cycle_position 80 (Promotional)
+            elif cycle_pos == 80:
+                cycle_name = "Promotional"
+            # Special case for cycle_position 90 (Parallel)
+            elif cycle_pos == 90:
+                cycle_name = "Parallel"
             else:
                 cycle_name = pack['name']  # First pack in cycle becomes the cycle name
             
