@@ -17,11 +17,11 @@ ARKHAMDB_BASE_URL = 'https://arkhamdb.com'
 
 # Faction to Magic color mapping
 FACTION_COLOR_MAP = {
-    'guardian': ['W'], 
-    'seeker': ['U'],   
-    'rogue': ['B'],    
-    'mystic': ['R'],   
-    'survivor': ['G'], 
+    'guardian': ['U'], 
+    'seeker': ['W'],   
+    'rogue': ['G'],    
+    'mystic': ['B'],   
+    'survivor': ['R'], 
     'neutral': [],     
 }
 
