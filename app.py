@@ -232,13 +232,16 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             # Filter out cards with XP > 0
             xp = card.get('xp', 0)
             if xp is None or xp <= 0:
+                # Skip cards that are bonded to other cards
+                if card.get('bonded_to'):
+                    continue
+                
                 # Skip cards with 'b' suffix that are linked backs of other cards
                 code = card.get('code', '')
                 if code.endswith('b'):
-                    # Check if there's a corresponding front card that links to this
-                    base_code = code[:-1]
+                    # Check if there's any card that links to this 'b' card
                     front_card_exists = any(
-                        c.get('code') == base_code and c.get('linked_to_code') == code 
+                        c.get('linked_to_code') == code 
                         for c in arkham_cards if c.get('pack_code') in selected_pack_codes
                     )
                     if not front_card_exists:
@@ -278,7 +281,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             "mana_cost": mana_cost_str,
             "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant'),
             "set": f"AH{card.get('pack_code', '').upper()}",
-            "collector_number": str(card.get('position', '')),
+            "collector_number": str(card.get('code', '')),
             "rating": 0
         }
 
@@ -289,7 +292,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
         if card.get('type_code') == 'investigator':
             draftmancer_card["layout"] = "split_left"
             
-            # Add related_cards based on deck_requirements
+            # Add related_cards based on deck_requirements and bonded_cards
             related_cards = []
             deck_requirements = card.get('deck_requirements', {})
             if 'card' in deck_requirements:
@@ -302,6 +305,16 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                         related_card = next((c for c in arkham_cards if c.get('code') == code), None)
                         if related_card:
                             related_cards.append(related_card.get('name', ''))
+            
+            # Add bonded cards to related_cards
+            bonded_cards = card.get('bonded_cards', [])
+            if bonded_cards:
+                for bonded_card_info in bonded_cards:
+                    bonded_code = bonded_card_info.get('code')
+                    if bonded_code:
+                        bonded_card = next((c for c in arkham_cards if c.get('code') == bonded_code), None)
+                        if bonded_card:
+                            related_cards.append(bonded_card.get('name', ''))
             
             if related_cards:
                 draftmancer_card["related_cards"] = related_cards
@@ -369,6 +382,9 @@ def generate_player_cards(selected_pack_codes, pack_quantities=None):
             if card_code not in player_card_codes:
                 continue
                 
+            # Skip cards that are bonded to other cards
+            if card.get('bonded_to'):
+                continue
             # Skip investigators and cards with restrictions field
             if card.get('type_code') == 'investigator':
                 continue
@@ -383,7 +399,7 @@ def generate_player_cards(selected_pack_codes, pack_quantities=None):
                 continue
             
             card_name = card.get('name', '')
-            collector_number = str(card.get('position', ''))
+            collector_number = str(card.get('code', ''))
             base_quantity = card.get('quantity', 0)
             final_quantity = base_quantity * pack_multiplier
             
@@ -431,6 +447,9 @@ def generate_investigators_cards(selected_pack_codes, pack_quantities=None):
             if card_code not in player_card_codes:
                 continue
                 
+            # Skip cards that are bonded to other cards
+            if card.get('bonded_to'):
+                continue
             # Only include investigators
             if card.get('type_code') != 'investigator':
                 continue
@@ -469,7 +488,7 @@ def generate_investigators_cards(selected_pack_codes, pack_quantities=None):
     # Generate investigators lines (no quantities, just unique cards)
     card_entries = []
     for card_name, (card, pack_data) in best_cards_by_name.items():
-        collector_number = str(card.get('position', ''))
+        collector_number = str(card.get('code', ''))
         pack_code = card.get('pack_code', '')
         card_entries.append(f"1 {card_name} (AH{pack_code.upper()}) {collector_number}")
     
@@ -503,6 +522,9 @@ def generate_basic_weaknesses_cards(selected_pack_codes, pack_quantities=None):
             if card_code not in player_card_codes:
                 continue
                 
+            # Skip cards that are bonded to other cards
+            if card.get('bonded_to'):
+                continue
             # Only include basic weakness cards
             if card.get('subtype_code') != 'basicweakness':
                 continue
@@ -541,7 +563,7 @@ def generate_basic_weaknesses_cards(selected_pack_codes, pack_quantities=None):
     # Generate basic weaknesses lines (no quantities, just unique cards)
     card_entries = []
     for card_name, (card, pack_data) in best_cards_by_name.items():
-        collector_number = str(card.get('position', ''))
+        collector_number = str(card.get('code', ''))
         pack_code = card.get('pack_code', '')
         card_entries.append(f"1 {card_name} (AH{pack_code.upper()}) {collector_number}")
     
