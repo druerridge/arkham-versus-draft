@@ -226,16 +226,13 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             selected_pack_codes.add(pack_code)
     
     # Filter cards from selected packs and exclude cards with XP > 0
+    # This is for CustomCards section - include bonded cards but they won't appear in sheets
     filtered_cards = []
     for card in arkham_cards:
         if card.get('pack_code') in selected_pack_codes:
             # Filter out cards with XP > 0
             xp = card.get('xp', 0)
             if xp is None or xp <= 0:
-                # Skip cards that are bonded to other cards
-                if card.get('bonded_to'):
-                    continue
-                
                 # Skip cards with 'b' suffix that are linked backs of other cards
                 code = card.get('code', '')
                 if code.endswith('b'):
@@ -262,6 +259,19 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                 if back_card:
                     linked_back_lookup[card.get('code')] = back_card
     
+    # Check for name conflicts among bonded cards to determine if we need unique names
+    bonded_name_conflicts = set()
+    name_count = {}
+    for card in filtered_cards:
+        if card.get('bonded_to'):
+            name = card.get('name', '')
+            name_count[name] = name_count.get(name, 0) + 1
+    
+    # Mark names that have conflicts (appear more than once)
+    for name, count in name_count.items():
+        if count > 1:
+            bonded_name_conflicts.add(name)
+    
     # Convert  to Draftmancer format for CustomCards section
     draftmancer_cards = []
     for card in filtered_cards:
@@ -274,8 +284,14 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
         else:
             mana_cost_str = "0"
                 
+        # Generate unique name for bonded cards only if there are name conflicts
+        card_name = card.get('name', '')
+        if card.get('bonded_to') and card_name in bonded_name_conflicts:
+            # This is a bonded card with a name conflict, make it unique by appending the code
+            card_name = f"{card_name} ({card.get('code', '')})"
+                
         draftmancer_card = {
-            "name": card.get('name', ''),
+            "name": card_name,
             "image": format_image_url(card.get('imagesrc', '')),
             "colors": FACTION_COLOR_MAP.get(card.get('faction_code', 'neutral'), []),
             "mana_cost": mana_cost_str,
@@ -288,12 +304,15 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
         if card.get('type_code') == 'investigator':
             draftmancer_card["draft_effects"] = ["FaceUp"]
 
-        # Add layout field and related_cards for investigator cards
+        # Add layout field for investigator cards
         if card.get('type_code') == 'investigator':
             draftmancer_card["layout"] = "split_left"
-            
-            # Add related_cards based on deck_requirements and bonded_cards
-            related_cards = []
+        
+        # Add related_cards based on deck_requirements (for investigators) and bonded_cards (for any card type)
+        related_cards = []
+        
+        # Add deck_requirements related cards (only for investigators)
+        if card.get('type_code') == 'investigator':
             deck_requirements = card.get('deck_requirements', {})
             if 'card' in deck_requirements:
                 card_data = deck_requirements['card']
@@ -305,19 +324,24 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                         related_card = next((c for c in arkham_cards if c.get('code') == code), None)
                         if related_card:
                             related_cards.append(related_card.get('name', ''))
-            
-            # Add bonded cards to related_cards
-            bonded_cards = card.get('bonded_cards', [])
-            if bonded_cards:
-                for bonded_card_info in bonded_cards:
-                    bonded_code = bonded_card_info.get('code')
-                    if bonded_code:
-                        bonded_card = next((c for c in arkham_cards if c.get('code') == bonded_code), None)
-                        if bonded_card:
-                            related_cards.append(bonded_card.get('name', ''))
-            
-            if related_cards:
-                draftmancer_card["related_cards"] = related_cards
+        
+        # Add bonded cards to related_cards (for any card type that has them)
+        bonded_cards = card.get('bonded_cards', [])
+        if bonded_cards:
+            for bonded_card_info in bonded_cards:
+                bonded_code = bonded_card_info.get('code')
+                if bonded_code:
+                    bonded_card = next((c for c in arkham_cards if c.get('code') == bonded_code), None)
+                    if bonded_card:
+                        # Always use the unique name for bonded cards (check if they have name conflicts)
+                        bonded_name = bonded_card.get('name', '')
+                        if bonded_card.get('bonded_to') and bonded_name in bonded_name_conflicts:
+                            bonded_name = f"{bonded_name} ({bonded_code})"
+                        related_cards.append(bonded_name)
+        
+        # Add related_cards to the draftmancer card if we have any
+        if related_cards:
+            draftmancer_card["related_cards"] = related_cards
         
         # Handle back image - check for linked back card first, then backimagesrc
         card_code = card.get('code', '')
