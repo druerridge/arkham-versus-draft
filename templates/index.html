@@ -369,8 +369,26 @@
                 return;
             }
             
+            // Open tab immediately on click (this prevents popup blocking)
+            const draftTab = window.open('about:blank', '_blank');
+            if (!draftTab) {
+                alert('Please allow popups for this site to use Draft Now feature');
+                return;
+            }
+            
+            // Show loading content in the tab
+            draftTab.document.write(`
+                <html>
+                    <head><title>Loading Arkham Draft...</title></head>
+                    <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #1a1a1a; color: #e0e0e0;">
+                        <h2>Preparing your Arkham Horror draft...</h2>
+                        <p>Please wait while we connect to Draftmancer.</p>
+                    </body>
+                </html>
+            `);
+            
             draftNowBtn.disabled = true;
-            draftNowBtn.textContent = 'PREPARING...';
+            draftNowBtn.textContent = 'CONNECTING...';
             
             try {
                 const response = await fetch('/draft-now', {
@@ -384,17 +402,6 @@
                     throw new Error(data.error || 'Failed to generate draft');
                 }
                 
-                draftNowBtn.textContent = 'CONNECTING...';
-                
-                // Only open tab after we have the data ready
-                const draftTab = window.open('about:blank', '_blank');
-                if (!draftTab) {
-                    throw new Error('Please allow popups for this site to use Draft Now feature');
-                }
-                
-                // Focus the new tab immediately
-                draftTab.focus();
-                
                 // Dynamically import and use the draftmancer connection module
                 const { generateDraftmancerSession } = await import('/static/draftmancer-connect.js');
                 generateDraftmancerSession(data.cubeFile, draftTab, data.metadata);
@@ -405,8 +412,8 @@
             } catch (error) {
                 console.error('Draft Now error:', error);
                 alert('Error starting draft: ' + error.message);
-                // Close the tab if it was opened
-                if (typeof draftTab !== 'undefined' && draftTab && !draftTab.closed) {
+                // Close the tab if there was an error
+                if (draftTab && !draftTab.closed) {
                     draftTab.close();
                 }
             } finally {

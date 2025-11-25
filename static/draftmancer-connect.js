@@ -50,19 +50,8 @@ export function generateDraftmancerSession(CubeFile, tabToOpen, metadata, gameMo
                         console.log("Draftmancer session started successfully.");
                         socket.disconnect();
                     });
-                    // Navigate to Draftmancer session and focus the tab
-                    const draftUrl = `${Domain}/?session=${SessionID}`;
-                    tabToOpen.location.href = draftUrl;
-                    
-                    // Ensure the tab gets focus
-                    setTimeout(() => {
-                        try {
-                            tabToOpen.focus();
-                        } catch (e) {
-                            // Focus might fail in some browsers, but that's okay
-                            console.log("Tab focus failed, but this is normal in some browsers");
-                        }
-                    }, 100);
+                    // Open Draftmancer in specified tab
+                    tabToOpen.location.href = `${Domain}/?session=${SessionID}`;
                 }
                 // if (metadata.cubeId) {
                 //     request(`/api/draftStarted`,null,startDraftOnCompletion,startDraftOnCompletion,'POST');
