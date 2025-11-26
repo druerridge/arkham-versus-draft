@@ -1021,5 +1021,11 @@ def download_file(filename):
     from flask import send_file
     return send_file(filepath, as_attachment=True, download_name=filename)
 
+@app.route('/favicon.ico')
+def favicon():
+    """Serve the favicon."""
+    from flask import send_from_directory
+    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 if __name__ == '__main__':
     app.run(debug=True)
