@@ -123,6 +123,12 @@
         .download-link:hover {
             color: #88bbee;
         }
+        .download-link.disabled {
+            color: #444;
+            text-decoration: none;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
         .draft-now-button {
             display: block;
             width: 200px;
@@ -256,8 +262,8 @@
         </div>
         {% endif %}
         
-        <button type="button" class="draft-now-button" id="draftNowBtn" onclick="draftNow()">DRAFT NOW</button>
-        <a href="#" class="download-link" onclick="event.preventDefault(); document.querySelector('form').submit(); return false;">download draftmancer file</a>
+        <button type="button" class="draft-now-button" id="draftNowBtn" onclick="draftNow()" disabled>DRAFT NOW</button>
+        <a href="#" class="download-link disabled" id="downloadLink" onclick="event.preventDefault(); if (!this.classList.contains('disabled')) { document.querySelector('form').submit(); } return false;">download draftmancer file</a>
     </form>
 
     <div class="footer">
@@ -276,6 +282,7 @@
                     checkbox.checked = true;
                 }
             });
+            updateDraftButtonStates();
         }
         
         function selectNone() {
@@ -286,6 +293,7 @@
                     toggleQuantityInput(checkbox.value);
                 }
             });
+            updateDraftButtonStates();
         }
         
         function toggleCycle(cyclePosition) {
@@ -296,6 +304,21 @@
                 checkbox.checked = cycleCheckbox.checked;
                 toggleQuantityInput(checkbox.value);
             });
+            updateDraftButtonStates();
+        }
+        
+        function updateDraftButtonStates() {
+            const checkedPacks = document.querySelectorAll('input[name="sets"]:checked');
+            const draftNowBtn = document.getElementById('draftNowBtn');
+            const downloadLink = document.getElementById('downloadLink');
+            
+            if (checkedPacks.length > 0) {
+                draftNowBtn.disabled = false;
+                downloadLink.classList.remove('disabled');
+            } else {
+                draftNowBtn.disabled = true;
+                downloadLink.classList.add('disabled');
+            }
         }
         
         function toggleQuantityInput(packName) {
@@ -312,6 +335,8 @@
                 quantityInput.disabled = true;
                 quantityInput.value = 1; // Reset to 1 when unchecked
             }
+            
+            updateDraftButtonStates();
         }
         
         function updateCycleCheckbox(cyclePosition) {
@@ -344,6 +369,9 @@
             packCheckboxes.forEach(checkbox => {
                 toggleQuantityInput(checkbox.value);
             });
+            
+            // Initialize button states
+            updateDraftButtonStates();
         });
         
         // Draft Now functionality
