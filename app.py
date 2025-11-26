@@ -649,30 +649,98 @@ def generate_draftmancer_file_content(cards, investigators_cards, basic_weakness
     
     return "\n".join(lines)
 
+def get_packs_with_player_cards():
+    """Get set of pack codes that contain player cards."""
+    # Check if we have valid cards cache
+    if is_cache_valid(CARDS_CACHE_FILE):
+        print("Using cached cards data to determine player card packs")
+        cards_data = load_cached_cards()
+        if cards_data:
+            pack_player_card_counts = {}
+            
+            for card in cards_data:
+                pack_code = card.get('pack_code')
+                card_type = card.get('type_code')
+                
+                # Player cards are: investigator, asset, event, skill, and basic weakness treacheries
+                player_card_types = {'investigator', 'asset', 'event', 'skill'}
+                
+                # Also include player treacheries (basic weaknesses)
+                if card_type == 'treachery' and card.get('subtype_code') == 'basicweakness':
+                    player_card_types.add('treachery')
+                
+                if card_type in player_card_types:
+                    if pack_code not in pack_player_card_counts:
+                        pack_player_card_counts[pack_code] = 0
+                    pack_player_card_counts[pack_code] += 1
+            
+            # Return set of pack codes that have player cards
+            return set(pack_code for pack_code, count in pack_player_card_counts.items() if count > 0)
+    
+    # If no cards cache, fetch from API
+    cards_data = fetch_and_cache_cards()
+    if cards_data:
+        pack_player_card_counts = {}
+        
+        for card in cards_data:
+            pack_code = card.get('pack_code')
+            card_type = card.get('type_code')
+            
+            # Player cards are: investigator, asset, event, skill, and basic weakness treacheries
+            player_card_types = {'investigator', 'asset', 'event', 'skill'}
+            
+            # Also include player treacheries (basic weaknesses)
+            if card_type == 'treachery' and card.get('subtype_code') == 'basicweakness':
+                player_card_types.add('treachery')
+            
+            if card_type in player_card_types:
+                if pack_code not in pack_player_card_counts:
+                    pack_player_card_counts[pack_code] = 0
+                pack_player_card_counts[pack_code] += 1
+        
+        # Return set of pack codes that have player cards
+        return set(pack_code for pack_code, count in pack_player_card_counts.items() if count > 0)
+    
+    # If all fails, return empty set (will show no packs)
+    print("Unable to determine packs with player cards")
+    return set()
+
 def get_arkham_sets_grouped():
-    """Get Arkham Horror sets grouped by cycle."""
+    """Get Arkham Horror sets grouped by cycle, filtered to only include packs with player cards."""
+    # Get set of pack codes that contain player cards
+    player_card_pack_codes = get_packs_with_player_cards()
+    
     # Check if we have a valid cache
     if is_cache_valid(PACKS_CACHE_FILE):
         print("Using cached packs data")
         packs_data = load_cached_packs()
         if packs_data:
+            # Filter to only include packs with player cards
+            filtered_packs = [pack for pack in packs_data if pack.get('code') in player_card_pack_codes]
+            print(f"Filtered {len(packs_data)} total packs to {len(filtered_packs)} packs with player cards")
             # Sort packs by cycle_position first, then by position
-            sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+            sorted_packs = sorted(filtered_packs, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
             return group_packs_by_cycle(sorted_packs)
     
     # Cache is invalid or doesn't exist, fetch from API
     packs_data = fetch_and_cache_packs()
     if packs_data:
+        # Filter to only include packs with player cards
+        filtered_packs = [pack for pack in packs_data if pack.get('code') in player_card_pack_codes]
+        print(f"Filtered {len(packs_data)} total packs to {len(filtered_packs)} packs with player cards")
         # Sort packs by cycle_position first, then by position
-        sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+        sorted_packs = sorted(filtered_packs, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
         return group_packs_by_cycle(sorted_packs)
     
     # If API fails, try to use stale cache
     print("API failed, attempting to use stale cache")
     packs_data = load_cached_packs()
     if packs_data:
+        # Filter to only include packs with player cards
+        filtered_packs = [pack for pack in packs_data if pack.get('code') in player_card_pack_codes]
+        print(f"Filtered {len(packs_data)} total packs to {len(filtered_packs)} packs with player cards")
         # Sort packs by cycle_position first, then by position
-        sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
+        sorted_packs = sorted(filtered_packs, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
         return group_packs_by_cycle(sorted_packs)
     
     # All methods failed
