@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck Exporter - Arkham Horror Team Draft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        .back-link {
+            display: inline-block;
+            color: #6699cc;
+            text-decoration: none;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            border: 1px solid #6699cc;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: rgba(102, 153, 204, 0.1);
+        }
+        .converter-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+            .converter-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .input-section, .output-section {
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            border: 1px solid #444;
+            padding: 20px;
+        }
+        .input-section textarea, .output-section textarea {
+            width: 100%;
+            height: 400px;
+            background-color: #1a1a1a;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            padding: 10px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .convert-button {
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #006400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .convert-button:hover {
+            background-color: #008000;
+        }
+        .copy-button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .copy-button:hover {
+            background-color: #555;
+        }
+        .copy-button:active {
+            background-color: #666;
+        }
+        .instructions {
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            border: 1px solid #444;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+            border: 1px solid #444;
+            text-align: center;
+            font-size: 0.9em;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">← Back to Draft Page</a>
+    
+    <h1>Deck Exporter</h1>
+    
+    <div class="instructions">
+        <h2>How to Use</h2>
+        <ol>
+            <li>After completing your draft on <strong>Draftmancer</strong>, export your deck using their export feature</li>
+            <li>Copy the exported deck text and paste it into the <strong>Draftmancer Export</strong> box below</li>
+            <li>Click <strong>Convert to ArkhamDB Format</strong> to transform the deck</li>
+            <li>Copy the result from the <strong>ArkhamDB Import</strong> box</li>
+            <li>Go to <a href="https://arkhamdb.com" target="_blank">ArkhamDB</a> and create a new deck, then paste the converted text using their import feature</li>
+        </ol>
+        <p><strong>Note:</strong> Only the main deck will be converted. Any cards after the first empty line (sideboard) will be ignored as they should not be uploaded to ArkhamDB.</p>
+    </div>
+
+    <div class="converter-container">
+        <div class="input-section">
+            <h2>Draftmancer Export</h2>
+            <textarea id="draftmancerInput" placeholder="Paste your Draftmancer deck export here...
+
+Example format:
+1 William Yorick
+1 Haunted
+3 Perception
+1 Madame Labranche
+..."></textarea>
+        </div>
+        
+        <div class="output-section">
+            <h2>ArkhamDB Import</h2>
+            <textarea id="arkhamdbOutput" readonly placeholder="Converted deck will appear here...
+
+Example format:
+William Yorick
+
+1x Haunted
+3x Perception
+1x Madame Labranche
+..."></textarea>
+            <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+    </div>
+    
+    <button class="convert-button" onclick="convertDeck()">Convert to ArkhamDB Format</button>
+
+    <div class="footer">
+        <p>Please post bug reports and feature requests on <a href="https://github.com/druerridge/arkham-team-draft" target="_blank">GitHub</a></p>
+        <p>The information presented on this site about Arkham Horror: The Card Game, both literal and graphical, is copyrighted by Fantasy Flight Games. This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games.</p>
+    </div>
+
+    <script>
+        function convertDeck() {
+            const input = document.getElementById('draftmancerInput').value.trim();
+            const output = document.getElementById('arkhamdbOutput');
+            
+            if (!input) {
+                alert('Please paste your Draftmancer deck export first.');
+                return;
+            }
+            
+            try {
+                const converted = convertDraftmancerToArkhamDB(input);
+                output.value = converted;
+            } catch (error) {
+                alert('Error converting deck: ' + error.message);
+            }
+        }
+        
+        function convertDraftmancerToArkhamDB(input) {
+            const lines = input.split('\n');
+            const result = [];
+            let investigator = '';
+            let foundInvestigator = false;
+            
+            // Basic Magic lands to filter out
+            const basicLands = new Set(['forest', 'mountain', 'swamp', 'island', 'plains']);
+            
+            for (let line of lines) {
+                line = line.trim();
+                
+                // Skip empty lines - they separate main deck from sideboard
+                if (line === '') {
+                    break; // Stop processing at first empty line (sideboard separator)
+                }
+                
+                // Parse the line format: "number cardname"
+                const match = line.match(/^(\d+)\s+(.+)$/);
+                if (!match) {
+                    continue; // Skip malformed lines
+                }
+                
+                const count = parseInt(match[1]);
+                const cardName = match[2];
+                
+                // Skip basic Magic lands
+                if (basicLands.has(cardName.toLowerCase())) {
+                    continue;
+                }
+                
+                // First line with count 1 is typically the investigator
+                if (!foundInvestigator && count === 1) {
+                    investigator = cardName;
+                    foundInvestigator = true;
+                    continue;
+                }
+                
+                // Add card with count and 'x' suffix
+                result.push(`${count}x ${cardName}`);
+            }
+            
+            // Build final output: investigator on first line, blank line, then cards
+            if (!investigator) {
+                throw new Error('No investigator found. Make sure the first card in your export is your investigator.');
+            }
+            
+            return investigator + '\n\n' + result.join('\n');
+        }
+        
+        function copyToClipboard() {
+            const output = document.getElementById('arkhamdbOutput');
+            if (!output.value.trim()) {
+                alert('Nothing to copy. Please convert a deck first.');
+                return;
+            }
+            
+            output.select();
+            output.setSelectionRange(0, 99999); // For mobile devices
+            
+            try {
+                document.execCommand('copy');
+                const button = document.querySelector('.copy-button');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.backgroundColor = '#006400';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '#444';
+                }, 2000);
+            } catch (err) {
+                alert('Failed to copy to clipboard. Please select and copy manually.');
+            }
+        }
+        
+        // Auto-convert when user pastes or types in input
+        document.getElementById('draftmancerInput').addEventListener('input', function() {
+            const input = this.value.trim();
+            if (input) {
+                try {
+                    const converted = convertDraftmancerToArkhamDB(input);
+                    document.getElementById('arkhamdbOutput').value = converted;
+                } catch (error) {
+                    // Silently fail during auto-conversion - user can manually convert if needed
+                    document.getElementById('arkhamdbOutput').value = '';
+                }
+            } else {
+                document.getElementById('arkhamdbOutput').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

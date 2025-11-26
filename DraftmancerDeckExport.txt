@@ -1,0 +1,45 @@
+1 William Yorick
+1 Haunted
+3 Perception
+1 Madame Labranche
+1 Fire Axe
+1 Fight or Flight
+1 Dark Horse
+1 Guard Dog
+1 Unexpected Courage
+3 Flashlight
+1 Emergency Cache
+1 Arcane Enlightenment
+1 Stand Together
+2 Machete
+1 Lucky!
+2 Overpower
+1 First Aid
+2 Guts
+1 .45 Automatic
+1 Physical Training
+1 Kukri
+2 Rabbit's Foot
+1 Baseball Bat
+1 Relentless
+1 Grete Wagner
+1 Manual Dexterity
+4 Plains
+4 Forest
+
+1 Jacqueline Fine
+1 Roland Banks
+1 The Thing That Follows
+1 Internal Injury
+1 Shrivelling
+1 Preposterous Sketches
+1 Arcane Initiate
+1 Ritual Candles
+1 Scavenging
+1 Flashlight
+1 Boxing Gloves
+2 Knife
+1 Perception
+1 Reckless Assault
+1 Taunt
+1 Leadership

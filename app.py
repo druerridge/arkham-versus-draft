@@ -842,6 +842,10 @@ def index():
         return render_template('index.html', cycles=[], error="Unable to load pack data from ArkhamDB. Please try again later or check your internet connection.")
     return render_template('index.html', cycles=arkham_sets_grouped)
 
+@app.route('/deck-exporter')
+def deck_exporter():
+    return render_template('deck_exporter.html')
+
 @app.route('/draft', methods=['POST'])
 def draft():
     selected_sets = request.form.getlist('sets')
