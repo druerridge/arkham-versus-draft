@@ -301,15 +301,13 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             "rating": 0
         }
 
-        if card.get('type_code') == 'investigator':
-            draftmancer_card["draft_effects"] = ["FaceUp"]
-
         # Add layout field for investigator cards
         if card.get('type_code') == 'investigator':
             draftmancer_card["layout"] = "split_left"
         
         # Add related_cards based on deck_requirements (for investigators) and bonded_cards (for any card type)
         related_cards = []
+        draft_effect_cards = []  # Cards to add to drafter's pool via AddCards effect
         
         # Add deck_requirements related cards (only for investigators)
         if card.get('type_code') == 'investigator':
@@ -323,7 +321,10 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                     for code in related_card_codes:
                         related_card = next((c for c in arkham_cards if c.get('code') == code), None)
                         if related_card:
-                            related_cards.append(related_card.get('name', ''))
+                            card_name = related_card.get('name', '')
+                            related_cards.append(card_name)
+                            # Add to draft effects so they're added to drafter's pool
+                            draft_effect_cards.append(card_name)
         
         # Add bonded cards to related_cards (for any card type that has them)
         bonded_cards = card.get('bonded_cards', [])
@@ -338,10 +339,30 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                         if bonded_card.get('bonded_to') and bonded_name in bonded_name_conflicts:
                             bonded_name = f"{bonded_name} ({bonded_code})"
                         related_cards.append(bonded_name)
+                        # Add to draft effects so they're added to drafter's pool
+                        draft_effect_cards.append(bonded_name)
         
         # Add related_cards to the draftmancer card if we have any
         if related_cards:
             draftmancer_card["related_cards"] = related_cards
+            
+        # Add draft effects for automatic card pool additions
+        draft_effects = []
+        
+        # Add FaceUp for investigators and basic weaknesses
+        if card.get('type_code') == 'investigator' or (card.get('type_code') == 'treachery' and card.get('subtype_code') == 'basicweakness'):
+            draft_effects.append("FaceUp")
+            
+        # Add AddCards effect if we have cards to add
+        if draft_effect_cards:
+            draft_effects.append({
+                "type": "AddCards",
+                "cards": draft_effect_cards
+            })
+            
+        # Add draft_effects if we have any
+        if draft_effects:
+            draftmancer_card["draft_effects"] = draft_effects
         
         # Handle back image - check for linked back card first, then backimagesrc
         card_code = card.get('code', '')
