@@ -663,7 +663,8 @@ def generate_basic_weaknesses_cards(selected_pack_codes, pack_quantities=None, e
     
     return card_entries
 
-def generate_draftmancer_file_content(cards, investigators_cards, basic_weaknesses_cards, player_cards, selected_pack_names):
+def generate_draftmancer_file_content(cards, investigators_cards, basic_weaknesses_cards, player_cards, selected_pack_names, 
+                                     investigators_per_pack=3, basic_weaknesses_per_pack=3, player_cards_per_pack=15, player_card_packs_per_player=3):
     """Generate the complete Draftmancer file content in .txt format."""
     lines = []
     
@@ -674,6 +675,12 @@ def generate_draftmancer_file_content(cards, investigators_cards, basic_weakness
     
     # Settings section  
     lines.append("[Settings]")
+    
+    # Generate predeterminedLayouts based on player_card_packs_per_player
+    predetermined_layouts = ["Investigators", "BasicWeaknesses"]
+    for _ in range(player_card_packs_per_player):
+        predetermined_layouts.append("PlayerCards")
+    
     settings = {
         "name": "AH LCG - Draft",
         "cardBack": "https://images.steamusercontent.com/ugc/786371626459887968/96D099C4BBCD944EF3935E613FDF5706E46CA25A/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
@@ -681,23 +688,23 @@ def generate_draftmancer_file_content(cards, investigators_cards, basic_weakness
             "Investigators": {
                 "weight": 1,
                 "slots": {
-                    "Investigators": 3
+                    "Investigators": investigators_per_pack
                 }
             },
             "BasicWeaknesses": {
                 "weight": 1,
                 "slots": {
-                    "BasicWeaknesses": 3
+                    "BasicWeaknesses": basic_weaknesses_per_pack
                 }
             },
             "PlayerCards": {
                 "weight": 1,
                 "slots": {
-                    "PlayerCards": 15
+                    "PlayerCards": player_cards_per_pack
                 }
             }
         },
-        "predeterminedLayouts": ["Investigators", "BasicWeaknesses", "PlayerCards", "PlayerCards", "PlayerCards"],
+        "predeterminedLayouts": predetermined_layouts,
         "withReplacement": False
     }
     lines.append(json.dumps(settings, indent=4))
@@ -910,8 +917,15 @@ def draft():
     excluded_cards_text = request.form.get('cardsToExclude', '').strip()
     excluded_cards = parse_excluded_cards(excluded_cards_text)
     
+    # Parse layout options
+    investigators_per_pack = int(request.form.get('investigatorsPerPack', 3))
+    basic_weaknesses_per_pack = int(request.form.get('basicWeaknessesPerPack', 3))
+    player_cards_per_pack = int(request.form.get('playerCardsPerPack', 15))
+    player_card_packs_per_player = int(request.form.get('playerCardPacksPerPlayer', 3))
+    
     # Get all cards and convert to Draftmancer format
     print(f"Generating Draftmancer format for {len(selected_sets)} selected sets with quantities: {pack_quantities}")
+    print(f"Layout: {investigators_per_pack} investigators, {basic_weaknesses_per_pack} weaknesses, {player_cards_per_pack} player cards per pack, {player_card_packs_per_player} player card packs per player")
     if excluded_cards:
         print(f"Excluding {len(excluded_cards)} cards: {list(excluded_cards)}")
     arkham_cards = get_arkham_cards()
@@ -937,7 +951,11 @@ def draft():
         investigators_cards,
         basic_weaknesses_cards,
         player_cards,
-        selected_sets
+        selected_sets,
+        investigators_per_pack,
+        basic_weaknesses_per_pack,
+        player_cards_per_pack,
+        player_card_packs_per_player
     )
     
     # Generate filename with timestamp and new extension
@@ -991,8 +1009,15 @@ def draft_now():
     excluded_cards_text = request.form.get('cardsToExclude', '').strip()
     excluded_cards = parse_excluded_cards(excluded_cards_text)
     
+    # Parse layout options
+    investigators_per_pack = int(request.form.get('investigatorsPerPack', 3))
+    basic_weaknesses_per_pack = int(request.form.get('basicWeaknessesPerPack', 3))
+    player_cards_per_pack = int(request.form.get('playerCardsPerPack', 15))
+    player_card_packs_per_player = int(request.form.get('playerCardPacksPerPlayer', 3))
+    
     # Get all cards and convert to Draftmancer format
     print(f"Generating Draftmancer format for immediate draft with {len(selected_sets)} selected sets and quantities: {pack_quantities}")
+    print(f"Layout: {investigators_per_pack} investigators, {basic_weaknesses_per_pack} weaknesses, {player_cards_per_pack} player cards per pack, {player_card_packs_per_player} player card packs per player")
     if excluded_cards:
         print(f"Excluding {len(excluded_cards)} cards: {list(excluded_cards)}")
     arkham_cards = get_arkham_cards()
@@ -1016,7 +1041,11 @@ def draft_now():
         investigators_cards,
         basic_weaknesses_cards,
         player_cards,
-        selected_sets
+        selected_sets,
+        investigators_per_pack,
+        basic_weaknesses_per_pack,
+        player_cards_per_pack,
+        player_card_packs_per_player
     )
     
     # Return JSON data for immediate drafting
