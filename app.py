@@ -145,18 +145,33 @@ def parse_cards_to_include(include_text):
     
     return cards_to_include
 
-def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards):
+def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards, existing_custom_cards=None):
     """Add cards to include to the appropriate card lists and update custom cards."""
     if not cards_to_include:
         return investigators_cards, basic_weaknesses_cards, player_cards, []
     
     custom_cards = []
     
+    # Track cards that have already been added to prevent duplicates
+    # Include existing custom cards from pack selection
+    added_card_names = set()
+    if existing_custom_cards:
+        for card in existing_custom_cards:
+            added_card_names.add(card.get('name', '').lower())
+    
     for card_name_lower, card_info in cards_to_include.items():
         card_name = card_info['name']
         quantity = card_info['quantity']
         card_type = card_info['type']
         card_data = card_info['data']
+        
+        # Skip if this card has already been added
+        if card_name.lower() in added_card_names:
+            print(f"Skipping duplicate card: {card_name}")
+            continue
+            
+        # Mark this card as added
+        added_card_names.add(card_name.lower())
         
         # Create a custom card entry if we have the card data
         if card_data:
@@ -204,11 +219,15 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                             related_card = next((c for c in arkham_cards if c.get('code') == code), None)
                             if related_card:
                                 related_card_name = related_card.get('name', '')
-                                related_cards.append(related_card_name)
-                                # Add to draft effects so they're added to drafter's pool
-                                draft_effect_cards.append(related_card_name)
-                                # Add to list of cards that need custom entries
-                                related_cards_to_add.append(related_card)
+                                # Only add if not already added
+                                if related_card_name.lower() not in added_card_names:
+                                    related_cards.append(related_card_name)
+                                    # Add to draft effects so they're added to drafter's pool
+                                    draft_effect_cards.append(related_card_name)
+                                    # Add to list of cards that need custom entries
+                                    related_cards_to_add.append(related_card)
+                                    # Mark as added
+                                    added_card_names.add(related_card_name.lower())
             
             # Add bonded cards to related_cards (for any card type that has them)
             bonded_cards = card_data.get('bonded_cards', [])
@@ -219,11 +238,15 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                         bonded_card = next((c for c in arkham_cards if c.get('code') == bonded_code), None)
                         if bonded_card:
                             bonded_name = bonded_card.get('name', '')
-                            related_cards.append(bonded_name)
-                            # Add to draft effects so they're added to drafter's pool
-                            draft_effect_cards.append(bonded_name)
-                            # Add to list of cards that need custom entries
-                            related_cards_to_add.append(bonded_card)
+                            # Only add if not already added
+                            if bonded_name.lower() not in added_card_names:
+                                related_cards.append(bonded_name)
+                                # Add to draft effects so they're added to drafter's pool
+                                draft_effect_cards.append(bonded_name)
+                                # Add to list of cards that need custom entries
+                                related_cards_to_add.append(bonded_card)
+                                # Mark as added
+                                added_card_names.add(bonded_name.lower())
             
             # Add related_cards if we have any
             if related_cards:
@@ -1353,7 +1376,7 @@ def draft_now():
     # Add cards to include to appropriate lists and get custom cards
     try:
         investigators_cards, basic_weaknesses_cards, player_cards, custom_cards = add_cards_to_include_to_lists(
-            cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards
+            cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards, draftmancer_data["cards"]
         )
     except Exception as e:
         print(f"Error adding cards to include for immediate draft: {e}")
@@ -1498,7 +1521,7 @@ def get_draft_content():
         # Add cards to include to appropriate lists and get custom cards
         try:
             investigators_cards, basic_weaknesses_cards, player_cards, custom_cards = add_cards_to_include_to_lists(
-                cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards
+                cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards, draftmancer_data["cards"]
             )
         except Exception as e:
             print(f"Error adding cards to include: {e}")
