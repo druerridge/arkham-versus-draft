@@ -109,13 +109,29 @@
                 <p><strong>Main slot cards:</strong> {{ main_slot_count }}</p>
                 {% endif %}
                 <p><strong>Filename:</strong> <code>{{ filename }}</code></p>
-                <p><strong>Location:</strong> <code>{{ filepath }}</code></p>
-                {% if filename %}
+                {% if filename and file_content %}
                 <div style="margin-top: 15px;">
-                    <a href="/download/{{ filename }}" class="back-button" style="display: inline-block; width: auto; padding: 10px 20px; background-color: #d4af37; color: #1a1a1a; font-weight: bold;">
+                    <button onclick="downloadDraftFile()" class="back-button" style="display: inline-block; width: auto; padding: 10px 20px; background-color: #d4af37; color: #1a1a1a; font-weight: bold; border: none; cursor: pointer;">
                         Download Draft File
-                    </a>
+                    </button>
                 </div>
+                <script>
+                function downloadDraftFile() {
+                    const content = {{ file_content|safe|tojson }};
+                    const downloadFilename = {{ filename|tojson }};
+                    
+                    const blob = new Blob([content], { type: 'text/plain' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = downloadFilename;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                }
+                </script>
                 {% endif %}
                 <p style="margin-top: 15px; font-size: 0.9em; color: #ccc;">
                     This .draftmancer.txt file can be imported into Draftmancer for custom drafting.

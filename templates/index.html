@@ -513,7 +513,7 @@
         {% endif %}
         
         <button type="button" class="draft-now-button" id="draftNowBtn" onclick="draftNow()" disabled>DRAFT NOW</button>
-        <a href="#" class="download-link disabled" id="downloadLink" onclick="event.preventDefault(); if (!this.classList.contains('disabled')) { document.querySelector('form').submit(); } return false;">download draftmancer file</a>
+        <a href="#" class="download-link disabled" id="downloadLink" onclick="event.preventDefault(); if (!this.classList.contains('disabled')) { downloadDraftFile(); } return false;">download draftmancer file</a>
     </form>
 
     <div class="footer">
@@ -727,6 +727,62 @@
             } finally {
                 draftNowBtn.disabled = false;
                 draftNowBtn.textContent = 'DRAFT NOW';
+            }
+        }
+        
+        // Client-side download function
+        async function downloadDraftFile() {
+            const form = document.querySelector('form');
+            const formData = new FormData(form);
+            
+            // Check validation first
+            const selectedSets = formData.getAll('sets');
+            const cardsToIncludeText = formData.get('cardsToInclude') || '';
+            if (selectedSets.length === 0 && cardsToIncludeText.trim().length === 0) {
+                alert('Please select at least one pack to draft or add cards to include.');
+                return;
+            }
+            
+            const downloadLink = document.getElementById('downloadLink');
+            const originalText = downloadLink.textContent;
+            downloadLink.textContent = 'Generating file...';
+            downloadLink.classList.add('disabled');
+            
+            try {
+                const response = await fetch('/get-draft-content', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Failed to generate draft file');
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Create and trigger download
+                    const blob = new Blob([data.content], { type: 'text/plain' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = data.filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                } else {
+                    throw new Error(data.error || 'Unknown error occurred');
+                }
+                
+            } catch (error) {
+                console.error('Download error:', error);
+                alert('Error generating download: ' + error.message);
+            } finally {
+                downloadLink.textContent = originalText;
+                downloadLink.classList.remove('disabled');
             }
         }
     </script>

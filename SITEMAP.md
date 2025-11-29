@@ -37,6 +37,14 @@
   - Quantity configuration per pack
 
 #### `/draft-now` - Live Draft Session
+- **Description**: Returns draft file content as JSON for client-side download
+- **Input**: Form data with pack selections, options, and custom cards
+- **Output**: JSON with filename and file content
+- **Methods**: POST
+- **Features**:
+  - Client-side file generation (no server files created)
+  - Same logic as `/draft` route but returns content instead of template
+  - Supports pack-based and Cards to Include workflows
 - **Description**: Initiates immediate live draft session via Socket.IO
 - **Input**: Form data with pack selections and options
 - **Output**: JSON response for Socket.IO integration
@@ -60,12 +68,10 @@
 - **Methods**: GET
 - **Usage**: Administrative/debugging
 
-#### `/download/<filename>` - File Download
-- **Description**: Secure download endpoint for generated draft files
-- **Parameters**: `filename` - Must match pattern `arkham_draft_*.draftmancer.txt`
-- **Output**: File download
-- **Methods**: GET
-- **Security**: Validates filename pattern and file existence
+#### `/download/<filename>` - File Download (DEPRECATED)
+- **Description**: ~~Secure download endpoint for generated draft files~~
+- **Status**: Removed - replaced with client-side download functionality
+- **Note**: Files are no longer saved on server; content is generated and downloaded client-side
 
 ### Static Assets
 

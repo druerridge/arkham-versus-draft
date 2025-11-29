@@ -1226,55 +1226,51 @@ def draft():
         return render_template('draft_result.html', selected_sets=selected_sets, 
                              error="Unable to load card data")
 
-    draftmancer_data = convert_to_draftmancer_format(arkham_cards, selected_sets)
-
-    if "error" in draftmancer_data:
-        return render_template('draft_result.html', selected_sets=selected_sets, 
-                             error=draftmancer_data["error"])
-
-    # Generate cards for all three sheets with actual quantities and pack multipliers
-    investigators_cards = generate_investigators_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
-    basic_weaknesses_cards = generate_basic_weaknesses_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
-    player_cards = generate_player_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
-    
-    # Add cards to include to appropriate lists and get custom cards
     try:
-        investigators_cards, basic_weaknesses_cards, player_cards, custom_cards = add_cards_to_include_to_lists(
-            cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards
-        )
-    except Exception as e:
-        print(f"Error adding cards to include: {e}")
-        custom_cards = []
-    
-    # Add custom cards to draftmancer data
-    if custom_cards:
-        draftmancer_data["cards"].extend(custom_cards)
-        draftmancer_data["count"] += len(custom_cards)
-    
-    # Generate complete Draftmancer file content
-    file_content = generate_draftmancer_file_content(
-        draftmancer_data["cards"],
-        investigators_cards,
-        basic_weaknesses_cards,
-        player_cards,
-        selected_sets,
-        investigators_per_pack,
-        basic_weaknesses_per_pack,
-        player_cards_per_pack,
-        player_card_packs_per_player
-    )
-    
-    # Generate filename with timestamp and new extension
-    from datetime import datetime
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"arkham_draft_{timestamp}.draftmancer.txt"
-    filepath = os.path.join(os.getcwd(), filename)
-    
-    # Save Draftmancer format file
-    try:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(file_content)
+        draftmancer_data = convert_to_draftmancer_format(arkham_cards, selected_sets)
+
+        if "error" in draftmancer_data:
+            return render_template('draft_result.html', selected_sets=selected_sets, 
+                                 error=draftmancer_data["error"])
+
+        # Generate cards for all three sheets with actual quantities and pack multipliers
+        investigators_cards = generate_investigators_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
+        basic_weaknesses_cards = generate_basic_weaknesses_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
+        player_cards = generate_player_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
         
+        # Add cards to include to appropriate lists and get custom cards
+        try:
+            investigators_cards, basic_weaknesses_cards, player_cards, custom_cards = add_cards_to_include_to_lists(
+                cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards
+            )
+        except Exception as e:
+            print(f"Error adding cards to include: {e}")
+            custom_cards = []
+        
+        # Add custom cards to draftmancer data
+        if custom_cards:
+            draftmancer_data["cards"].extend(custom_cards)
+            draftmancer_data["count"] += len(custom_cards)
+        
+        # Generate complete Draftmancer file content
+        file_content = generate_draftmancer_file_content(
+            draftmancer_data["cards"],
+            investigators_cards,
+            basic_weaknesses_cards,
+            player_cards,
+            selected_sets,
+            investigators_per_pack,
+            basic_weaknesses_per_pack,
+            player_cards_per_pack,
+            player_card_packs_per_player
+        )
+        
+        # Generate filename with timestamp and new extension
+        from datetime import datetime
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"arkham_draft_{timestamp}.draftmancer.txt"
+        
+        # Generate file content but don't save locally
         investigator_count = draftmancer_data['count']
         investigators_count = len(investigators_cards)
         basic_weaknesses_count = len(basic_weaknesses_cards)
@@ -1288,12 +1284,12 @@ def draft():
                              basic_weaknesses_count=basic_weaknesses_count,
                              player_cards_count=player_cards_count,
                              filename=filename,
-                             filepath=filepath)
+                             file_content=file_content)
     
     except Exception as e:
-        print(f"Error saving Draftmancer file: {e}")
+        print(f"Error generating Draftmancer file: {e}")
         return render_template('draft_result.html', selected_sets=selected_sets, 
-                             error=f"Error saving draft file: {str(e)}")
+                             error=f"Error generating draft: {str(e)}")
 
 @app.route('/draft-now', methods=['POST'])
 def draft_now():
@@ -1436,19 +1432,109 @@ def refresh_cards_cache():
     else:
         return "Failed to refresh cards cache. Check console for errors.", 500
 
-@app.route('/download/<filename>')
-def download_file(filename):
-    """Download a generated draft file."""
-    # Security check - only allow arkham_draft files
-    if not filename.startswith('arkham_draft_') or not filename.endswith('.draftmancer.txt'):
-        return "File not found", 404
+@app.route('/get-draft-content', methods=['POST'])
+def get_draft_content():
+    """Return draft file content for client-side download."""
+    from flask import jsonify
     
-    filepath = os.path.join(os.getcwd(), filename)
-    if not os.path.exists(filepath):
-        return "File not found", 404
+    selected_sets = request.form.getlist('sets')
     
-    from flask import send_file
-    return send_file(filepath, as_attachment=True, download_name=filename)
+    # Check for cards to include first
+    cards_to_include_text = request.form.get('cardsToInclude', '').strip()
+    
+    if not selected_sets and not cards_to_include_text:
+        return jsonify({"error": "No sets selected and no cards to include specified"}), 400
+    
+    # Process pack quantities
+    pack_quantities = {}
+    if selected_sets:
+        for pack_name in selected_sets:
+            quantity_key = f'quantity_{pack_name}'
+            quantity = int(request.form.get(quantity_key, 1))
+            pack_quantities[pack_name] = quantity
+    
+    # Parse excluded cards
+    excluded_cards_text = request.form.get('cardsToExclude', '').strip()
+    excluded_cards = parse_excluded_cards(excluded_cards_text)
+    
+    # Parse cards to include
+    try:
+        cards_to_include = parse_cards_to_include(cards_to_include_text)
+    except Exception as e:
+        print(f"Error parsing cards to include: {e}")
+        cards_to_include = {}
+    
+    # Parse layout options
+    investigators_per_pack = int(request.form.get('investigatorsPerPack', 3))
+    basic_weaknesses_per_pack = int(request.form.get('basicWeaknessesPerPack', 3))
+    player_cards_per_pack = int(request.form.get('playerCardsPerPack', 15))
+    
+    try:
+        arkham_cards = get_arkham_cards()
+        
+        if not arkham_cards:
+            return jsonify({"error": "Unable to load card data"}), 500
+        
+        # Convert to draftmancer format (only if we have selected sets)
+        if selected_sets:
+            draftmancer_data = convert_to_draftmancer_format(arkham_cards, selected_sets)
+            if "error" in draftmancer_data:
+                return jsonify({"error": draftmancer_data["error"]}), 500
+        else:
+            # No selected sets, create empty draftmancer data structure
+            draftmancer_data = {
+                "cards": [],
+                "count": 0,
+                "selected_packs": [],
+                "selected_pack_codes": set(),
+                "filtered_cards": []
+            }
+        
+        # Generate cards for all three sheets
+        investigators_cards = generate_investigators_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
+        basic_weaknesses_cards = generate_basic_weaknesses_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
+        player_cards = generate_player_cards(draftmancer_data["selected_pack_codes"], pack_quantities, excluded_cards)
+        
+        # Add cards to include to appropriate lists and get custom cards
+        try:
+            investigators_cards, basic_weaknesses_cards, player_cards, custom_cards = add_cards_to_include_to_lists(
+                cards_to_include, investigators_cards, basic_weaknesses_cards, player_cards, arkham_cards
+            )
+        except Exception as e:
+            print(f"Error adding cards to include: {e}")
+            custom_cards = []
+        
+        # Add custom cards to draftmancer data
+        if custom_cards:
+            draftmancer_data["cards"].extend(custom_cards)
+            draftmancer_data["count"] += len(custom_cards)
+        
+        # Generate complete Draftmancer file content
+        player_card_packs_per_player = int(request.form.get('playerCardPacksPerPlayer', 3))
+        file_content = generate_draftmancer_file_content(
+            draftmancer_data["cards"],
+            investigators_cards,
+            basic_weaknesses_cards,
+            player_cards,
+            selected_sets,
+            investigators_per_pack,
+            basic_weaknesses_per_pack,
+            player_cards_per_pack,
+            player_card_packs_per_player
+        )
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"arkham_draft_{timestamp}.draftmancer.txt"
+        
+        return jsonify({
+            "success": True,
+            "filename": filename,
+            "content": file_content
+        })
+        
+    except Exception as e:
+        print(f"Error generating draft content: {e}")
+        return jsonify({"error": f"Error generating draft: {str(e)}"}), 500
 
 @app.route('/favicon.ico')
 def favicon():
