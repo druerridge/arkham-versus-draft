@@ -125,7 +125,7 @@ def parse_cards_to_include(include_text):
                         if card_data:
                             if card_data.get('type_code') == 'investigator':
                                 card_type = 'investigator'
-                            elif card_data.get('type_code') == 'treachery' and card_data.get('subtype_code') == 'basicweakness':
+                            elif card_data.get('subtype_code') == 'basicweakness':
                                 card_type = 'basicweakness'
                             else:
                                 card_type = 'player'
@@ -233,7 +233,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
             draft_effects = []
             
             # Add FaceUp for investigators and basic weaknesses
-            if card_data.get('type_code') == 'investigator' or (card_data.get('type_code') == 'treachery' and card_data.get('subtype_code') == 'basicweakness'):
+            if card_data.get('type_code') == 'investigator' or card_data.get('subtype_code') == 'basicweakness':
                 draft_effects.append("FaceUp")
                 
             # Add AddCards effect if we have cards to add
@@ -292,7 +292,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                 related_draft_effects = []
                 
                 # Add FaceUp for investigators and basic weaknesses
-                if related_card_data.get('type_code') == 'investigator' or (related_card_data.get('type_code') == 'treachery' and related_card_data.get('subtype_code') == 'basicweakness'):
+                if related_card_data.get('type_code') == 'investigator' or related_card_data.get('subtype_code') == 'basicweakness':
                     related_draft_effects.append("FaceUp")
                     
                 # Add draft_effects if we have any
@@ -315,17 +315,17 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
         
         # Add to appropriate list based on type
         if card_type == 'investigator':
-            # Add to investigators list (no quantity prefix for investigators)
+            # Add to investigators list (with quantity prefix to match main generation)
             pack_code = card_data.get('pack_code', 'CUSTOM').upper() if card_data else 'CUSTOM'
             collector_number = card_data.get('code', '001') if card_data else '001'
-            entry = f"{card_name} (AH{pack_code}) {collector_number}"
+            entry = f"{quantity} {card_name} (AH{pack_code}) {collector_number}"
             if entry not in investigators_cards:
                 investigators_cards.append(entry)
         elif card_type == 'basicweakness':
-            # Add to basic weaknesses list (no quantity prefix for basic weaknesses)
+            # Add to basic weaknesses list (with quantity prefix to match main generation)
             pack_code = card_data.get('pack_code', 'CUSTOM').upper() if card_data else 'CUSTOM'
             collector_number = card_data.get('code', '001') if card_data else '001'
-            entry = f"{card_name} (AH{pack_code}) {collector_number}"
+            entry = f"{quantity} {card_name} (AH{pack_code}) {collector_number}"
             if entry not in basic_weaknesses_cards:
                 basic_weaknesses_cards.append(entry)
         else:
