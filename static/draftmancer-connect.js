@@ -30,7 +30,14 @@ export function generateDraftmancerSession(CubeFile, tabToOpen, metadata, gameMo
     // The maximum players is limited by whichever category has the least cards
     const maxSupportedPlayers = Math.min(maxPlayersByInvestigators, maxPlayersByWeaknesses, maxPlayersByPlayerCards);
     
-    const numBots = Math.min(maxSupportedPlayers - 1, 7);
+    // Set number of bots based on draft type
+    let numBots;
+    if (metadata.draftType === 'human') {
+        numBots = 0;  // No bots for human drafts
+    } else {
+        numBots = Math.min(maxSupportedPlayers - 1, 7);  // Default bot draft behavior
+    }
+    
     const query = {
         userID: BotID,
         userName: "ArkhamTD Bot",
@@ -61,21 +68,29 @@ export function generateDraftmancerSession(CubeFile, tabToOpen, metadata, gameMo
                 tabToOpen.close();
                 socket.disconnect();
             } else {
-                function startDraftOnCompletion(responseData) {
-                    // Automatically disconnect bot once the human user has joined the session
+                // Set team draft mode for human drafts
+                if (metadata.draftType === 'human') {
+                    socket.emit("teamDraft", true, (res) => {
+                        if (res.code < 0) {
+                            console.error("Error setting team draft:", res);
+                        } else {
+                            console.log("Team draft mode enabled for human draft.");
+                        }
+                    });
+                }    
+                
+                // Automatically disconnect bot once the human user has joined the session
                     socket.once("sessionUsers", () => {
                         console.log("Draftmancer session started successfully.");
                         socket.disconnect();
                     });
                     // Open Draftmancer in specified tab
                     tabToOpen.location.href = `${Domain}/?session=${SessionID}`;
-                }
                 // if (metadata.cubeId) {
                 //     request(`/api/draftStarted`,null,startDraftOnCompletion,startDraftOnCompletion,'POST');
                 // } else {
                 //     startDraftOnCompletion(null);
                 // }
-                startDraftOnCompletion(null);
             }
         });
     });
