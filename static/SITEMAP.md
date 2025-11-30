@@ -7,13 +7,20 @@
 #### `/` - Main Application
 - **Description**: Primary interface for Arkham Horror LCG versus draft setup
 - **Features**: 
-  - Pack selection from ArkhamDB
-  - Advanced options panel with layout customization
+  - Pack selection from ArkhamDB with default selections (Revised Core Set, Dunwich Legacy, Path to Carcosa, Starter Decks)
+  - Advanced options panel with collapsible Instructions section
   - Cards to Include/Exclude functionality
   - "Full Cube" support for custom card lists
+  - Hybrid Draft/Download button with bot/human draft modes
+  - Beta status indicator
 - **Templates**: `templates/index.html`
 - **Methods**: GET
 - **Priority**: High
+- **Recent Updates**: 
+  - Added Beta tag to title (Nov 2025)
+  - Moved draft controls to top of page (Nov 2025)
+  - Added default pack selections (Nov 2025)
+  - Fixed parallel investigator required card inclusion (Nov 2025)
 
 #### `/deck-exporter` - Deck Export Tool
 - **Description**: Utility for exporting decks to various formats
@@ -21,6 +28,13 @@
 - **Templates**: `templates/deck_exporter.html` 
 - **Methods**: GET
 - **Priority**: Medium
+- **Recent Updates**: Added Beta tag to header (Nov 2025)
+
+#### `/sitemap.xml` - XML Sitemap
+- **Description**: Machine-readable sitemap for search engines
+- **Location**: `static/sitemap.xml`
+- **Methods**: GET
+- **Last Modified**: 2025-11-30
 
 ### API Endpoints (POST)
 
@@ -36,7 +50,7 @@
   - Three-sheet draft structure (Investigators, BasicWeaknesses, PlayerCards)
   - Quantity configuration per pack
 
-#### `/draft-now` - Live Draft Session
+#### `/get-draft-content` - Generate Draft Content
 - **Description**: Returns draft file content as JSON for client-side download
 - **Input**: Form data with pack selections, options, and custom cards
 - **Output**: JSON with filename and file content
@@ -45,33 +59,19 @@
   - Client-side file generation (no server files created)
   - Same logic as `/draft` route but returns content instead of template
   - Supports pack-based and Cards to Include workflows
+  - Improved parallel investigator handling with required card inclusion
+
+#### `/draft-now` - Live Draft Session
 - **Description**: Initiates immediate live draft session via Socket.IO
-- **Input**: Form data with pack selections and options
+- **Input**: Form data with pack selections and options, draft mode (bot/human)
 - **Output**: JSON response for Socket.IO integration
 - **Methods**: POST
 - **Features**:
   - Real-time drafting with Draftmancer
+  - Bot vs Human draft mode selection
   - Popup window integration
   - WebSocket communication
-
-### Utility Endpoints
-
-#### `/refresh-cache` - Refresh Pack Cache
-- **Description**: Manually refreshes ArkhamDB pack data cache
-- **Output**: Cache refresh status message
-- **Methods**: GET
-- **Usage**: Administrative/debugging
-
-#### `/refresh-cards-cache` - Refresh Cards Cache  
-- **Description**: Manually refreshes ArkhamDB card data cache
-- **Output**: Cache refresh status message
-- **Methods**: GET
-- **Usage**: Administrative/debugging
-
-#### `/download/<filename>` - File Download (DEPRECATED)
-- **Description**: ~~Secure download endpoint for generated draft files~~
-- **Status**: Removed - replaced with client-side download functionality
-- **Note**: Files are no longer saved on server; content is generated and downloaded client-side
+  - Automatic team draft configuration for human drafts
 
 ### Static Assets
 
@@ -86,7 +86,9 @@
 - `static/favicon.svg` - Vector favicon
 - `static/web-app-manifest-*.png` - PWA manifest icons
 - `static/site.webmanifest` - Web app manifest
-- `static/draftmancer-connect.js` - Socket.IO integration script
+- `static/draftmancer-connect.js` - Socket.IO integration script (ES6 module)
+- `static/sitemap.xml` - XML sitemap for search engines
+- `static/SITEMAP.md` - Human-readable sitemap documentation
 
 ## File Structure
 
@@ -119,8 +121,11 @@
 ### Draft Generation
 - Three-sheet structure for organized drafting
 - Draftmancer format compatibility
-- Related card inclusion (bonded cards, alternate art, etc.)
+- Related card inclusion (bonded cards, deck requirements for parallel investigators)
 - Proper card type categorization
+- Investigator uniqueness by name+set (except Core/Revised Core treated as same)
+- Special handling for rotated parallel investigator images (Daisy, Roland, Skids)
+- Required cards automatically included from unselected packs when needed
 
 ### Live Drafting
 - Socket.IO integration with Draftmancer
