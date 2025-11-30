@@ -655,6 +655,7 @@
                     <input type="checkbox" 
                            id="cycle_{{ cycle.cycle_position }}" 
                            class="cycle-checkbox"
+                           {% if cycle.cycle_name in ['Starter Decks', 'The Dunwich Legacy', 'The Path to Carcosa'] %}checked{% endif %}
                            onchange="toggleCycle({{ cycle.cycle_position }})">
                     <label for="cycle_{{ cycle.cycle_position }}" class="cycle-label">{{ cycle.cycle_name }}</label>
                 </div>
@@ -666,6 +667,7 @@
                                name="sets" 
                                value="{{ pack_name }}"
                                class="pack-checkbox cycle-{{ cycle.cycle_position }}-pack"
+                               {% if pack_name == 'Revised Core Set' or cycle.cycle_name in ['Starter Decks', 'The Dunwich Legacy', 'The Path to Carcosa'] %}checked{% endif %}
                                onchange="updateCycleCheckbox({{ cycle.cycle_position }}); toggleQuantityInput('{{ pack_name }}')">
                         <label for="pack_{{ cycle.cycle_position }}_{{ loop.index }}" class="pack-label">{{ pack_name }}</label>
                         <div class="quantity-controls" id="quantity_controls_{{ pack_name|replace(' ', '_')|replace('-', '_')|replace(':', '')|replace(',', '')|replace('!', '')|replace('.', '') }}">
@@ -677,7 +679,7 @@
                                    min="1" 
                                    max="10" 
                                    value="1"
-                                   disabled>
+                                   {% if not (pack_name == 'Revised Core Set' or cycle.cycle_name in ['Starter Decks', 'The Dunwich Legacy', 'The Path to Carcosa']) %}disabled{% endif %}>
                         </div>
                     </div>
                     {% endfor %}
