@@ -68,16 +68,16 @@ export function generateDraftmancerSession(CubeFile, tabToOpen, metadata, gameMo
                 tabToOpen.close();
                 socket.disconnect();
             } else {
-                // Set team draft mode for human drafts
-                if (metadata.draftType === 'human') {
-                    socket.emit("teamDraft", true, (res) => {
-                        if (res.code < 0) {
-                            console.error("Error setting team draft:", res);
-                        } else {
-                            console.log("Team draft mode enabled for human draft.");
-                        }
-                    });
-                }    
+                // Deemmed this unnecessary - makes mixing bots + humans harder, and doesn't support >2 teams
+                // if (metadata.draftType === 'human') {
+                //     socket.emit("teamDraft", true, (res) => {
+                //         if (res.code < 0) {
+                //             console.error("Error setting team draft:", res);
+                //         } else {
+                //             console.log("Team draft mode enabled for human draft.");
+                //         }
+                //     });
+                // }    
                 
                 // Automatically disconnect bot once the human user has joined the session
                     socket.once("sessionUsers", () => {
