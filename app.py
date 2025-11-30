@@ -1246,6 +1246,10 @@ def index():
 def deck_exporter():
     return render_template('deck_exporter.html')
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return app.send_static_file('sitemap.xml')
+
 @app.route('/draft', methods=['POST'])
 def draft():
     selected_sets = request.form.getlist('sets')
