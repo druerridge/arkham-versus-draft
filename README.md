@@ -1,7 +1,9 @@
-# arkham-team-draft
-An attempt at making Arkham Horror LCG team-draftable like a Magic: The Gathering team draft. Meant for two or more teams of investigators to draft decks and then complete scenarios or campaigns independently for points.
+# arkham-versus-draft
+A tool to run competitive and team-vs-team drafts for Arkham Horror: The Card Game. It's very similar to Magic: The Gathering's "team draft" variant of booster drafting. Meant for two or more teams of investigators to draft decks and then complete scenarios or campaigns independently for points.
 
-to run
+## Startup
+
+To run the app
 
 ```
 python3 app.py

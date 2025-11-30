@@ -985,7 +985,7 @@ def generate_draftmancer_file_content(cards, investigators_cards, basic_weakness
         predetermined_layouts.append("PlayerCards")
     
     settings = {
-        "name": "AH LCG - Draft",
+        "name": "AH LCG - Versus Draft",
         "cardBack": "https://images.steamusercontent.com/ugc/786371626459887968/96D099C4BBCD944EF3935E613FDF5706E46CA25A/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
         "layouts": {
             "Investigators": {

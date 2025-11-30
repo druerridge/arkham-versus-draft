@@ -1,11 +1,11 @@
-# Arkham Horror Team Draft - Sitemap
+# Arkham Versus Draft - Sitemap
 
 ## Web Application Routes
 
 ### Public Pages (GET)
 
 #### `/` - Main Application
-- **Description**: Primary interface for Arkham Horror LCG team draft setup
+- **Description**: Primary interface for Arkham Horror LCG versus draft setup
 - **Features**: 
   - Pack selection from ArkhamDB
   - Advanced options panel with layout customization
