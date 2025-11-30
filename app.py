@@ -1475,34 +1475,6 @@ def draft_now():
         }
     })
 
-@app.route('/refresh-cache')
-def refresh_cache():
-    """Manually refresh the packs cache."""
-    # Remove existing cache file if it exists
-    if os.path.exists(PACKS_CACHE_FILE):
-        os.remove(PACKS_CACHE_FILE)
-    
-    # Fetch fresh data
-    packs_data = fetch_and_cache_packs()
-    if packs_data:
-        return f"Cache refreshed successfully! Found {len(packs_data)} packs.", 200
-    else:
-        return "Failed to refresh cache. Check console for errors.", 500
-
-@app.route('/refresh-cards-cache')
-def refresh_cards_cache():
-    """Manually refresh the cards cache."""
-    # Remove existing cache file if it exists
-    if os.path.exists(CARDS_CACHE_FILE):
-        os.remove(CARDS_CACHE_FILE)
-    
-    # Fetch fresh data
-    cards_data = fetch_and_cache_cards()
-    if cards_data:
-        return f"Cards cache refreshed successfully! Found {len(cards_data)} cards.", 200
-    else:
-        return "Failed to refresh cards cache. Check console for errors.", 500
-
 @app.route('/get-draft-content', methods=['POST'])
 def get_draft_content():
     """Return draft file content for client-side download."""
