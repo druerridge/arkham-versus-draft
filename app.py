@@ -9,10 +9,12 @@ app = Flask(__name__)
 # Cache configuration
 PACKS_CACHE_FILE = 'arkham_packs_cache.json'
 CARDS_CACHE_FILE = 'arkham_cards_cache.json'
+TABOO_CACHE_FILE = 'arkham_taboo_cache.json'
 PACK_CARDS_CACHE_DIR = 'pack_cards_cache'
 CACHE_DURATION_HOURS = 168  # Cache for a week
 PACKS_API_URL = 'https://arkhamdb.com/api/public/packs/'
 CARDS_API_URL = 'https://arkhamdb.com/api/public/cards/'
+TABOO_API_URL = 'https://arkhamdb.com/api/public/taboos/'
 ARKHAMDB_BASE_URL = 'https://arkhamdb.com'
 
 # Faction to Magic color mapping
@@ -387,6 +389,62 @@ def is_cache_valid(cache_file):
     cache_time = datetime.fromtimestamp(os.path.getmtime(cache_file))
     expiry_time = cache_time + timedelta(hours=CACHE_DURATION_HOURS)
     return datetime.now() < expiry_time
+
+def fetch_and_cache_taboos():
+    """Fetch taboo lists from API and cache them locally."""
+    try:
+        print(f"Fetching taboo lists from {TABOO_API_URL}")
+        response = requests.get(TABOO_API_URL, timeout=10)
+        response.raise_for_status()
+        
+        taboo_data = response.json()
+        
+        # Cache the data
+        with open(TABOO_CACHE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(taboo_data, f, indent=2, ensure_ascii=False)
+        
+        print(f"Cached {len(taboo_data)} taboo lists")
+        return taboo_data
+        
+    except requests.RequestException as e:
+        print(f"Error fetching taboo lists from API: {e}")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"Error parsing taboo list JSON: {e}")
+        return None
+
+def load_cached_taboos():
+    """Load taboo lists from cache file."""
+    try:
+        if os.path.exists(TABOO_CACHE_FILE):
+            with open(TABOO_CACHE_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+    except Exception as e:
+        print(f"Error loading cached taboo lists: {e}")
+    return None
+
+def get_arkham_taboos():
+    """Get Arkham Horror taboo lists, either from cache or API."""
+    # Check if we have a valid cache
+    if is_cache_valid(TABOO_CACHE_FILE):
+        print("Using cached taboo data")
+        taboo_data = load_cached_taboos()
+        if taboo_data:
+            return taboo_data
+    
+    # Cache is invalid or doesn't exist, fetch from API
+    taboo_data = fetch_and_cache_taboos()
+    if taboo_data:
+        return taboo_data
+    
+    # If API fails, try to use stale cache
+    print("API failed, attempting to use stale taboo cache")
+    taboo_data = load_cached_taboos()
+    if taboo_data:
+        return taboo_data
+    
+    print("Unable to load taboo data")
+    return []
 
 def fetch_and_cache_packs():
     """Fetch packs from API and cache them locally."""
@@ -1239,8 +1297,12 @@ def get_arkham_sets():
 def index():
     arkham_sets_grouped = get_arkham_sets_grouped()
     if arkham_sets_grouped is None:
-        return render_template('index.html', cycles=[], error="Unable to load pack data from ArkhamDB. Please try again later or check your internet connection.")
-    return render_template('index.html', cycles=arkham_sets_grouped)
+        return render_template('index.html', cycles=[], taboos=[], error="Unable to load pack data from ArkhamDB. Please try again later or check your internet connection.")
+    
+    # Load taboo lists
+    taboo_lists = get_arkham_taboos()
+    
+    return render_template('index.html', cycles=arkham_sets_grouped, taboos=taboo_lists)
 
 @app.route('/deck-exporter')
 def deck_exporter():

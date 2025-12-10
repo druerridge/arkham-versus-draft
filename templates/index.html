@@ -654,6 +654,23 @@
             </div>
         </div>
         
+        <div class="taboo-selection" style="margin: 20px 0; background-color: #2a2a2a; border-radius: 6px; border: 1px solid #444; padding: 15px;">
+            <label class="option-label" for="tabooList" style="display: block; margin-bottom: 8px; color: #d4af37; font-weight: bold;">Taboo List:</label>
+            <select 
+                class="option-input" 
+                id="tabooList" 
+                name="tabooList"
+                style="width: 100%; padding: 8px; background-color: #333; color: #e8d5b7; border: 1px solid #555; border-radius: 4px;"
+            >
+                <option value="">No Taboo List</option>
+                {% if taboos %}
+                    {% for taboo in taboos %}
+                        <option value="{{ taboo.id }}">Taboo List {{ taboo.date_start }}</option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        
         <div class="select-all">
             <button type="button" onclick="selectAll()">Select All</button>
             <button type="button" onclick="selectNone()">Select None</button>
