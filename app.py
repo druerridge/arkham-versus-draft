@@ -1544,6 +1544,11 @@ def draft():
     basic_weaknesses_per_pack = int(request.form.get('basicWeaknessesPerPack', 3))
     player_cards_per_pack = int(request.form.get('playerCardsPerPack', 15))
     player_card_packs_per_player = int(request.form.get('playerCardPacksPerPlayer', 3))
+    unique_cards_only = request.form.get('uniqueCardsOnly') == 'on'
+    
+    # TODO: Implement unique cards logic when backend is ready
+    if unique_cards_only:
+        print("Unique cards only setting enabled (not yet implemented)")
     
     # Get all cards and convert to Draftmancer format
     print(f"Generating Draftmancer format for {len(selected_sets)} selected sets with quantities: {pack_quantities}")
