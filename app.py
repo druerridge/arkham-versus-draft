@@ -3,6 +3,8 @@ import requests
 import json
 import os
 from datetime import datetime, timedelta
+import threading
+from collections import defaultdict
 
 app = Flask(__name__)
 
@@ -11,11 +13,14 @@ PACKS_CACHE_FILE = 'arkham_packs_cache.json'
 CARDS_CACHE_FILE = 'arkham_cards_cache.json'
 TABOO_CACHE_FILE = 'arkham_taboo_cache.json'
 PACK_CARDS_CACHE_DIR = 'pack_cards_cache'
-CACHE_DURATION_HOURS = 168  # Cache for a week
+CACHE_DURATION_HOURS = 0.02  # Cache for a week
 PACKS_API_URL = 'https://arkhamdb.com/api/public/packs/'
 CARDS_API_URL = 'https://arkhamdb.com/api/public/cards/'
 TABOO_API_URL = 'https://arkhamdb.com/api/public/taboos/'
 ARKHAMDB_BASE_URL = 'https://arkhamdb.com'
+
+# Thread locks to prevent duplicate concurrent cache refreshes
+_cache_refresh_locks = defaultdict(threading.Lock)
 
 # Faction to Magic color mapping
 FACTION_COLOR_MAP = {
@@ -390,6 +395,31 @@ def is_cache_valid(cache_file):
     expiry_time = cache_time + timedelta(hours=CACHE_DURATION_HOURS)
     return datetime.now() < expiry_time
 
+def cache_exists(cache_file):
+    """Check if cache file exists, regardless of validity."""
+    return os.path.exists(cache_file)
+
+def refresh_cache_in_background(refresh_func, cache_key, *args):
+    """Refresh cache in background thread, preventing duplicate concurrent refreshes."""
+    cache_lock = _cache_refresh_locks[cache_key]
+    
+    def background_refresh():
+        # Try to acquire the lock without blocking
+        if cache_lock.acquire(blocking=False):
+            try:
+                print(f"Starting background refresh for {cache_key}")
+                refresh_func(*args)
+                print(f"Completed background refresh for {cache_key}")
+            except Exception as e:
+                print(f"Background cache refresh failed for {cache_key}: {e}")
+            finally:
+                cache_lock.release()
+        else:
+            print(f"Background refresh already in progress for {cache_key}, skipping")
+    
+    thread = threading.Thread(target=background_refresh, daemon=True)
+    thread.start()
+
 def fetch_and_cache_taboos():
     """Fetch taboo lists from API and cache them locally."""
     try:
@@ -432,14 +462,17 @@ def get_arkham_taboos():
         if taboo_data:
             return taboo_data
     
-    # Cache is invalid or doesn't exist, fetch from API
-    taboo_data = fetch_and_cache_taboos()
-    if taboo_data:
-        return taboo_data
+    # Check if cache exists but is stale
+    if cache_exists(TABOO_CACHE_FILE):
+        print("Using stale taboo cache, refreshing in background")
+        taboo_data = load_cached_taboos()
+        if taboo_data:
+            # Start background refresh
+            refresh_cache_in_background(fetch_and_cache_taboos, "taboo_cache")
+            return taboo_data
     
-    # If API fails, try to use stale cache
-    print("API failed, attempting to use stale taboo cache")
-    taboo_data = load_cached_taboos()
+    # No cache exists, fetch from API synchronously
+    taboo_data = fetch_and_cache_taboos()
     if taboo_data:
         return taboo_data
     
@@ -477,6 +510,32 @@ def load_cached_packs():
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading cache: {e}")
         return None
+
+def get_packs():
+    """Get Arkham Horror packs, either from cache or API."""
+    # Check if we have a valid cache
+    if is_cache_valid(PACKS_CACHE_FILE):
+        print("Using cached packs data")
+        packs_data = load_cached_packs()
+        if packs_data:
+            return packs_data
+    
+    # Check if cache exists but is stale
+    if cache_exists(PACKS_CACHE_FILE):
+        print("Using stale packs cache, refreshing in background")
+        packs_data = load_cached_packs()
+        if packs_data:
+            # Start background refresh
+            refresh_cache_in_background(fetch_and_cache_packs, "packs_cache")
+            return packs_data
+    
+    # No cache exists, fetch from API synchronously
+    packs_data = fetch_and_cache_packs()
+    if packs_data:
+        return packs_data
+    
+    print("Unable to load packs data")
+    return []
 
 def fetch_and_cache_cards():
     """Fetch cards from API and cache them locally."""
@@ -562,14 +621,17 @@ def get_pack_cards(pack_code):
         if pack_cards_data:
             return pack_cards_data
     
-    # Cache is invalid or doesn't exist, fetch from API
-    pack_cards_data = fetch_and_cache_pack_cards(pack_code)
-    if pack_cards_data:
-        return pack_cards_data
+    # Check if cache exists but is stale
+    if cache_exists(cache_path):
+        print(f"Using stale cache for pack {pack_code}, refreshing in background")
+        pack_cards_data = load_cached_pack_cards(pack_code)
+        if pack_cards_data:
+            # Start background refresh
+            refresh_cache_in_background(fetch_and_cache_pack_cards, f"pack_cards_{pack_code}", pack_code)
+            return pack_cards_data
     
-    # If API fails, try to use stale cache
-    print(f"API failed for pack {pack_code}, attempting to use stale cache")
-    pack_cards_data = load_cached_pack_cards(pack_code)
+    # No cache exists, fetch from API synchronously
+    pack_cards_data = fetch_and_cache_pack_cards(pack_code)
     if pack_cards_data:
         return pack_cards_data
     
@@ -585,14 +647,17 @@ def get_arkham_cards():
         if cards_data:
             return cards_data
     
-    # Cache is invalid or doesn't exist, fetch from API
-    cards_data = fetch_and_cache_cards()
-    if cards_data:
-        return cards_data
+    # Check if cache exists but is stale
+    if cache_exists(CARDS_CACHE_FILE):
+        print("Using stale cards cache, refreshing in background")
+        cards_data = load_cached_cards()
+        if cards_data:
+            # Start background refresh
+            refresh_cache_in_background(fetch_and_cache_cards, "cards_cache")
+            return cards_data
     
-    # If API fails, try to use stale cache
-    print("API failed, attempting to use stale cards cache")
-    cards_data = load_cached_cards()
+    # No cache exists, fetch from API synchronously
+    cards_data = fetch_and_cache_cards()
     if cards_data:
         return cards_data
     
@@ -602,7 +667,7 @@ def get_arkham_cards():
 def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
     """Convert Arkham cards to Draftmancer custom card list format."""
     # Get pack data to map pack names to pack codes
-    packs_data = load_cached_packs()
+    packs_data = get_packs()
     if not packs_data:
         packs_data = fetch_and_cache_packs()
     
@@ -834,7 +899,7 @@ def generate_player_cards(selected_pack_codes, pack_quantities=None, excluded_ca
     player_card_codes = set(card.get('code') for card in main_cards if card.get('code'))
     
     # Create pack code to name mapping for quantity lookup
-    packs_data = load_cached_packs()
+    packs_data = get_packs()
     pack_code_to_name = {pack['code']: pack['name'] for pack in packs_data} if packs_data else {}
     
     # Initialize excluded and forbidden cards sets
@@ -1012,7 +1077,7 @@ def generate_investigators_cards(selected_pack_codes, pack_quantities=None, excl
                     break
     
     # Get pack data for priority logic
-    packs_data = load_cached_packs()
+    packs_data = get_packs()
     pack_code_to_pack = {pack['code']: pack for pack in packs_data} if packs_data else {}
     pack_code_to_name = {pack['code']: pack['name'] for pack in packs_data} if packs_data else {}
     
@@ -1109,7 +1174,7 @@ def generate_basic_weaknesses_cards(selected_pack_codes, pack_quantities=None, e
     player_card_codes = set(card.get('code') for card in main_cards if card.get('code'))
     
     # Get pack data for priority logic
-    packs_data = load_cached_packs()
+    packs_data = get_packs()
     pack_code_to_pack = {pack['code']: pack for pack in packs_data} if packs_data else {}
     pack_code_to_name = {pack['code']: pack['name'] for pack in packs_data} if packs_data else {}
     
@@ -1235,7 +1300,8 @@ def generate_draftmancer_file_content(cards, investigators_cards, basic_weakness
             }
         },
         "predeterminedLayouts": predetermined_layouts,
-        "withReplacement": False
+        "withReplacement": False,
+        "colorcolorBalance": True,
     }
     lines.append(json.dumps(settings, indent=4))
     
@@ -1314,31 +1380,8 @@ def get_arkham_sets_grouped():
     # Get set of pack codes that contain player cards
     player_card_pack_codes = get_packs_with_player_cards()
     
-    # Check if we have a valid cache
-    if is_cache_valid(PACKS_CACHE_FILE):
-        print("Using cached packs data")
-        packs_data = load_cached_packs()
-        if packs_data:
-            # Filter to only include packs with player cards
-            filtered_packs = [pack for pack in packs_data if pack.get('code') in player_card_pack_codes]
-            print(f"Filtered {len(packs_data)} total packs to {len(filtered_packs)} packs with player cards")
-            # Sort packs by cycle_position first, then by position
-            sorted_packs = sorted(filtered_packs, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
-            return group_packs_by_cycle(sorted_packs)
-    
-    # Cache is invalid or doesn't exist, fetch from API
-    packs_data = fetch_and_cache_packs()
-    if packs_data:
-        # Filter to only include packs with player cards
-        filtered_packs = [pack for pack in packs_data if pack.get('code') in player_card_pack_codes]
-        print(f"Filtered {len(packs_data)} total packs to {len(filtered_packs)} packs with player cards")
-        # Sort packs by cycle_position first, then by position
-        sorted_packs = sorted(filtered_packs, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
-        return group_packs_by_cycle(sorted_packs)
-    
-    # If API fails, try to use stale cache
-    print("API failed, attempting to use stale cache")
-    packs_data = load_cached_packs()
+    # Get packs data using the standard caching mechanism
+    packs_data = get_packs()
     if packs_data:
         # Filter to only include packs with player cards
         filtered_packs = [pack for pack in packs_data if pack.get('code') in player_card_pack_codes]
@@ -1390,25 +1433,8 @@ def group_packs_by_cycle(packs_data):
 
 def get_arkham_sets():
     """Get Arkham Horror sets, either from cache or API."""
-    # Check if we have a valid cache
-    if is_cache_valid(PACKS_CACHE_FILE):
-        print("Using cached packs data")
-        packs_data = load_cached_packs()
-        if packs_data:
-            # Sort packs by cycle_position first, then by position
-            sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
-            return [pack['name'] for pack in sorted_packs]
-    
-    # Cache is invalid or doesn't exist, fetch from API
-    packs_data = fetch_and_cache_packs()
-    if packs_data:
-        # Sort packs by cycle_position first, then by position
-        sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
-        return [pack['name'] for pack in sorted_packs]
-    
-    # If API fails, try to use stale cache
-    print("API failed, attempting to use stale cards cache")
-    packs_data = load_cached_packs()
+    # Get packs data using the standard caching mechanism
+    packs_data = get_packs()
     if packs_data:
         # Sort packs by cycle_position first, then by position
         sorted_packs = sorted(packs_data, key=lambda pack: (pack.get('cycle_position', 99), pack.get('position', 99)))
