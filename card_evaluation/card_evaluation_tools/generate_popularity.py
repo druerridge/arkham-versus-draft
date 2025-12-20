@@ -1,7 +1,9 @@
 import csv
 import os
 import hashlib
+import json
 from pathlib import Path
+from collections import defaultdict
 
 def load_decklists_data():
     """
@@ -142,6 +144,94 @@ def remove_low_value_decklists(decklists, decklist_stats, min_likes):
     print(f"  - {removed_for_previous_next} with previous_deck or next_deck values")
     print(f"  - {removed_for_duplicate_slots} with duplicate slots")
 
+def generate_card_popularity_csv(decklists, output_path="card_popularity.csv"):
+    """
+    Generate a CSV file with card popularity statistics.
+    
+    Args:
+        decklists (dict): Dictionary of filtered decklists keyed by 'id'.
+        output_path (str): Path where the CSV file should be saved.
+    """
+    # Initialize counters for each card
+    card_stats = defaultdict(lambda: {
+        'main_decks_including_once': 0,
+        'main_deck_occurances': 0,
+        'side_decks_including_once': 0,
+        'side_deck_occurances': 0
+    })
+    
+    processed_decks = 0
+    skipped_decks = 0
+    
+    for decklist_id, decklist in decklists.items():
+        try:
+            # Process main deck slots
+            slots_str = decklist.get('slots', '').strip()
+            if slots_str:
+                try:
+                    slots = json.loads(slots_str)
+                    for card_code, quantity in slots.items():
+                        quantity = int(quantity)
+                        card_stats[card_code]['main_decks_including_once'] += 1
+                        card_stats[card_code]['main_deck_occurances'] += quantity
+                except (json.JSONDecodeError, ValueError) as e:
+                    print(f"Warning: Could not parse slots for decklist {decklist_id}: {e}")
+            
+            # Process side deck slots
+            side_slots_str = decklist.get('sideSlots', '').strip()
+            if side_slots_str:
+                try:
+                    side_slots = json.loads(side_slots_str)
+                    for card_code, quantity in side_slots.items():
+                        quantity = int(quantity)
+                        card_stats[card_code]['side_decks_including_once'] += 1
+                        card_stats[card_code]['side_deck_occurances'] += quantity
+                except (json.JSONDecodeError, ValueError) as e:
+                    print(f"Warning: Could not parse sideSlots for decklist {decklist_id}: {e}")
+            
+            processed_decks += 1
+            
+        except Exception as e:
+            print(f"Error processing decklist {decklist_id}: {e}")
+            skipped_decks += 1
+    
+    # Write results to CSV
+    try:
+        with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = [
+                'card_code', 
+                'main_decks_including_once', 
+                'main_deck_occurances', 
+                'side_decks_including_once', 
+                'side_deck_occurances'
+            ]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            
+            # Sort cards by total occurrences (main + side) for consistent output
+            sorted_cards = sorted(
+                card_stats.items(), 
+                key=lambda x: x[1]['main_deck_occurances'] + x[1]['side_deck_occurances'], 
+                reverse=True
+            )
+            
+            for card_code, stats in sorted_cards:
+                writer.writerow({
+                    'card_code': card_code,
+                    'main_decks_including_once': stats['main_decks_including_once'],
+                    'main_deck_occurances': stats['main_deck_occurances'],
+                    'side_decks_including_once': stats['side_decks_including_once'],
+                    'side_deck_occurances': stats['side_deck_occurances']
+                })
+        
+        print(f"Generated card popularity CSV with {len(card_stats)} unique cards")
+        print(f"Processed {processed_decks} decklists, skipped {skipped_decks} due to errors")
+        print(f"Output saved to: {output_path}")
+        
+    except Exception as e:
+        print(f"Error writing CSV file: {e}")
+
 def main():
     """
     Main function to test the data loading functionality.
@@ -149,9 +239,14 @@ def main():
     decklists, decklist_stats = load_popularity_data()
 
     remove_low_value_decklists(decklists, decklist_stats, min_likes=1)
+    
+    # Generate card popularity CSV
+    output_path = Path(__file__).parent.parent / "card_evaluations" / "card_popularity.csv"
+    generate_card_popularity_csv(decklists, str(output_path))
 
-        # Print some sample data to verify loading
+    # Print some sample data to verify loading
     if decklists:
+        print(f"\nRemaining decklists after filtering: {len(decklists)}")
         print("\nSample decklist:")
         sample_id = next(iter(decklists))
         sample_decklist = decklists[sample_id]
