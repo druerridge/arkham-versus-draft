@@ -79,6 +79,36 @@ def load_popularity_data():
     
     return decklists, decklist_stats
 
+def load_arkham_cards_cache():
+    """
+    Load arkham cards cache data from JSON file into a dictionary keyed by 'code'.
+    
+    Returns:
+        dict: Dictionary with card codes as keys and card data as values
+    """
+    arkham_cards = {}
+    
+    # Get the path to the JSON file
+    current_dir = Path(__file__).parent
+    json_path = current_dir.parent.parent / "arkham_cards_cache.json"
+    
+    try:
+        with open(json_path, 'r', encoding='utf-8') as file:
+            cards_list = json.load(file)
+            for card in cards_list:
+                code = card.get('code')
+                if code:
+                    arkham_cards[code] = card
+        
+        print(f"Loaded {len(arkham_cards)} cards from arkham_cards_cache.json")
+        
+    except FileNotFoundError:
+        print(f"Error: Could not find arkham_cards_cache.json at {json_path}")
+    except Exception as e:
+        print(f"Error loading arkham cards cache: {e}")
+    
+    return arkham_cards
+
 def remove_low_value_decklists(decklists, decklist_stats, min_likes):
     """
     Remove decklists that have fewer than min_likes, have previous_deck/next_deck values,
@@ -144,12 +174,13 @@ def remove_low_value_decklists(decklists, decklist_stats, min_likes):
     print(f"  - {removed_for_previous_next} with previous_deck or next_deck values")
     print(f"  - {removed_for_duplicate_slots} with duplicate slots")
 
-def generate_card_popularity_csv(decklists, output_path="card_popularity.csv"):
+def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popularity.csv"):
     """
     Generate a CSV file with card popularity statistics.
     
     Args:
         decklists (dict): Dictionary of filtered decklists keyed by 'id'.
+        arkham_cards (dict): Dictionary of card data keyed by 'code'.
         output_path (str): Path where the CSV file should be saved.
     """
     # Initialize counters for each card
@@ -199,7 +230,10 @@ def generate_card_popularity_csv(decklists, output_path="card_popularity.csv"):
     try:
         with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = [
-                'card_code', 
+                'card_code',
+                'name',
+                'faction_code',
+                'xp',
                 'main_decks_including_once', 
                 'main_deck_occurances', 
                 'side_decks_including_once', 
@@ -217,8 +251,21 @@ def generate_card_popularity_csv(decklists, output_path="card_popularity.csv"):
             )
             
             for card_code, stats in sorted_cards:
+                # Get card info from arkham_cards_cache
+                card_info = arkham_cards.get(card_code, {})
+                card_name = card_info.get('name', 'Unknown')
+                faction_code = card_info.get('faction_code', 'Unknown')
+                xp = card_info.get('xp', 0)
+                
+                # Append XP cost to name if xp > 0
+                if xp > 0:
+                    card_name = f"{card_name} ({xp})"
+                
                 writer.writerow({
                     'card_code': card_code,
+                    'name': card_name,
+                    'faction_code': faction_code,
+                    'xp': xp,
                     'main_decks_including_once': stats['main_decks_including_once'],
                     'main_deck_occurances': stats['main_deck_occurances'],
                     'side_decks_including_once': stats['side_decks_including_once'],
@@ -237,12 +284,13 @@ def main():
     Main function to test the data loading functionality.
     """
     decklists, decklist_stats = load_popularity_data()
+    arkham_cards = load_arkham_cards_cache()
 
     remove_low_value_decklists(decklists, decklist_stats, min_likes=1)
     
     # Generate card popularity CSV
     output_path = Path(__file__).parent.parent / "card_evaluations" / "card_popularity.csv"
-    generate_card_popularity_csv(decklists, str(output_path))
+    generate_card_popularity_csv(decklists, arkham_cards, str(output_path))
 
     # Print some sample data to verify loading
     if decklists:
