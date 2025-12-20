@@ -1,1242 +1,1242 @@
-name,faction_code,xp,main_decks_including_once,main_deck_occurances,side_decks_including_once,side_deck_occurances
-Emergency Cache,neutral,0,4423,8114,43,63
-Unexpected Courage,neutral,0,3759,6957,32,53
-Guts,neutral,0,3166,5708,35,56
-Perception,neutral,0,3014,5537,42,70
-Overpower,neutral,0,2693,4865,38,63
-Flashlight,neutral,0,2536,4640,27,44
-Vicious Blow,guardian,0,2334,4306,28,46
-Ward of Protection,mystic,0,2202,3985,25,39
-Deduction,seeker,0,2072,3778,30,49
-Manual Dexterity,neutral,0,2005,3484,31,50
-Lucky!,survivor,0,1931,3479,20,32
-Magnifying Glass,seeker,0,1730,2914,20,30
-Shortcut,seeker,0,1508,2778,35,53
-Resourceful,survivor,0,1369,2650,14,25
-"""Look what I found!""",survivor,0,1418,2509,19,35
-Dr. Milan Christopher,seeker,0,1485,2461,29,42
-Shrivelling,mystic,0,1397,2459,16,26
-Machete,guardian,0,1419,2437,17,26
-Drawn to the Flame,mystic,0,1353,2357,20,30
-Holy Rosary,mystic,0,1390,2295,17,25
-Working a Hunch,seeker,0,1221,2110,21,33
-Leo De Luca,rogue,0,1285,2074,36,48
-Dodge,guardian,0,1179,1970,12,18
-Eureka!,seeker,0,1021,1943,26,42
-Inquiring Mind,seeker,0,1047,1933,25,40
-Beat Cop,guardian,0,1118,1876,24,35
-Guard Dog,guardian,0,1113,1856,19,29
-Prepared for the Worst,guardian,0,1245,1844,20,30
-Lone Wolf,rogue,0,1162,1814,20,24
-Quick Thinking,rogue,0,973,1799,22,37
-Deny Existence,mystic,0,956,1765,20,30
-Take Heart,survivor,0,924,1751,17,28
-Peter Sylvestre,survivor,0,968,1736,18,27
-.45 Automatic,guardian,0,1069,1738,9,14
-Evidence!,guardian,0,1017,1722,16,23
-Fire Axe,survivor,0,933,1704,11,19
-Elusive,rogue,0,1059,1646,12,19
-Charisma (3),neutral,3,946,1107,466,545
-Knife,neutral,0,914,1622,3,4
-Backstab,rogue,0,917,1533,15,19
-Arcane Initiate,mystic,0,883,1522,16,25
-Leather Coat,survivor,0,996,1497,14,21
-Crack the Case,seeker,0,764,1424,14,18
-Uncage the Soul,mystic,0,755,1408,8,11
-Mind over Matter,seeker,0,845,1391,7,9
-Fearless,mystic,0,798,1342,16,24
-In the Thick of It,neutral,0,1291,1291,27,27
-"""Watch this!""",rogue,0,692,1275,17,26
-Rite of Seeking,mystic,0,707,1276,10,18
-"""I've got a plan!""",seeker,0,702,1261,9,11
-Delve Too Deep,mystic,0,713,1194,45,77
-Sneak Attack,rogue,0,744,1251,12,19
-Scavenging,survivor,0,785,1226,30,43
-Take the Initiative,guardian,0,657,1227,17,30
-Spectral Razor,mystic,0,660,1220,18,31
-Lucky Cigarette Case,rogue,0,722,1207,20,34
-Rabbit's Foot,survivor,0,769,1224,10,13
-Scene of the Crime,guardian,0,615,1154,16,27
-Calling in Favors,neutral,0,658,1151,13,18
-Dynamite Blast,guardian,0,879,1120,12,16
-Read the Signs,mystic,0,584,1082,26,45
-Logical Reasoning,seeker,0,658,1090,18,20
-Dark Horse,survivor,0,609,1083,7,13
-Physical Training,guardian,0,741,1080,10,12
-St. Hubert's Key,mystic,0,617,1064,15,21
-Preposterous Sketches,seeker,0,589,1052,19,32
-Cherished Keepsake,survivor,0,617,1061,13,23
-Promise of Power,mystic,0,526,1000,17,26
-Live and Learn,survivor,0,535,994,19,28
-Old Book of Lore,seeker,0,633,997,9,13
-Astounding Revelation,seeker,0,381,949,14,31
-Easy Mark (1),rogue,1,276,823,51,147
-Backpack,neutral,0,558,907,33,54
-"""Let me handle this!""",guardian,0,515,922,14,24
-.41 Derringer,rogue,0,588,940,4,6
-Pickpocketing,rogue,0,609,926,12,19
-Forbidden Knowledge,mystic,0,562,927,6,7
-Faustian Bargain,rogue,0,493,885,29,48
-Enchanted Blade,mystic,0,484,888,17,30
-Winging It,survivor,0,481,887,11,21
-Practice Makes Perfect,seeker,0,458,876,14,20
-Research Librarian,seeker,0,574,884,10,11
-Laboratory Assistant,seeker,0,504,860,17,24
-Arcane Research,mystic,0,492,863,11,19
-Sixth Sense,mystic,0,481,852,12,18
-"""You handle this one!""",rogue,0,467,841,14,21
-Track Shoes,survivor,0,562,834,13,15
-Daring,guardian,0,424,804,23,39
-No Stone Unturned,seeker,0,460,810,19,33
-Fieldwork,seeker,0,496,820,13,16
-Arcane Studies,mystic,0,590,824,8,11
-First Aid,guardian,0,568,823,5,9
-Hard Knocks,rogue,0,543,811,8,10
-Storm of Spirits,mystic,0,513,802,10,16
-Stand Together,guardian,0,416,774,22,39
-Double or Nothing,rogue,0,471,798,9,13
-Fine Clothes,neutral,0,536,782,11,16
-Hawk-Eye Folding Camera,seeker,0,430,758,16,20
-Inspiring Presence,guardian,0,413,745,22,32
-Rise to the Occasion,survivor,0,399,736,13,24
-Scrying,mystic,0,482,746,4,7
-Intel Report,rogue,0,389,718,18,31
-Backpack (2),neutral,2,279,459,167,282
-David Renfield,mystic,0,402,709,14,21
-Painkillers,neutral,0,491,711,9,11
-Madame Labranche,survivor,0,394,709,6,11
-Relic Hunter (3),neutral,3,355,412,260,308
-Burglary,rogue,0,496,703,9,13
-Deduction (2),seeker,2,190,353,185,359
-Hyperawareness,seeker,0,526,707,2,3
-Scrounge for Supplies,survivor,0,376,671,20,36
-Burning the Midnight Oil,seeker,0,357,672,14,20
-Strange Solution,seeker,0,390,670,5,6
-Liquid Courage,rogue,0,474,661,9,14
-Baseball Bat,survivor,0,428,669,3,5
-Old Keyring,survivor,0,354,657,9,14
-On the Hunt,guardian,0,374,657,10,14
-Lockpicks (1),rogue,1,250,440,126,228
-Blinding Light,mystic,0,428,662,3,6
-Bandolier,guardian,0,440,644,15,21
-Drawing Thin,survivor,0,325,600,35,63
-Glory,guardian,0,340,620,18,30
-Vicious Blow (2),guardian,2,175,309,177,338
-Sleight of Hand,rogue,0,345,618,12,20
-Ritual Candles,mystic,0,378,632,6,6
-Beat Cop (2),guardian,2,231,384,140,253
-Scroll of Secrets,seeker,0,332,600,16,23
-Emergency Aid,guardian,0,370,619,3,4
-Steadfast,guardian,0,332,611,7,10
-Enraptured,mystic,0,325,598,11,19
-"Mr. ""Rook""",seeker,0,324,600,12,16
-Hallowed Mirror,guardian,0,592,592,16,16
-Survival Knife,guardian,0,354,593,9,12
-Safeguard,guardian,0,369,569,17,25
-Meat Cleaver,survivor,0,320,582,6,9
-Think on Your Feet,rogue,0,350,576,6,9
-Schoffner's Catalogue,survivor,0,316,570,11,14
-Pathfinder (1),seeker,1,239,342,152,232
-Narrow Escape,rogue,0,313,557,6,9
-Peter Sylvestre (2),survivor,2,198,334,130,231
-Deep Knowledge,seeker,0,287,539,13,23
-Gravedigger's Shovel,survivor,0,322,554,4,7
-Fingerprint Kit,seeker,0,307,539,16,22
-Ward of Protection (2),mystic,2,159,288,143,268
-Sled Dog,neutral,0,148,544,4,10
-Voice of Ra,mystic,0,298,543,4,8
-Premonition,mystic,0,288,536,6,12
-Dark Prophecy,mystic,0,283,529,5,7
-Seeking Answers,seeker,0,300,523,6,8
-Ever Vigilant (1),guardian,1,275,352,128,178
-Tooth of Eztli,seeker,0,306,506,7,9
-Hypnotic Gaze,mystic,0,301,504,4,7
-Art Student,seeker,0,282,496,8,11
-Alyssa Graham,mystic,0,300,499,6,8
-Tempt Fate,neutral,0,256,484,12,20
-Lockpicks,rogue,0,277,479,9,14
-Grete Wagner,guardian,0,271,470,17,22
-Lantern,survivor,0,284,483,6,8
-Act of Desperation,survivor,0,274,476,9,13
-Defiance,mystic,0,266,480,5,6
-Opportunist,rogue,0,309,483,1,1
-Stray Cat,survivor,0,310,463,15,20
-Olive McBride,mystic,0,258,465,9,12
-Survival Instinct,survivor,0,326,471,3,4
-Cryptic Writings,seeker,0,236,451,8,15
-.32 Colt,guardian,0,273,457,6,8
-Magnifying Glass (1),seeker,1,204,300,98,163
-Smoking Pipe,neutral,0,310,443,12,16
-Medical Texts,seeker,0,358,458,1,1
-Dig Deep,survivor,0,323,448,7,10
-Cheap Shot,rogue,0,257,441,6,9
-Trench Coat,neutral,0,284,424,13,17
-Dr. William T. Maleson,seeker,0,249,426,10,15
-Emergency Cache (2),neutral,2,141,230,122,210
-Tetsuo Mori,guardian,0,242,420,8,12
-Archaic Glyphs,seeker,0,240,407,17,25
-Breaking and Entering,rogue,0,228,407,14,20
-Stick to the Plan (3),guardian,3,258,258,168,168
-Clairvoyance,mystic,0,229,409,8,12
-Toe to Toe,guardian,0,228,408,11,13
-Moonlight Ritual,mystic,0,226,406,7,12
-Fight or Flight,survivor,0,227,404,8,11
-Well Connected,rogue,0,262,408,5,7
-Mists of R'lyeh,mystic,0,247,403,7,11
-A Glimmer of Hope,survivor,0,133,397,5,14
-Taunt,guardian,0,256,406,4,5
-Stand Together (3),guardian,3,121,209,109,199
-Leo De Luca (1),rogue,1,184,268,88,138
-Last Chance,survivor,0,211,392,4,8
-Clarity of Mind,mystic,0,251,390,7,9
-"""If it bleeds...""",guardian,0,254,388,6,8
-Robes of Endless Night,mystic,0,230,380,11,15
-Perception (2),seeker,2,97,177,114,218
-Switchblade,rogue,0,267,381,8,13
-Quantum Flux,mystic,0,292,379,8,11
-Segment of Onyx (1),seeker,1,107,313,28,77
-Bandages,survivor,0,219,377,9,11
-Venturer,guardian,0,208,374,6,9
-Stunning Blow,survivor,0,212,365,9,15
-Barricade,seeker,0,286,373,2,3
-.45 Thompson,guardian,0,206,360,10,14
-Say Your Prayers,neutral,0,226,370,3,3
-Improvised Weapon,survivor,0,203,362,4,7
-Keep Faith,survivor,0,188,355,8,12
-Slip Away,rogue,0,207,351,9,15
-Azure Flame,mystic,0,211,356,7,10
-Reckless Assault,neutral,0,202,361,2,4
-Cunning Distraction,survivor,0,282,352,6,10
-The Chthonian Stone,mystic,0,219,349,8,11
-One-Two Punch,guardian,0,190,352,4,5
-Occult Lexicon,seeker,0,332,332,19,19
-Contraband,rogue,0,207,327,11,17
-True Grit,guardian,0,206,331,7,10
-Extra Ammunition (1),guardian,1,157,241,57,100
-Open Gate,mystic,0,111,320,9,19
-Alice Luxley,guardian,0,190,324,12,15
-Hatchet Man,rogue,0,187,334,2,4
-Sword Cane,mystic,0,187,311,15,21
-Unrelenting (1),survivor,1,117,208,72,124
-Lucky! (2),survivor,2,119,194,78,137
-Knowledge is Power,seeker,0,151,280,28,50
-Desperate Search,neutral,0,183,325,2,3
-Fortuitous Discovery,survivor,0,102,305,8,22
-Dr. Elli Horowitz,seeker,0,180,319,7,7
-Hot Streak (4),rogue,4,127,205,72,120
-Crystallizer of Dreams,rogue,0,181,304,14,20
-Second Wind,guardian,0,182,318,4,4
-Money Talks,rogue,0,168,310,6,10
-.18 Derringer,survivor,0,173,306,8,13
-Crystal Pendulum,mystic,0,182,306,9,11
-Wither,mystic,0,183,300,10,17
-Delay the Inevitable,guardian,0,173,304,7,11
-Lonnie Ritter,rogue,0,175,298,10,16
-Grisly Totem,survivor,0,184,306,4,7
-Studious (3),seeker,3,97,165,85,148
-Pickpocketing (2),rogue,2,118,198,66,115
-Nimble,rogue,0,190,297,12,16
-Scout Ahead,rogue,0,196,295,11,16
-Sneak By,rogue,0,165,294,10,16
-Runic Axe,guardian,0,153,297,7,11
-Eldritch Inspiration,mystic,0,164,301,5,7
-Clean Them Out,guardian,0,164,299,6,8
-Kicking the Hornet's Nest,rogue,0,170,293,9,14
-Brute Force (1),survivor,1,105,194,62,113
-Brand of Cthugha (1),guardian,1,106,172,79,134
-Talisman of Protection,mystic,0,190,293,9,13
-Versatile (2),neutral,2,206,253,44,52
-Occult Invocation,seeker,0,149,283,14,22
-A Test of Will,survivor,0,165,297,5,7
-Wolf Mask,guardian,0,198,289,9,14
-Emergency Cache (3),neutral,3,111,172,80,131
-Tennessee Sour Mash,rogue,0,175,280,12,20
-Empirical Hypothesis,seeker,0,173,281,13,18
-"""Get over here!""",guardian,0,163,292,4,6
-Sharp Vision (1),survivor,1,94,179,62,116
-Swift Reflexes,rogue,0,160,284,7,11
-Trial by Fire,survivor,0,154,287,4,7
-Waylay,survivor,0,171,280,8,12
-Daring Maneuver,rogue,0,161,286,4,6
-Cryptic Research (4),seeker,4,99,167,70,123
-Perseverance,survivor,0,182,283,5,6
-First Watch,guardian,0,148,259,17,30
-Prophesy,mystic,0,154,286,1,2
-Streetwise (3),rogue,3,188,192,88,93
-Medical Student,guardian,0,160,266,12,17
-Heroic Rescue,guardian,0,165,274,5,8
-"""I've had worse…"" (2)",guardian,2,95,170,64,110
-Friends in Low Places,rogue,0,130,241,23,36
-Lucky Cigarette Case (3),rogue,3,87,135,85,142
-Arcane Enlightenment,seeker,0,175,261,10,15
-Dream-Enhancing Serum,seeker,0,172,266,8,9
-Trusted,guardian,0,156,267,6,8
-Short Supply,survivor,0,266,266,7,7
-Alchemical Transmutation,mystic,0,154,261,7,12
-Whitton Greene,seeker,0,156,260,10,12
-"""I'm outta here!""",rogue,0,212,261,8,10
-Dario El-Amin,rogue,0,156,259,9,11
-Heavy Furs,neutral,0,161,256,9,13
-Motivational Speech,guardian,0,139,257,4,7
-Charon's Obol (1),rogue,1,205,205,59,59
-True Understanding,seeker,0,139,249,10,15
-Moonstone,survivor,0,161,256,5,7
-Mauser C96,rogue,0,139,248,9,15
-Forewarned (1),seeker,1,95,158,61,104
-Eon Chart (1),seeker,1,74,114,89,148
-Connect the Dots,seeker,0,150,252,6,10
-Jessica Hyde (1),survivor,1,109,182,50,79
-Newspaper,survivor,0,163,251,5,9
-Flesh Ward,guardian,0,150,249,7,10
-Rite of Sanctification,guardian,0,134,253,3,6
-Prescient,mystic,0,135,251,6,8
-Cornered (2),survivor,2,120,206,31,52
-Overpower (2),guardian,2,61,109,80,148
-Four of Cups (1),mystic,1,163,202,44,54
-Pilfer,rogue,0,144,237,11,19
-Shrewd Analysis,seeker,0,245,245,8,8
-Run For Your Life,neutral,0,149,244,5,8
-Lola Santiago (3),rogue,3,96,147,67,104
-Solemn Vow,guardian,0,102,239,5,8
-Grim Memoir,seeker,0,128,238,7,9
-Lucky! (3),survivor,3,54,100,76,144
-Favor of the Sun (1),neutral,1,82,148,56,96
-Ice Pick (3),seeker,3,60,110,75,134
-Higher Education (3),seeker,3,143,148,89,95
-A Chance Encounter,survivor,0,133,232,5,10
-Monster Slayer,guardian,0,125,236,3,5
-Small Favor,rogue,0,130,231,6,10
-Scroll of Prophecies,mystic,0,138,234,6,7
-Sweeping Kick (1),guardian,1,86,146,55,92
-Teamwork,guardian,0,170,236,2,2
-Astral Travel,mystic,0,182,231,4,6
-Plan of Action,seeker,0,113,211,16,26
-Anatomical Diagrams,seeker,0,135,230,4,7
-"""I'll take that!""",rogue,0,130,217,13,19
-Something Worth Fighting For,guardian,0,147,227,7,9
-Switchblade (2),rogue,2,107,171,38,65
-Curiosity,seeker,0,121,220,9,15
-Dream Diary,seeker,0,134,218,12,16
-Will to Survive (3),survivor,3,102,154,50,80
-Down the Rabbit Hole,mystic,0,222,222,9,9
-Enchant Weapon (3),guardian,3,73,108,75,123
-Police Badge (2),guardian,2,103,149,51,82
-Counterpunch,guardian,0,121,225,3,5
-Bandolier (2),guardian,2,95,138,59,92
-Kukri,neutral,0,154,227,1,2
-Reliable (1),guardian,1,95,161,43,67
-Brand of Cthugha (4),guardian,4,45,76,83,152
-Vantage Point,seeker,0,129,223,4,5
-At a Crossroads (1),survivor,1,89,160,38,64
-Shrivelling (3),mystic,3,84,133,54,91
-"Another Day, Another Dollar (3)",rogue,3,73,110,70,113
-Black Market (2),rogue,2,75,130,57,90
-Ward of Radiance,mystic,0,110,208,7,12
-Hiking Boots (1),seeker,1,81,108,78,109
-Gumption (1),survivor,1,59,109,56,107
-Haste (2),rogue,2,96,124,65,91
-Dragon Pole,mystic,0,113,213,0,0
-Ornate Bow (3),neutral,3,97,167,27,45
-Prophetic (3),guardian,3,59,97,70,115
-Truth from Fiction,seeker,0,117,199,8,11
-Death • XIII (1),seeker,1,124,150,45,59
-Shed a Light,survivor,0,87,172,19,36
-"""Not without a fight!""",survivor,0,118,205,2,3
-Blessed Blade,guardian,0,109,204,2,2
-Sign Magick,mystic,0,125,196,7,10
-Thieves' Kit,rogue,0,106,187,10,18
-Scavenging (2),survivor,2,73,120,51,85
-Grotesque Statue (4),mystic,4,96,140,40,65
-Eucatastrophe (3),survivor,3,57,98,60,106
-Fearless (2),mystic,2,61,99,55,103
-Guts (2),mystic,2,42,77,66,124
-Long Shot,survivor,0,96,186,9,15
-Boxing Gloves,guardian,0,109,199,1,2
-Eavesdrop,rogue,0,114,200,1,1
-Cat Burglar (1),rogue,1,91,139,37,62
-Gregory Gry,rogue,0,114,183,11,18
-Cunning,rogue,0,105,194,3,5
-Safeguard (2),guardian,2,54,76,83,122
-Brother Xavier (1),guardian,1,87,149,32,49
-Investments,rogue,0,123,191,4,6
-Deny Existence (5),mystic,5,41,67,76,129
-Eon Chart (4),seeker,4,32,48,91,148
-Leather Jacket,rogue,0,118,188,6,8
-Decorated Skull,rogue,0,123,193,3,3
-Obfuscation,rogue,0,113,183,8,12
-Living Ink,mystic,0,94,176,11,18
-Favor of the Moon (1),neutral,1,84,144,31,49
-Ethereal Form,mystic,0,115,180,9,12
-Sledgehammer,guardian,0,106,183,5,8
-Well Prepared (2),guardian,2,81,133,41,58
-String of Curses,mystic,0,96,182,5,8
-Grisly Totem (3),seeker,3,78,106,54,84
-Pocket Telescope,seeker,0,128,177,7,12
-Coup de Grâce,rogue,0,106,175,8,14
-Crafty (3),seeker,3,50,77,68,111
-True Survivor (3),survivor,3,70,113,45,75
-Hiding Spot,survivor,0,117,185,1,2
-Decoy,rogue,0,103,183,3,4
-Strange Solution (4),seeker,4,45,66,72,118
-Jury-Rig,survivor,0,105,178,3,6
-Unearth the Ancients,seeker,0,101,178,4,6
-.25 Automatic,rogue,0,98,170,8,14
-Bait and Switch,survivor,0,109,180,2,4
-Archaic Glyphs (3),seeker,3,67,100,54,83
-Hunter's Armor,guardian,0,83,157,15,26
-Bank Job,rogue,0,101,165,10,17
-Whitton Greene (2),seeker,2,58,100,52,82
-Book of Psalms,guardian,0,102,175,6,7
-Flare (1),survivor,1,82,135,27,46
-Ace of Swords (1),guardian,1,108,121,45,60
-Call for Backup (2),neutral,2,50,85,57,96
-Flashlight (3),neutral,3,41,76,55,103
-Three Aces (1),rogue,1,44,132,16,46
-Streetwise,rogue,0,111,163,10,15
-Familiar Spirit,mystic,0,97,170,4,6
-Divination (1),seeker,1,50,81,55,95
-Ancient Stone (4),seeker,4,59,101,42,75
-"""Look what I found!"" (2)",survivor,2,41,79,51,96
-Jeremiah Kirby,seeker,0,94,148,21,27
-Timeworn Brand (5),neutral,5,74,109,43,66
-Armageddon,mystic,0,97,168,4,7
-Delilah O'Rourke (3),rogue,3,65,98,47,76
-A Chance Encounter (2),survivor,2,74,125,31,49
-Well-Maintained (1),guardian,1,78,131,26,43
-Impromptu Barrier,survivor,0,101,167,5,7
-Sixth Sense (4),mystic,4,62,99,43,74
-Cheat the System (1),rogue,1,63,109,37,64
-Cyclopean Hammer (5),guardian,5,45,74,54,98
-High Roller (2),rogue,2,85,134,23,37
-Holy Rosary (2),guardian,2,41,67,61,103
-Belly of the Beast,survivor,0,91,163,4,7
-Mysterious Raven,survivor,0,82,149,16,20
-Survival Knife (2),guardian,2,61,102,37,67
-Oops!,survivor,0,102,167,1,2
-Close the Circle (1),mystic,1,67,127,26,42
-Scrying Mirror,mystic,0,98,160,6,8
-Hand of Fate,guardian,0,92,162,2,4
-Power Word,mystic,0,64,143,16,23
-Spirit of Humanity (2),survivor,2,58,98,43,66
-Shrivelling (5),mystic,5,54,88,44,76
-Breach the Door,guardian,0,87,154,5,8
-Ace in the Hole (3),rogue,3,90,90,71,71
-Mariner's Compass,survivor,0,85,156,2,4
-"Charles Ross, Esq.",seeker,0,90,157,2,3
-Counterespionage (1),rogue,1,55,84,44,76
-Eldritch Sophist,seeker,0,84,147,8,12
-Shortcut (2),seeker,2,56,89,41,69
-Analysis,seeker,0,80,152,5,6
-Granny Orne,survivor,0,85,145,9,13
-Sacrifice (1),mystic,1,67,110,27,47
-Plucky (3),survivor,3,45,65,62,92
-Thermos,neutral,0,110,151,5,6
-Old Keyring (3),survivor,3,47,84,40,72
-Fox Mask,rogue,0,106,149,4,6
-Matchbox,survivor,0,82,139,10,15
-Encyclopedia (2),seeker,2,84,112,28,41
-Chainsaw (4),survivor,4,49,89,36,63
-Divination (4),seeker,4,31,49,57,103
-Eye of Chaos,mystic,0,81,148,3,3
-Adaptable (1),rogue,1,93,109,39,42
-Guard Dog (2),guardian,2,36,65,44,84
-Gené Beauregard (3),seeker,3,34,49,69,100
-Leadership,guardian,0,81,139,5,10
-Sparrow Mask,survivor,0,100,134,9,14
-Astronomical Atlas (3),mystic,3,63,107,24,41
-Alter Fate (3),survivor,3,39,53,55,95
-Ethereal Slip,rogue,0,90,131,10,16
-Mind's Eye (2),mystic,2,45,134,5,13
-Able Bodied,survivor,0,77,144,2,3
-Encyclopedia,seeker,0,88,142,4,5
-Bulletproof Vest (3),neutral,3,83,107,27,40
-Rod of Animalism (1),neutral,1,67,109,23,37
-Captivating Discovery,seeker,0,71,137,6,9
-Key of Ys (5),neutral,5,63,82,51,64
-Elder Sign Amulet (3),neutral,3,74,94,37,52
-Disc of Itzamna,seeker,0,78,134,7,11
-Bizarre Diagnosis,seeker,0,82,134,7,10
-Cryptic Writings (2),seeker,2,26,47,51,97
-.41 Derringer (2),rogue,2,50,81,33,63
-Stealth,rogue,0,91,138,4,6
-No Stone Unturned (5),seeker,5,43,75,39,68
-Seeking Answers (2),seeker,2,31,55,50,87
-The Raven Quill,seeker,0,73,121,13,21
-On the Hunt (3),guardian,3,23,31,66,110
-Disc of Itzamna (2),seeker,2,67,97,27,44
-Spirit Athame (1),mystic,1,67,112,18,29
-Sure Gamble (3),rogue,3,64,89,30,52
-Honed Instinct,rogue,0,59,117,14,23
-Radiant Smite (1),guardian,1,37,67,39,73
-Handcuffs,guardian,0,82,131,5,9
-Geared Up,guardian,0,136,136,3,3
-Summoned Hound (1),mystic,1,57,102,24,37
-Torrent of Power,mystic,0,76,136,2,3
-Grete Wagner (3),guardian,3,37,61,47,77
-Manual Dexterity (2),rogue,2,37,61,42,76
-Written in the Stars,seeker,0,74,131,4,6
-Blur (1),rogue,1,53,75,38,61
-Crystalline Elder Sign (3),mystic,3,55,87,35,49
-The Moon • XVIII (1),rogue,1,80,101,26,34
-Bruiser (3),guardian,3,36,59,48,76
-Dream Diary (3),seeker,3,44,52,51,82
-In the Know (1),seeker,1,60,101,23,33
-Cryptographic Cipher,seeker,0,70,122,6,11
-Pushed to the Limit,survivor,0,70,125,5,7
-Grit Your Teeth,survivor,0,67,123,5,9
-The Red Clock (2),rogue,2,50,50,81,81
-Rite of Seeking (2),mystic,2,40,63,38,68
-Miss Doyle (1),survivor,1,104,104,26,26
-Underworld Support,rogue,0,128,128,2,2
-Ancestral Token,guardian,0,72,122,5,8
-Girish Kadakia (4),guardian,4,44,70,39,60
-.35 Winchester,guardian,0,69,127,3,3
-Ineffable Truth,mystic,0,81,128,2,2
-Sledgehammer (4),guardian,4,33,55,46,74
-Stirring Up Trouble (1),seeker,1,37,65,36,64
-Forced Learning,seeker,0,126,126,2,2
-Momentum (1),rogue,1,47,79,28,49
-Quick Study (2),seeker,2,41,70,33,58
-Pay Day (1),rogue,1,45,75,30,53
-Granny Orne (3),survivor,3,39,63,36,65
-"Joey ""The Rat"" Vigil",rogue,0,78,120,4,7
-Song of the Dead (2),mystic,2,62,102,16,25
-Dirty Fighting (2),rogue,2,67,76,39,50
-Old Book of Lore (3),seeker,3,43,68,36,58
-Hyperphysical Shotcaster,neutral,0,55,101,14,25
-Stargazing (1),mystic,1,46,72,31,54
-Strength in Numbers (1),survivor,1,35,62,33,64
-A Test of Will (1),survivor,1,54,94,18,31
-Scroll of Secrets (3),seeker,3,42,70,31,55
-Ancient Covenant (2),survivor,2,83,83,42,42
-Dayana Esperence (3),mystic,3,50,84,23,41
-21 or Bust,rogue,0,79,120,4,5
-Dumb Luck,survivor,0,73,118,4,7
-Relentless,guardian,0,71,118,4,6
-Scrapper (3),survivor,3,77,79,41,45
-Grizzled,survivor,0,52,104,11,20
-The Red-Gloved Man (5),neutral,5,49,77,28,47
-Enchanted Blade (3),guardian,3,43,72,29,52
-Pocket Multi Tool,survivor,0,67,114,5,9
-Gang Up (1),guardian,1,44,79,25,43
-Foresight (1),mystic,1,37,68,29,54
-Exploit Weakness,survivor,0,58,110,7,12
-Custom Modifications,guardian,0,64,106,10,15
-Persuasion,seeker,0,71,115,4,6
-Tinker,guardian,0,66,114,4,6
-Mouse Mask,seeker,0,83,113,6,7
-British Bull Dog,rogue,0,65,112,6,8
-Disguise,rogue,0,70,108,9,12
-Refine,neutral,0,82,103,14,17
-Daredevil,rogue,0,62,115,3,3
-Survey the Area (1),seeker,1,24,40,43,76
-Preposterous Sketches (2),seeker,2,34,60,31,56
-Grift,rogue,0,63,107,6,8
-Riot Whistle,guardian,0,66,108,4,6
-Sign Magick (3),mystic,3,38,65,28,48
-Field Agent (2),guardian,2,37,65,27,48
-Higher Education,seeker,0,71,104,8,9
-.45 Automatic (2),guardian,2,44,66,25,47
-Strong-Armed (1),guardian,1,27,49,35,63
-Hidden Pocket,rogue,0,61,95,13,17
-Keen Eye (3),guardian,3,62,64,44,48
-Jewel of Aureolus (3),mystic,3,61,70,30,42
-.45 Thompson (3),rogue,3,37,64,26,48
-Cleaning Kit,guardian,0,57,103,6,8
-"Double, Double (4)",rogue,4,67,67,44,44
-Occult Theory (1),mystic,1,30,49,35,62
-Lupara (3),rogue,3,44,72,23,39
-Earthly Serenity (1),mystic,1,38,54,41,57
-Fey (1),seeker,1,29,53,31,58
-Makeshift Trap,survivor,0,50,98,7,12
-Read the Signs (2),mystic,2,31,52,33,58
-Spectral Razor (2),mystic,2,25,46,36,64
-Thorough Inquiry,seeker,0,68,105,5,5
-Opportunist (2),rogue,2,35,57,28,53
-Boxing Gloves (3),guardian,3,42,74,21,36
-Seal of the Elder Sign (5),mystic,5,31,51,32,58
-Research Notes,seeker,0,55,107,2,2
-Signum Crucis (2),survivor,2,46,89,10,19
-.25 Automatic (2),rogue,2,35,62,25,46
-Cat Mask,mystic,0,72,103,2,4
-Counterpunch (2),guardian,2,31,58,28,48
-Dynamite Blast (3),guardian,3,26,37,48,69
-Enchanted Bow (2),mystic,2,39,61,26,45
-Mauser C96 (2),rogue,2,30,53,29,53
-Quick Learner (4),survivor,4,28,54,31,52
-Surprising Find (1),seeker,1,21,63,16,43
-Trench Knife,guardian,0,61,106,0,0
-Self-Sacrifice,guardian,0,56,99,4,6
-Sneak Attack (2),rogue,2,38,63,24,42
-Tool Belt,neutral,0,59,93,7,11
-Unearth the Ancients (2),seeker,2,33,51,28,53
-Map the Area,seeker,0,54,99,4,5
-Fence (1),rogue,1,49,80,16,24
-Extensive Research,seeker,0,53,99,3,5
-Blessing of Isis (3),guardian,3,30,47,34,57
-Shotgun (4),guardian,4,49,66,23,38
-Hot Streak (2),rogue,2,42,70,21,34
-Celaeno Fragments,seeker,0,65,101,2,2
-Miskatonic Archaeology Funding (4),seeker,4,54,54,49,49
-Breaking and Entering (2),rogue,2,31,44,34,59
-Colt Vest Pocket,rogue,0,60,99,2,4
-"""Let God sort them out...""",rogue,0,66,92,6,10
-Ancient Stone (1),seeker,1,38,67,20,34
-Professor William Webb,seeker,0,63,94,5,6
-Righteous Hunt (1),guardian,1,27,44,31,56
-Blackjack,guardian,0,69,98,1,2
-"""I'll see you in hell!""",guardian,0,73,98,1,2
-Hallowed Mirror (3),guardian,3,46,46,53,53
-Unscrupulous Loan (3),rogue,3,40,47,43,52
-Ancestral Knowledge (3),seeker,3,39,39,60,60
-Chuck Fergus (5),rogue,5,29,42,36,57
-"""I've got a plan!"" (2)",seeker,2,26,40,33,58
-First Aid (3),guardian,3,35,53,25,45
-Priest of Two Faiths (1),rogue,1,36,62,22,36
-Nephthys (4),guardian,4,28,41,36,57
-Savant (1),rogue,1,34,55,26,43
-Yaotl (1),survivor,1,51,89,5,9
-Obsidian Bracelet,guardian,0,48,91,5,7
-Guidance,seeker,0,59,94,3,3
-Mind over Matter (2),seeker,2,24,41,34,56
-Interrogate,guardian,0,55,95,2,2
-Salvage (2),survivor,2,37,58,24,39
-Hemispheric Map (3),neutral,3,37,61,22,35
-Blood Pact (3),mystic,3,61,69,25,27
-Ghastly Possession (1),mystic,1,30,56,22,40
-Rite of Seeking (4),mystic,4,28,42,31,54
-Parallel Fates (2),mystic,2,24,41,30,54
-"""Get over here!"" (2)",guardian,2,22,41,32,54
-Beloved,survivor,0,47,90,3,5
-Eye of the Djinn (2),rogue,2,50,50,45,45
-Meditative Trance,mystic,0,59,95,0,0
-"""Get behind me!""",guardian,0,56,88,5,6
-Sacred Covenant (2),guardian,2,54,54,40,40
-Chemistry Set,seeker,0,49,90,3,4
-Blessed Blade (4),guardian,4,25,45,27,48
-Fang of Tyr'thrha (4),guardian,4,21,35,39,58
-"""I've had worse…"" (4)",guardian,4,29,42,30,50
-Ice Pick (1),seeker,1,31,55,23,37
-Drain Essence,mystic,0,45,78,9,14
-Steady-Handed (1),seeker,1,41,60,21,32
-Defensive Stance (1),guardian,1,21,32,33,59
-Nothing Left to Lose (3),survivor,3,38,62,16,29
-The Star • XVII (3),guardian,3,41,51,31,40
-On Your Own (3),survivor,3,57,68,18,22
-Lesson Learned (2),guardian,2,14,27,36,62
-Ariadne's Twine (3),seeker,3,36,46,29,43
-Pilfer (3),rogue,3,30,44,26,45
-Counterspell (2),mystic,2,37,60,18,29
-.18 Derringer (2),survivor,2,26,48,22,41
-Mano a Mano (2),guardian,2,18,31,32,57
-Press Pass (2),seeker,2,29,48,24,40
-Time Warp (2),mystic,2,32,49,25,39
-Intrepid,guardian,0,54,86,1,2
-Knuckleduster,rogue,0,53,88,0,0
-Uncage the Soul (3),mystic,3,13,23,35,64
-Hit and Run,rogue,0,45,84,2,3
-"""Hit me!""",rogue,0,54,81,4,6
-Summoned Servitor,mystic,0,42,74,8,13
-Chicago Typewriter (4),rogue,4,36,62,15,25
-Recall the Future (2),mystic,2,34,57,19,29
-Word of Command (2),mystic,2,37,58,19,28
-Lucid Dreaming (2),neutral,2,31,55,18,31
-One in the Chamber,guardian,0,46,82,3,4
-Flamethrower (5),guardian,5,36,65,12,21
-Old Hunting Rifle (3),survivor,3,35,64,12,22
-"Joey ""The Rat"" Vigil (3)",rogue,3,34,54,18,31
-Predestined,survivor,0,41,77,5,8
-Well Connected (3),rogue,3,27,36,30,49
-Occult Reliquary (3),neutral,3,35,35,49,49
-The Skeleton Key (2),rogue,2,42,42,42,42
-Defiance (2),mystic,2,26,43,24,41
-Snitch (2),rogue,2,23,43,24,41
-Pitchfork,survivor,0,42,77,4,6
-Fire Extinguisher (3),survivor,3,21,33,30,50
-The Necronomicon (5),seeker,5,49,49,34,34
-On the Trail (3),guardian,3,12,14,42,69
-Book of Shadows (3),mystic,3,45,62,13,21
-Dowsing Rod,mystic,0,45,77,3,6
-Eldritch Tongue,neutral,0,51,78,3,5
-Newspaper (2),survivor,2,31,49,18,34
-Armageddon (4),mystic,4,23,39,27,44
-Damning Testimony,rogue,0,40,76,5,6
-Michael Leigh (5),guardian,5,25,36,30,46
-Backstab (3),rogue,3,22,31,28,51
-Recharge (2),mystic,2,36,57,14,25
-Scrapper,survivor,0,49,75,3,6
-"""Fool me once..."" (1)",guardian,1,32,49,21,32
-Bangle of Jinxes (1),survivor,1,32,57,14,24
-Prepared for the Worst (2),guardian,2,20,25,40,56
-Vamp (3),rogue,3,22,42,22,39
-Ceremonial Sickle,mystic,0,45,79,2,2
-Blasphemous Covenant (2),seeker,2,45,45,36,36
-Custom Ammunition (3),guardian,3,41,54,21,27
-Clairvoyance (5),mystic,5,24,39,23,41
-Parallel Fates,mystic,0,45,78,1,2
-Scientific Theory (3),seeker,3,25,33,34,47
-Clairvoyance (3),mystic,3,19,32,27,48
-Earthly Serenity (4),mystic,4,12,15,43,65
-Protective Incantation (1),mystic,1,41,67,9,13
-Stroke of Luck (2),survivor,2,25,42,20,38
-Shrine of the Moirai (3),survivor,3,31,50,17,29
-Embezzled Treasure,rogue,0,50,64,9,15
-Butterfly Swords (2),guardian,2,25,47,17,32
-Blinding Light (2),mystic,2,39,53,13,25
-Lightning Gun (5),guardian,5,33,48,18,30
-Winds of Power (1),mystic,1,26,40,24,38
-Close Call (2),survivor,2,33,45,20,33
-Stylish Coat (1),rogue,1,39,53,14,24
-Will to Survive,survivor,0,38,69,5,8
-Hunting Jacket (2),survivor,2,21,30,27,46
-The Black Fan (3),rogue,3,31,31,45,45
-Survival Instinct (2),survivor,2,24,42,19,34
-Hallowed Chalice,mystic,0,51,73,2,2
-Unexpected Courage (2),survivor,2,13,25,27,50
-Grimm's Fairy Tales,survivor,0,45,71,3,4
-Explosive Ward,mystic,0,37,72,2,3
-Robes of Endless Night (2),mystic,2,27,41,20,34
-A Test of Will (2),survivor,2,16,28,25,47
-Eye of Chaos (4),mystic,4,16,26,28,49
-Underworld Market (2),rogue,2,49,49,25,25
-End of the Road,survivor,0,37,66,5,8
-Marksmanship (1),guardian,1,36,60,7,14
-Feed the Mind,seeker,0,43,70,3,4
-Arcane Initiate (3),mystic,3,23,36,20,38
-Cheap Shot (2),rogue,2,21,30,25,44
-Seal of the Seventh Sign (5),mystic,5,36,49,17,24
-On the Trail (1),guardian,1,12,16,34,57
-Join the Caravan (1),seeker,1,20,33,22,40
-Storm of Spirits (3),mystic,3,20,34,26,39
-Empower Self (2),mystic,2,67,67,6,6
-One-Two Punch (5),guardian,5,17,26,29,46
-Aquinnah (3),survivor,3,21,35,24,37
-Eyes of the Dreamer,mystic,0,39,71,1,1
-Observed (4),neutral,4,24,24,48,48
-Moxie (3),rogue,3,15,20,37,52
-Leadership (2),guardian,2,25,42,18,30
-Evidence! (1),guardian,1,17,28,25,43
-Blood Pact,mystic,0,41,63,6,8
-Dr. William T. Maleson (2),seeker,2,20,34,21,37
-"""You owe me one!""",rogue,0,41,67,2,4
-Followed,rogue,0,38,65,3,6
-Extensive Research (1),seeker,1,21,37,17,33
-Alchemical Distillation,seeker,0,28,54,11,16
-Liquid Courage (1),rogue,1,35,46,14,24
-Wither (4),mystic,4,28,43,17,27
-Ward of Protection (5),mystic,5,11,20,27,50
-Astral Mirror (2),mystic,2,30,48,13,21
-Bewitching (3),rogue,3,37,37,32,32
-Fingerprint Kit (4),seeker,4,18,29,23,39
-Cherished Keepsake (1),survivor,1,22,38,18,30
-Healing Words,mystic,0,44,64,3,4
-Aquinnah (1),survivor,1,38,56,10,11
-Vamp,rogue,0,34,60,4,7
-Eldritch Initiation,mystic,0,34,64,1,2
-The Key of Solomon (4),mystic,4,15,20,27,46
-The Red Clock (5),rogue,5,16,16,50,50
-Stir the Pot,rogue,0,35,57,5,9
-Protective Gear (2),guardian,2,13,21,29,45
-Tennessee Sour Mash (3),rogue,3,22,33,20,33
-Protecting the Anirniq (2),seeker,2,18,33,22,32
-"""Where's the party?""",rogue,0,37,60,3,5
-Grotesque Statue (2),mystic,2,16,24,28,41
-De Vermis Mysteriis (2),mystic,2,31,47,14,18
-Dissection Tools,seeker,0,37,61,4,4
-Antiquary (3),seeker,3,27,44,16,21
-Alter Fate (1),survivor,1,18,25,25,40
-The Eye of Truth (5),seeker,5,15,22,26,42
-Purified,guardian,0,35,62,1,2
-Pelt Shipment,survivor,0,30,48,9,16
-Spectral Shield,mystic,0,35,62,1,2
-Persistence (1),survivor,1,18,30,19,34
-The Gold Pocket Watch (4),rogue,4,31,31,33,33
-Swift Reload (2),rogue,2,25,42,12,22
-Scrying (3),mystic,3,19,33,16,31
-Cleaning Kit (3),guardian,3,17,29,17,34
-Hand-Eye Coordination (1),guardian,1,14,28,20,35
-Olive McBride (2),mystic,2,17,29,19,34
-Geas (2),rogue,2,37,37,26,26
-Elle Rubash (2),mystic,2,20,34,15,29
-Task Force,guardian,0,34,60,2,3
-Precious Memento (4),rogue,4,21,21,42,42
-Five of Pentacles (1),survivor,1,32,49,9,14
-Nkosi Mabati (3),guardian,3,22,31,22,32
-Idol of Xanatos,survivor,0,40,59,3,3
-Holy Spear (5),guardian,5,16,26,22,36
-Binder's Jar (1),mystic,1,31,47,10,15
-Well-Dressed,neutral,0,33,56,3,6
-Glimpse the Unthinkable (1),seeker,1,27,43,10,19
-Eidetic Memory (3),seeker,3,29,43,12,19
-Hired Muscle (1),rogue,1,29,53,5,9
-Rabbit's Foot (3),survivor,3,20,33,16,29
-Ever Vigilant (4),guardian,4,14,15,38,46
-Combat Training (3),guardian,3,17,23,26,38
-Tides of Fate,mystic,0,37,57,3,4
-Anna Kaslow (4),neutral,4,28,47,11,14
-Microscope,seeker,0,33,58,2,3
-Thieves' Kit (3),rogue,3,10,16,24,44
-Burn After Reading (1),survivor,1,12,20,24,40
-Professor William Webb (2),seeker,2,13,19,27,41
-The Black Cat (5),neutral,5,25,32,22,28
-Chuck Fergus (2),rogue,2,21,34,16,26
-Well-Funded,seeker,0,29,56,2,4
-Kerosene (1),guardian,1,29,43,12,17
-All In (5),rogue,5,23,38,14,22
-Blur (4),rogue,4,16,20,24,40
-Guided by Faith,guardian,0,31,56,2,4
-Nature of the Beast (1),survivor,1,23,40,12,20
-Calculated Risk,rogue,0,31,52,4,7
-Contraband (2),rogue,2,19,30,17,29
-Dynamite Blast (2),guardian,2,26,39,14,20
-Leather Coat (1),survivor,1,18,28,19,31
-Existential Riddle (1),seeker,1,20,29,19,30
-Surgical Kit (3),seeker,3,17,22,26,37
-A Glimmer of Hope (2),survivor,2,9,27,11,31
-Fighting Lessons,guardian,0,30,54,2,4
-Moment of Respite (3),neutral,3,26,32,21,26
-Arcane Insight (4),seeker,4,24,43,10,15
-Ríastrad (1),rogue,1,19,33,13,25
-Hatchet (1),survivor,1,18,35,13,23
-Bestow Resolve (2),guardian,2,22,39,11,19
-Stealth (3),rogue,3,21,33,15,25
-Gaze of Ouraxsh (2),seeker,2,12,22,19,35
-Mk 1 Grenades (4),guardian,4,23,40,11,17
-Feed the Mind (3),seeker,3,25,45,6,12
-Predator or Prey,survivor,0,29,50,4,7
-Galvanize (1),guardian,1,17,27,17,29
-The Truth Beckons,seeker,0,35,51,4,5
-Farsight (4),seeker,4,24,35,15,21
-Warning Shot,guardian,0,36,54,1,2
-True Awakening (2),neutral,2,13,24,16,31
-Enraptured (2),mystic,2,12,24,16,31
-Gabriel Carillo (1),seeker,1,21,34,12,21
-Springfield M1903 (4),guardian,4,23,42,7,13
-Deciphered Reality (5),seeker,5,24,31,16,24
-True Magick (5),mystic,5,26,31,16,23
-Occult Lexicon (3),seeker,3,26,26,28,28
-Diabolical Luck,rogue,0,24,45,6,9
-Rise to the Occasion (3),survivor,3,17,31,12,23
-Fine Tuning (1),seeker,1,20,30,15,23
-Forbidden Tome,seeker,0,32,51,2,2
-Token of Faith,survivor,0,32,47,4,6
-"""Eat lead!""",guardian,0,28,48,3,5
-Old Shotgun (2),guardian,2,20,33,12,20
-Contemplative,survivor,0,26,51,1,1
-Survival Technique (2),survivor,2,22,37,9,15
-Transmogrify,seeker,0,28,46,3,6
-Prophesiae Profana (5),seeker,5,15,17,27,35
-Money Talks (2),rogue,2,11,19,21,33
-Borrowed Time (3),rogue,3,35,36,16,16
-Taunt (3),guardian,3,13,23,17,28
-Sin-Eater (3),mystic,3,34,34,17,17
-Logical Reasoning (4),seeker,4,13,18,20,33
-Mano a Mano (1),guardian,1,20,32,12,19
-Improvised Shield,survivor,0,29,45,4,6
-Azure Flame (3),mystic,3,14,21,18,30
-Azure Flame (5),mystic,5,15,23,15,27
-Keep Faith (2),survivor,2,8,14,19,36
-Accursed,mystic,0,25,47,2,3
-Artistic Inspiration,seeker,0,31,49,1,1
-Nautical Charts,survivor,0,26,47,2,3
-Testing Sprint,seeker,0,28,48,2,2
-Eldritch Inspiration (1),mystic,1,19,29,11,21
-Suggestion (4),rogue,4,21,29,13,21
-Helping Hand,guardian,0,29,47,2,3
-Fickle Fortune (3),survivor,3,9,13,24,37
-Physical Training (4),guardian,4,14,21,19,29
-Plucky (1),survivor,1,26,35,11,15
-Alchemical Transmutation (2),mystic,2,21,37,8,13
-Devil's Luck (1),survivor,1,23,33,13,16
-Abigail Foreman (4),seeker,4,23,28,16,21
-Arcane Studies (4),mystic,4,16,22,18,27
-Library Docent (1),seeker,1,17,32,11,17
-Slip Away (2),rogue,2,16,23,16,26
-Moonlight Ritual (2),mystic,2,11,20,14,28
-Dauntless Spirit (1),survivor,1,9,15,19,33
-Pnakotic Manuscripts (5),seeker,5,22,31,15,17
-Fake Credentials,rogue,0,22,41,4,7
-M1918 BAR (4),guardian,4,23,37,7,11
-Henry Wan,rogue,0,24,43,2,4
-Katana,guardian,0,27,47,0,0
-Shards of the Void (3),mystic,3,18,29,12,18
-Telescopic Sight (3),guardian,3,17,32,10,15
-Truth from Fiction (2),seeker,2,17,28,10,18
-The Great Work,mystic,0,43,43,3,3
-Transfiguration (2),mystic,2,23,36,7,10
-Cheat Death (5),rogue,5,15,21,20,25
-Lucky Dice (2),rogue,2,36,36,10,10
-The Hierophant • V (3),mystic,3,21,27,15,19
-Fire Extinguisher (1),survivor,1,22,43,2,3
-Bind Monster (2),mystic,2,17,28,11,18
-Taunt (2),guardian,2,17,26,11,20
-The Fool • 0 (3),neutral,3,19,31,11,15
-Otherworldly Compass (2),seeker,2,19,26,12,20
-The Book of War,guardian,0,23,45,0,0
-Twila Katherine Price (3),mystic,3,17,23,13,22
-Hypnotic Gaze (2),mystic,2,12,19,15,26
-Agency Backup (5),guardian,5,20,28,12,17
-Daring Maneuver (2),rogue,2,11,17,16,28
-Lawrence Carlisle,survivor,0,24,42,1,2
-Rite of Equilibrium (5),mystic,5,14,22,14,22
-Forbidden Tome (3),seeker,3,16,24,12,20
-Empty Vessel (4),guardian,4,19,19,24,24
-Control Variable,seeker,0,20,39,2,4
-Combat Training (1),guardian,1,18,31,8,12
-Archive of Conduits,seeker,0,38,38,5,5
-Blood Eclipse (3),guardian,3,14,27,10,16
-Justify the Means (3),rogue,3,8,13,17,29
-Recharge (4),mystic,4,8,13,17,29
-Moxie (1),rogue,1,20,28,10,14
-Abyssal Tome (2),mystic,2,14,21,13,20
-"Wrong Place, Right Time",survivor,0,25,41,0,0
-Microscope (4),seeker,4,8,13,15,28
-Colt Vest Pocket (2),rogue,2,10,19,14,22
-Ace of Rods (1),neutral,1,18,28,7,13
-Guidance (1),seeker,1,11,19,14,22
-Ambush (1),guardian,1,13,20,11,21
-Correlate All Its Contents,seeker,0,21,38,1,2
-Soul Sanctification (3),neutral,3,18,18,22,22
-Paradoxical Covenant (2),mystic,2,21,21,19,19
-Guided by the Unseen (3),seeker,3,12,22,13,18
-Garrote Wire (2),rogue,2,21,30,10,10
-Elaborate Distraction,survivor,0,24,34,3,5
-Jacob Morrison (3),survivor,3,9,13,17,26
-Manipulate Destiny (2),neutral,2,8,15,14,24
-Luger P08,rogue,0,22,39,0,0
-Try and Try Again (3),survivor,3,12,21,11,18
-Gravedigger's Shovel (2),survivor,2,10,17,13,22
-Guiding Spirit (1),survivor,1,18,30,5,9
-Unknown_01117,Unknown,0,37,37,2,2
-Beretta M1918 (4),rogue,4,12,18,11,20
-Physical Training (2),guardian,2,17,29,6,9
-Shroud of Shadows,mystic,0,23,37,1,1
-Making Preparations,survivor,0,21,36,1,2
-Fortune or Fate (2),survivor,2,11,13,16,25
-Dodge (2),guardian,2,7,11,14,26
-"Bianca ""Die Katz""",rogue,0,35,35,2,2
-Good Weather (2),survivor,2,8,24,5,13
-Expeditious Retreat (1),survivor,1,14,24,7,13
-Dumb Luck (2),survivor,2,7,13,13,24
-Armor of Ardennes (5),guardian,5,20,35,2,2
-Remington Model 1858,guardian,0,20,36,0,0
-"""Throw the Book at Them!""",seeker,0,19,35,1,1
-Spiritual Resolve (5),guardian,5,6,18,8,18
-Hallow (3),guardian,3,14,20,11,16
-A Watchful Peace (3),survivor,3,6,11,14,25
-Lightfooted,rogue,0,20,33,2,3
-Breath of the Sleeper,mystic,0,20,34,1,1
-Gift of Nodens (5),survivor,5,12,17,15,18
-Ravenous Myconid (4),seeker,4,17,17,18,18
-Grounded (1),mystic,1,14,27,4,8
-Archive of Conduits (4),seeker,4,15,15,20,20
-Snipe (1),guardian,1,9,15,11,20
-Skeptic (1),rogue,1,10,19,8,16
-Cryptic Grimoire (4),seeker,4,12,23,8,12
-Quick Getaway,rogue,0,20,34,1,1
-Keen Eye,guardian,0,19,26,8,9
-Sharpshooter (3),rogue,3,13,19,10,16
-Blood Eclipse (1),guardian,1,9,17,10,18
-Ready for Anything,guardian,0,20,32,1,2
-Déjà Vu (5),survivor,5,10,16,13,18
-British Bull Dog (2),rogue,2,6,10,13,24
-Quickdraw Holster (4),guardian,4,10,10,20,24
-Ghastly Revelation,seeker,0,27,33,1,1
-Moon Pendant (2),neutral,2,15,23,9,11
-Unknown_02040,Unknown,0,34,34,0,0
-Clarity of Mind (3),mystic,3,12,13,13,20
-"""Watch this!"" (3)",rogue,3,6,11,11,22
-Dawn Star (1),neutral,1,12,23,6,10
-Baseball Bat (2),survivor,2,7,14,10,19
-Sleuth (3),guardian,3,9,13,15,20
-Ethereal Slip (2),rogue,2,7,10,17,23
-Unknown_03227,Unknown,0,33,33,0,0
-Try and Try Again (1),survivor,1,12,18,10,15
-Mind Wipe (1),mystic,1,22,29,3,4
-Shield of Faith (2),guardian,2,5,8,13,24
-Tristan Botley (2),rogue,2,11,15,11,17
-Wicked Athame,mystic,0,16,29,2,2
-Heroic Rescue (2),guardian,2,9,18,8,13
-Ikiaq (3),mystic,3,12,16,11,15
-Onyx Pentacle,mystic,0,18,31,0,0
-Cryptic Grimoire,seeker,0,17,28,2,3
-"""You've had worse...""",rogue,0,18,30,0,0
-Daredevil (2),rogue,2,10,17,8,13
-Katarina Sojka,mystic,0,16,29,1,1
-False Covenant (2),rogue,2,15,15,15,15
-Lab Coat (1),seeker,1,12,17,11,13
-Confound (3),seeker,3,6,8,12,22
-Against All Odds (2),survivor,2,11,18,8,12
-.32 Colt (2),guardian,2,16,24,4,6
-The Chthonian Stone (3),mystic,3,4,6,15,24
-Absolution,guardian,0,17,28,1,2
-Book of Shadows (1),mystic,1,18,24,4,6
-Suggestion (1),rogue,1,16,22,5,8
-Lantern (2),survivor,2,5,8,13,21
-Prismatic Spectacles (2),seeker,2,8,12,10,17
-Scrimshaw Charm,rogue,0,19,29,0,0
-"""Devil"" (2)",survivor,2,6,9,11,19
-Scientific Theory (1),seeker,1,14,19,7,9
-The World • XXI (3),seeker,3,9,9,15,19
-Oops! (2),survivor,2,11,18,6,10
-Purifying Corruption (4),neutral,4,5,6,13,22
-Stall for Time,survivor,0,15,25,1,2
-Alton O'Connell,seeker,0,14,26,1,1
-Fake Credentials (4),rogue,4,4,6,12,21
-Call the Beyond (2),mystic,2,9,14,7,13
-Orphic Theory (1),seeker,1,7,11,11,16
-"""Eat lead!"" (2)",guardian,2,13,20,4,7
-Banish (1),mystic,1,12,20,4,7
-Crowbar,guardian,0,15,26,0,0
-Dark Horse (5),survivor,5,12,12,14,14
-Uncanny Specimen,seeker,0,11,26,0,0
-The Hungering Blade (1),guardian,1,21,21,5,5
-Hand Hook,survivor,0,13,25,1,1
-Dr. Charles West III,seeker,0,13,23,3,3
-Ravenous Myconid,seeker,0,23,23,3,3
-Grievous Wound,guardian,0,15,26,0,0
-Gray's Anatomy (5),seeker,5,7,9,14,17
-Sawed-Off Shotgun (5),rogue,5,10,12,10,14
-Butterfly Effect (1),survivor,1,10,18,4,8
-Barricade (3),seeker,3,14,20,3,6
-Monster Slayer (5),guardian,5,7,11,10,15
-Enchanted Armor (2),guardian,2,7,13,7,13
-Unknown_02080,Unknown,0,26,26,0,0
-Last Chance (3),survivor,3,5,10,8,15
-Primed for Action,guardian,0,13,25,0,0
-Under Surveillance (1),rogue,1,7,10,8,15
-Nine of Rods (3),survivor,3,9,11,10,14
-Butterfly Swords (5),guardian,5,6,10,9,15
-Ineffable Truth (3),mystic,3,8,13,7,12
-Ascetic,neutral,0,24,24,0,0
-Bide Your Time,neutral,0,14,22,1,2
-Ofuda,guardian,0,14,20,3,4
-Infighting (3),survivor,3,7,10,8,14
-Unknown_03059,Unknown,0,24,24,0,0
-Snare Trap (2),survivor,2,8,12,7,12
-Rod of Carnamagos (2),mystic,2,10,16,4,8
-Decorated Skull (3),rogue,3,9,13,7,11
-Trial by Fire (3),survivor,3,5,8,9,16
-Cosmic Revelation (1),seeker,1,9,14,5,9
-Memories of Another Life (5),neutral,5,6,9,7,14
-Doppelgänger (1),rogue,1,5,14,3,9
-Expose Weakness (1),seeker,1,10,16,4,7
-Seal of the Elders (5),mystic,5,5,5,12,18
-Unknown_02061,Unknown,0,21,22,1,1
-Speak to the Dead,mystic,0,12,21,2,2
-Expose Weakness (3),seeker,3,8,16,4,6
-Improvised Weapon (2),survivor,2,3,5,10,17
-Dowsing Rod (4),mystic,4,3,6,8,16
-Hard Knocks (2),rogue,2,13,19,2,3
-Hard Knocks (4),rogue,4,8,10,8,12
-False Surrender,rogue,0,12,19,2,3
-Ceremonial Sickle (4),mystic,4,3,5,9,17
-Knight of Swords (3),rogue,3,7,9,8,13
-Treasure Hunter (1),rogue,1,10,18,3,4
-Grounded (3),mystic,3,4,7,10,15
-Trigger Man (3),rogue,3,4,5,9,16
-Curse of Aeons (3),mystic,3,4,7,9,14
-Ineffable Truth (5),mystic,5,6,11,6,10
-Copycat (3),rogue,3,5,9,6,12
-Clean Sneak (4),rogue,4,3,4,10,16
-Antikythera (5),seeker,5,11,14,4,6
-Remington Model 1858 (4),guardian,4,4,6,8,14
-Esoteric Method (1),seeker,1,4,8,6,12
-Crack Shot,rogue,0,13,20,0,0
-Hunter's Mark (1),guardian,1,7,11,5,9
-Mists of R'lyeh (4),mystic,4,8,13,5,7
-Nightmare Bauble (3),survivor,3,8,8,12,12
-Lure (2),survivor,2,6,11,5,9
-Dig Deep (4),survivor,4,1,1,11,19
-Esoteric Atlas (2),seeker,2,3,4,11,16
-Third Time's a Charm (2),survivor,2,6,11,5,9
-Locked and Loaded (3),guardian,3,9,9,10,10
-Gatling Gun (5),rogue,5,4,6,8,13
-Burglary (2),rogue,2,9,14,4,5
-Robert Castaigne,rogue,0,10,18,1,1
-Hyperawareness (4),seeker,4,3,4,13,15
-Rod of Carnamagos,mystic,0,16,16,3,3
-Mists of R'lyeh (2),mystic,2,6,10,7,9
-Hyperawareness (2),seeker,2,5,8,7,10
-Harmony Restored (2),survivor,2,5,8,6,10
-Fend Off (3),survivor,3,1,2,9,16
-Ethereal Form (2),mystic,2,3,4,7,13
-The Stygian Eye (3),seeker,3,3,5,7,12
-Bound for the Horizon (2),neutral,2,5,5,9,12
-Bum's Rush,rogue,0,9,17,0,0
-Otherworld Codex (2),seeker,2,9,14,3,3
-Robert Castaigne (4),rogue,4,3,5,7,12
-Dark Ritual,rogue,0,10,14,2,3
-Fire Axe (2),survivor,2,4,7,5,10
-Unknown_02140,Unknown,0,17,17,0,0
-Token of Faith (3),survivor,3,3,3,10,13
-Sound Support (3),neutral,3,4,4,8,12
-Lure (1),survivor,1,10,11,3,5
-Whispers of Doom,mystic,0,10,16,0,0
-Ample Supplies (2),survivor,2,6,8,4,7
-Inspiring Presence (2),guardian,2,2,4,6,11
-Unconventional Method,survivor,0,9,15,0,0
-Eyes of Valusia (4),guardian,4,4,7,7,8
-Profane Idol,survivor,0,9,13,1,1
-"""Lucky"" Penny (2)",rogue,2,10,10,4,4
-Medical Texts (2),seeker,2,5,7,6,7
-Unknown_03142,Unknown,0,14,14,0,0
-Anchor Chain,survivor,0,4,7,4,6
-Bolas,guardian,0,9,13,0,0
-Second Wind (2),guardian,2,0,0,8,13
-Walter Fitzpatrick (2),neutral,2,5,8,3,5
-Blackmail File,rogue,0,8,11,1,2
-Martyr's Vambrace (3),guardian,3,5,7,4,6
-Dig Deep (2),survivor,2,3,4,6,9
-Arcane Studies (2),mystic,2,7,11,1,2
-Healing Words (3),mystic,3,5,6,5,6
-Forensic Kit,seeker,0,6,12,0,0
-Library Pass (5),neutral,5,11,11,1,1
-"""I'll Pay You Back!""",rogue,0,9,12,0,0
-Dakota Garofalo (3),neutral,3,3,6,5,6
-String Along,rogue,0,8,12,0,0
-Sign of Xelotaph,mystic,0,4,12,0,0
-Unknown_04148,Unknown,0,12,12,0,0
-Blood Will Have Blood (2),survivor,2,3,6,4,6
-Lifeline (1),survivor,1,3,4,5,8
-Mariner's Compass (2),survivor,2,1,1,5,10
-Flurry of Blows (5),guardian,5,2,3,4,8
-Double Down (2),neutral,2,2,3,5,8
-Inquisitive (1),neutral,1,5,8,2,3
-Dirty Deeds (3),rogue,3,3,5,4,6
-Antediluvian Hymn,mystic,0,6,11,0,0
-Eye of Ghatanothoa (2),mystic,2,6,6,5,5
-Blood of K'n-yan (3),neutral,3,5,10,1,1
-Handcuffs (2),guardian,2,4,6,3,5
-Mortar and Pestle,seeker,0,6,11,0,0
-Bulwark (2),guardian,2,4,5,4,6
-Shining Trapezohedron (4),mystic,4,3,5,4,6
-Glimpse the Unthinkable (5),seeker,5,3,4,5,7
-Unknown_81030,Unknown,0,10,10,1,1
-Sword Cane (2),mystic,2,2,3,4,7
-Mauser Tankgewehr M1918 (5),neutral,5,2,3,5,7
-Blackjack (2),guardian,2,3,4,4,6
-Unknown_05150,Unknown,0,10,10,0,0
-Broken Diadem (5),neutral,5,5,5,5,5
-Think on Your Feet (2),rogue,2,2,3,4,7
-Unknown_02218,Unknown,0,10,10,0,0
-Lucky Dice (3),rogue,3,4,4,6,6
-Untimely Transaction (1),rogue,1,5,8,2,2
-Unknown_02178,Unknown,0,9,10,0,0
-Katja Eastbank (2),survivor,2,3,4,3,5
-Quick-Witted (1),seeker,1,2,6,1,3
-Mob Connections (2),rogue,2,3,3,6,6
-Quick Shot (3),guardian,3,2,6,1,3
-Short Rest,neutral,0,2,6,1,3
-Unknown_07083,Unknown,0,9,9,0,0
-Unknown_82025,Unknown,0,9,9,0,0
-Unknown_81029,Unknown,0,9,9,0,0
-Onyx Pentacle (4),mystic,4,2,3,3,6
-Unknown_02217,Unknown,0,9,9,0,0
-Unknown_09767,Unknown,0,8,8,0,0
-Confidence,neutral,0,4,8,0,0
-Esoteric Atlas (1),seeker,1,4,5,2,3
-Stir the Pot (5),rogue,5,0,0,4,8
-On Their Heels (5),neutral,5,0,0,5,8
-Working a Hunch (2),seeker,2,3,6,1,2
-Unknown_04147,Unknown,0,8,8,0,0
-Shroud of Shadows (4),mystic,4,1,2,4,6
-Unknown_03143,Unknown,0,8,8,0,0
-The Council's Coffer (2),neutral,2,3,6,1,2
-Unknown_81019,Unknown,0,8,8,0,0
-Blood of Thoth,mystic,0,4,7,0,0
-Flute of the Outer Gods (4),mystic,4,0,0,7,7
-Deliverance (3),mystic,3,2,2,3,5
-Eldritch Brand (5),mystic,5,5,5,2,2
-Unknown_07179,Unknown,0,7,7,0,0
-Library Pass (1),neutral,1,3,3,3,3
-Motivational Speech (4),neutral,4,2,4,2,2
-Hold Up,guardian,0,3,5,1,1
-Unknown_04061,Unknown,0,6,6,0,0
-Unknown_07180,Unknown,0,6,6,0,0
-Unknown_06079,Unknown,0,6,6,0,0
-Heed the Dream (2),survivor,2,2,2,2,4
-Unknown_07181,Unknown,0,6,6,0,0
-Unknown_02219,Unknown,0,6,6,0,0
-Sacred Oath (5),neutral,5,3,3,3,3
-Hardboiled,guardian,0,3,5,0,0
-Providential (2),survivor,2,0,0,3,5
-Intimidation,rogue,0,4,4,1,1
-Unknown_53037,Unknown,0,5,5,0,0
-Unknown_08723,Unknown,0,3,5,0,0
-Unknown_08618,Unknown,0,5,5,0,0
-Unknown_82022,Unknown,0,4,4,1,1
-Unknown_82024,Unknown,0,4,4,1,1
-Bait and Switch (3),survivor,3,0,0,3,5
-Unknown_83055,Unknown,0,5,5,0,0
-Unknown_04191,Unknown,0,5,5,0,0
-Nose to the Grindstone (3),neutral,3,0,0,2,4
-Scientific Studies Grant (2),seeker,2,1,1,2,3
-Oculus Mortuum,seeker,0,3,4,0,0
-Mesmeric Influence (1),mystic,1,2,2,1,2
-Captivating Performance (3),neutral,3,1,1,3,3
-Unknown_08733,Unknown,0,4,4,0,0
-Cowl of Sekhmet (3),neutral,3,2,4,0,0
-Forbidden Sutra (2),neutral,2,2,3,1,1
-Unknown_08614,Unknown,0,4,4,0,0
-Unknown_83057,Unknown,0,4,4,0,0
-Unknown_82023,Unknown,0,4,4,0,0
-Unknown_04051,Unknown,0,4,4,0,0
-Mind Wipe (3),mystic,3,2,3,1,1
-Alice Luxley (2),guardian,2,1,1,2,2
-Dial of Ancients (4),seeker,4,2,2,1,1
-Archibald MacVeigh (5),neutral,5,1,2,1,1
-Spiritual Healing (4),neutral,4,0,0,3,3
-Lost Arcana (3),mystic,3,2,3,0,0
-"""Catch!""",survivor,0,2,3,0,0
-Unknown_08647,Unknown,0,3,3,0,0
-Dreams of the Clay (1),neutral,1,1,2,1,1
-Unknown_10702,Unknown,0,3,3,0,0
-Unknown_10685,Unknown,0,3,3,0,0
-Unknown_08619,Unknown,0,3,3,0,0
-Unknown_08730,Unknown,0,3,3,0,0
-Unknown_07151,Unknown,0,3,3,0,0
-Unknown_08616,Unknown,0,3,3,0,0
-Unknown_08735,Unknown,0,2,2,1,1
-Unknown_04102,Unknown,0,3,3,0,0
-Unknown_83058,Unknown,0,1,1,1,1
-Unknown_86052,Unknown,0,1,1,1,1
-Name Your Price (2),neutral,2,1,1,1,1
-Dimensional Vortex (5),neutral,5,1,1,1,1
-Unknown_08615,Unknown,0,2,2,0,0
-Unknown_08620,Unknown,0,2,2,0,0
-Unknown_08728,Unknown,0,2,2,0,0
-Dial of Ancients,seeker,0,1,1,1,1
-Miracle Wish (5),guardian,5,0,0,2,2
-Unknown_09762,Unknown,0,2,2,0,0
-Unknown_04303,Unknown,0,2,2,0,0
-Unknown_84007,Unknown,0,1,1,1,1
-Unknown_08726,Unknown,0,2,2,0,0
-Unknown_06059,Unknown,0,0,0,1,1
-Unknown_83056,Unknown,0,1,1,0,0
-Unknown_11760a,Unknown,0,1,1,0,0
-Unknown_08646,Unknown,0,1,1,0,0
-"""You've had worse..."" (4)",rogue,4,0,0,1,1
-Unknown_09764,Unknown,0,1,1,0,0
-Unknown_88043,Unknown,0,1,1,0,0
-Unknown_08724,Unknown,0,1,1,0,0
-Unknown_08727,Unknown,0,1,1,0,0
-Unknown_08738,Unknown,0,1,1,0,0
-Unknown_10703,Unknown,0,1,1,0,0
-Unknown_10713,Unknown,0,1,1,0,0
-Unknown_10642,Unknown,0,1,1,0,0
-Unknown_08734,Unknown,0,1,1,0,0
-Unknown_08736,Unknown,0,1,1,0,0
-Unknown_08737,Unknown,0,1,1,0,0
-Unknown_08617,Unknown,0,1,1,0,0
-Unknown_85032,Unknown,0,1,1,0,0
-Unknown_85031,Unknown,0,1,1,0,0
-Unknown_84006,Unknown,0,1,1,0,0
-Unknown_84008,Unknown,0,1,1,0,0
-Unknown_86051,Unknown,0,1,1,0,0
-Unknown_82026,Unknown,0,1,1,0,0
-Unknown_06275,Unknown,0,1,1,0,0
-Unknown_05260,Unknown,0,1,1,0,0
-Unknown_04264,Unknown,0,1,1,0,0
-Unknown_05261,Unknown,0,1,1,0,0
-Spiritual Echo (2),mystic,2,1,1,0,0
+name,faction_code,xp,date_released,main_decks_including_once,main_deck_occurances,side_decks_including_once,side_deck_occurances
+Emergency Cache,neutral,0,2020-10-01,4423,8114,43,63
+Unexpected Courage,neutral,0,2020-10-01,3759,6957,32,53
+Guts,neutral,0,2020-10-01,3166,5708,35,56
+Perception,neutral,0,2020-10-01,3014,5537,42,70
+Overpower,neutral,0,2020-10-01,2693,4865,38,63
+Flashlight,neutral,0,2016-11-10,2536,4640,27,44
+Vicious Blow,guardian,0,2016-11-10,2334,4306,28,46
+Ward of Protection,mystic,0,2016-11-10,2202,3985,25,39
+Deduction,seeker,0,2020-10-01,2072,3778,30,49
+Manual Dexterity,neutral,0,2020-10-01,2005,3484,31,50
+Lucky!,survivor,0,2016-11-10,1931,3479,20,32
+Magnifying Glass,seeker,0,2020-10-01,1730,2914,20,30
+Shortcut,seeker,0,2017-01-12,1508,2778,35,53
+Resourceful,survivor,0,2017-09-14,1369,2650,14,25
+"""Look what I found!""",survivor,0,2016-11-10,1418,2509,19,35
+Dr. Milan Christopher,seeker,0,2020-10-01,1485,2461,29,42
+Shrivelling,mystic,0,2016-11-10,1397,2459,16,26
+Machete,guardian,0,2016-11-10,1419,2437,17,26
+Drawn to the Flame,mystic,0,2016-11-10,1353,2357,20,30
+Holy Rosary,mystic,0,2016-11-10,1390,2295,17,25
+Working a Hunch,seeker,0,2016-11-10,1221,2110,21,33
+Leo De Luca,rogue,0,2016-11-10,1285,2074,36,48
+Dodge,guardian,0,2016-11-10,1179,1970,12,18
+Eureka!,seeker,0,2018-01-25,1021,1943,26,42
+Inquiring Mind,seeker,0,2017-05-11,1047,1933,25,40
+Beat Cop,guardian,0,2020-10-01,1118,1876,24,35
+Guard Dog,guardian,0,2016-11-10,1113,1856,19,29
+Prepared for the Worst,guardian,0,2017-04-13,1245,1844,20,30
+Lone Wolf,rogue,0,2017-04-13,1162,1814,20,24
+Quick Thinking,rogue,0,2017-05-11,973,1799,22,37
+Deny Existence,mystic,0,2019-01-31,956,1765,20,30
+Take Heart,survivor,0,2018-08-16,924,1751,17,28
+Peter Sylvestre,survivor,0,2017-01-12,968,1736,18,27
+.45 Automatic,guardian,0,2020-10-01,1069,1738,9,14
+Evidence!,guardian,0,2016-11-10,1017,1722,16,23
+Fire Axe,survivor,0,2017-01-12,933,1704,11,19
+Elusive,rogue,0,2020-10-01,1059,1646,12,19
+Charisma (3),neutral,3,2017-03-16,946,1107,466,545
+Knife,neutral,0,2016-11-10,914,1622,3,4
+Backstab,rogue,0,2020-10-01,917,1533,15,19
+Arcane Initiate,mystic,0,2016-11-10,883,1522,16,25
+Leather Coat,survivor,0,2016-11-10,996,1497,14,21
+Crack the Case,seeker,0,2019-03-14,764,1424,14,18
+Uncage the Soul,mystic,0,2017-09-14,755,1408,8,11
+Mind over Matter,seeker,0,2016-11-10,845,1391,7,9
+Fearless,mystic,0,2016-11-10,798,1342,16,24
+In the Thick of It,neutral,0,2021-09-10,1291,1291,27,27
+"""Watch this!""",rogue,0,2018-01-25,692,1275,17,26
+Rite of Seeking,mystic,0,2017-01-12,707,1276,10,18
+"""I've got a plan!""",seeker,0,2017-02-16,702,1261,9,11
+Delve Too Deep,mystic,0,2017-02-16,713,1194,45,77
+Sneak Attack,rogue,0,2020-10-01,744,1251,12,19
+Scavenging,survivor,0,2016-11-10,785,1226,30,43
+Take the Initiative,guardian,0,2018-07-19,657,1227,17,30
+Spectral Razor,mystic,0,2020-01-10,660,1220,18,31
+Lucky Cigarette Case,rogue,0,2018-06-14,722,1207,20,34
+Rabbit's Foot,survivor,0,2016-11-10,769,1224,10,13
+Scene of the Crime,guardian,0,2018-06-14,615,1154,16,27
+Calling in Favors,neutral,0,2017-11-24,658,1151,13,18
+Dynamite Blast,guardian,0,2016-11-10,879,1120,12,16
+Read the Signs,mystic,0,2019-11-15,584,1082,26,45
+Logical Reasoning,seeker,0,2017-12-21,658,1090,18,20
+Dark Horse,survivor,0,2017-05-11,609,1083,7,13
+Physical Training,guardian,0,2016-11-10,741,1080,10,12
+St. Hubert's Key,mystic,0,2018-02-22,617,1064,15,21
+Preposterous Sketches,seeker,0,2017-04-13,589,1052,19,32
+Cherished Keepsake,survivor,0,2017-10-26,617,1061,13,23
+Promise of Power,mystic,0,2020-10-02,526,1000,17,26
+Live and Learn,survivor,0,2018-08-16,535,994,19,28
+Old Book of Lore,seeker,0,2016-11-10,633,997,9,13
+Astounding Revelation,seeker,0,2019-09-27,381,949,14,31
+Easy Mark (1),rogue,1,2019-09-27,276,823,51,147
+Backpack,neutral,0,2018-05-10,558,907,33,54
+"""Let me handle this!""",guardian,0,2017-09-14,515,922,14,24
+.41 Derringer,rogue,0,2020-10-01,588,940,4,6
+Pickpocketing,rogue,0,2020-10-01,609,926,12,19
+Forbidden Knowledge,mystic,0,2016-11-10,562,927,6,7
+Faustian Bargain,rogue,0,2020-10-02,493,885,29,48
+Enchanted Blade,mystic,0,2019-03-14,484,888,17,30
+Winging It,survivor,0,2018-10-11,481,887,11,21
+Practice Makes Perfect,seeker,0,2020-01-10,458,876,14,20
+Research Librarian,seeker,0,2016-11-10,574,884,10,11
+Laboratory Assistant,seeker,0,2017-01-12,504,860,17,24
+Arcane Research,mystic,0,2018-06-14,492,863,11,19
+Sixth Sense,mystic,0,2019-04-04,481,852,12,18
+"""You handle this one!""",rogue,0,2018-05-10,467,841,14,21
+Track Shoes,survivor,0,2019-01-31,562,834,13,15
+Daring,guardian,0,2019-11-15,424,804,23,39
+No Stone Unturned,seeker,0,2017-09-14,460,810,19,33
+Fieldwork,seeker,0,2017-09-14,496,820,13,16
+Arcane Studies,mystic,0,2016-11-10,590,824,8,11
+First Aid,guardian,0,2016-11-10,568,823,5,9
+Hard Knocks,rogue,0,2016-11-10,543,811,8,10
+Storm of Spirits,mystic,0,2017-11-24,513,802,10,16
+Stand Together,guardian,0,2020-08-28,416,774,22,39
+Double or Nothing,rogue,0,2017-01-12,471,798,9,13
+Fine Clothes,neutral,0,2017-06-08,536,782,11,16
+Hawk-Eye Folding Camera,seeker,0,2019-04-04,430,758,16,20
+Inspiring Presence,guardian,0,2018-01-25,413,745,22,32
+Rise to the Occasion,survivor,0,2017-04-13,399,736,13,24
+Scrying,mystic,0,2016-11-10,482,746,4,7
+Intel Report,rogue,0,2019-03-14,389,718,18,31
+Backpack (2),neutral,2,2020-08-07,279,459,167,282
+David Renfield,mystic,0,2017-10-26,402,709,14,21
+Painkillers,neutral,0,2017-02-16,491,711,9,11
+Madame Labranche,survivor,0,2017-12-21,394,709,6,11
+Relic Hunter (3),neutral,3,2017-03-16,355,412,260,308
+Burglary,rogue,0,2020-10-01,496,703,9,13
+Deduction (2),seeker,2,2017-03-16,190,353,185,359
+Hyperawareness,seeker,0,2016-11-10,526,707,2,3
+Scrounge for Supplies,survivor,0,2019-12-13,376,671,20,36
+Burning the Midnight Oil,seeker,0,2020-08-28,357,672,14,20
+Strange Solution,seeker,0,2017-01-12,390,670,5,6
+Liquid Courage,rogue,0,2017-01-12,474,661,9,14
+Baseball Bat,survivor,0,2016-11-10,428,669,3,5
+Old Keyring,survivor,0,2020-08-28,354,657,9,14
+On the Hunt,guardian,0,2018-02-22,374,657,10,14
+Lockpicks (1),rogue,1,2017-09-14,250,440,126,228
+Blinding Light,mystic,0,2016-11-10,428,662,3,6
+Bandolier,guardian,0,2017-03-16,440,644,15,21
+Drawing Thin,survivor,0,2019-04-04,325,600,35,63
+Glory,guardian,0,2020-08-28,340,620,18,30
+Vicious Blow (2),guardian,2,2017-07-06,175,309,177,338
+Sleight of Hand,rogue,0,2017-09-14,345,618,12,20
+Ritual Candles,mystic,0,2017-01-12,378,632,6,6
+Beat Cop (2),guardian,2,2016-11-10,231,384,140,253
+Scroll of Secrets,seeker,0,2019-03-14,332,600,16,23
+Emergency Aid,guardian,0,2017-02-16,370,619,3,4
+Steadfast,guardian,0,2019-01-31,332,611,7,10
+Enraptured,mystic,0,2018-07-19,325,598,11,19
+"Mr. ""Rook""",seeker,0,2019-04-04,324,600,12,16
+Hallowed Mirror,guardian,0,2019-07-26,592,592,16,16
+Survival Knife,guardian,0,2018-05-10,354,593,9,12
+Safeguard,guardian,0,2020-08-28,369,569,17,25
+Meat Cleaver,survivor,0,2019-03-14,320,582,6,9
+Think on Your Feet,rogue,0,2017-01-12,350,576,6,9
+Schoffner's Catalogue,survivor,0,2021-09-10,316,570,11,14
+Pathfinder (1),seeker,1,2017-02-16,239,342,152,232
+Narrow Escape,rogue,0,2018-02-22,313,557,6,9
+Peter Sylvestre (2),survivor,2,2017-01-12,198,334,130,231
+Deep Knowledge,seeker,0,2020-10-02,287,539,13,23
+Gravedigger's Shovel,survivor,0,2017-09-14,322,554,4,7
+Fingerprint Kit,seeker,0,2019-01-31,307,539,16,22
+Ward of Protection (2),mystic,2,2018-02-22,159,288,143,268
+Sled Dog,neutral,0,2021-09-10,148,544,4,10
+Voice of Ra,mystic,0,2020-08-28,298,543,4,8
+Premonition,mystic,0,2018-08-16,288,536,6,12
+Dark Prophecy,mystic,0,2020-08-28,283,529,5,7
+Seeking Answers,seeker,0,2017-01-12,300,523,6,8
+Ever Vigilant (1),guardian,1,2017-09-14,275,352,128,178
+Tooth of Eztli,seeker,0,2018-05-10,306,506,7,9
+Hypnotic Gaze,mystic,0,2017-03-16,301,504,4,7
+Art Student,seeker,0,2017-03-16,282,496,8,11
+Alyssa Graham,mystic,0,2017-05-11,300,499,6,8
+Tempt Fate,neutral,0,2020-10-02,256,484,12,20
+Lockpicks,rogue,0,2020-08-28,277,479,9,14
+Grete Wagner,guardian,0,2020-08-28,271,470,17,22
+Lantern,survivor,0,2017-09-14,284,483,6,8
+Act of Desperation,survivor,0,2019-01-31,274,476,9,13
+Defiance,mystic,0,2017-04-13,266,480,5,6
+Opportunist,rogue,0,2016-11-10,309,483,1,1
+Stray Cat,survivor,0,2016-11-10,310,463,15,20
+Olive McBride,mystic,0,2018-08-16,258,465,9,12
+Survival Instinct,survivor,0,2016-11-10,326,471,3,4
+Cryptic Writings,seeker,0,2020-08-28,236,451,8,15
+.32 Colt,guardian,0,2017-09-14,273,457,6,8
+Magnifying Glass (1),seeker,1,2016-11-10,204,300,98,163
+Smoking Pipe,neutral,0,2017-02-16,310,443,12,16
+Medical Texts,seeker,0,2020-10-01,358,458,1,1
+Dig Deep,survivor,0,2016-11-10,323,448,7,10
+Cheap Shot,rogue,0,2017-12-21,257,441,6,9
+Trench Coat,neutral,0,2018-08-16,284,424,13,17
+Dr. William T. Maleson,seeker,0,2017-07-06,249,426,10,15
+Emergency Cache (2),neutral,2,2017-04-13,141,230,122,210
+Tetsuo Mori,guardian,0,2019-12-13,242,420,8,12
+Archaic Glyphs,seeker,0,2017-09-14,240,407,17,25
+Breaking and Entering,rogue,0,2020-11-06,228,407,14,20
+Stick to the Plan (3),guardian,3,2018-02-22,258,258,168,168
+Clairvoyance,mystic,0,2020-08-28,229,409,8,12
+Toe to Toe,guardian,0,2021-09-10,228,408,11,13
+Moonlight Ritual,mystic,0,2017-06-08,226,406,7,12
+Fight or Flight,survivor,0,2017-11-24,227,404,8,11
+Well Connected,rogue,0,2019-01-31,262,408,5,7
+Mists of R'lyeh,mystic,0,2018-05-10,247,403,7,11
+A Glimmer of Hope,survivor,0,2020-02-07,133,397,5,14
+Taunt,guardian,0,2017-01-12,256,406,4,5
+Stand Together (3),guardian,3,2017-03-16,121,209,109,199
+Leo De Luca (1),rogue,1,2016-11-10,184,268,88,138
+Last Chance,survivor,0,2018-05-10,211,392,4,8
+Clarity of Mind,mystic,0,2017-01-12,251,390,7,9
+"""If it bleeds...""",guardian,0,2017-05-11,254,388,6,8
+Robes of Endless Night,mystic,0,2020-08-28,230,380,11,15
+Perception (2),seeker,2,2020-08-28,97,177,114,218
+Switchblade,rogue,0,2016-11-10,267,381,8,13
+Quantum Flux,mystic,0,2017-12-21,292,379,8,11
+Segment of Onyx (1),seeker,1,2019-09-27,107,313,28,77
+Bandages,survivor,0,2021-09-10,219,377,9,11
+Venturer,guardian,0,2018-05-10,208,374,6,9
+Stunning Blow,survivor,0,2018-06-14,212,365,9,15
+Barricade,seeker,0,2020-10-01,286,373,2,3
+.45 Thompson,guardian,0,2019-03-14,206,360,10,14
+Say Your Prayers,neutral,0,2017-10-26,226,370,3,3
+Improvised Weapon,survivor,0,2018-05-10,203,362,4,7
+Keep Faith,survivor,0,2020-10-02,188,355,8,12
+Slip Away,rogue,0,2020-08-28,207,351,9,15
+Azure Flame,mystic,0,2020-08-28,211,356,7,10
+Reckless Assault,neutral,0,2017-10-26,202,361,2,4
+Cunning Distraction,survivor,0,2020-10-01,282,352,6,10
+The Chthonian Stone,mystic,0,2018-05-10,219,349,8,11
+One-Two Punch,guardian,0,2020-08-28,190,352,4,5
+Occult Lexicon,seeker,0,2019-07-26,332,332,19,19
+Contraband,rogue,0,2017-02-16,207,327,11,17
+True Grit,guardian,0,2017-09-14,206,331,7,10
+Extra Ammunition (1),guardian,1,2016-11-10,157,241,57,100
+Open Gate,mystic,0,2019-09-27,111,320,9,19
+Alice Luxley,guardian,0,2019-04-04,190,324,12,15
+Hatchet Man,rogue,0,2018-07-19,187,334,2,4
+Sword Cane,mystic,0,2020-10-02,187,311,15,21
+Unrelenting (1),survivor,1,2021-01-08,117,208,72,124
+Lucky! (2),survivor,2,2016-11-10,119,194,78,137
+Knowledge is Power,seeker,0,2019-06-06,151,280,28,50
+Desperate Search,neutral,0,2017-10-26,183,325,2,3
+Fortuitous Discovery,survivor,0,2019-09-27,102,305,8,22
+Dr. Elli Horowitz,seeker,0,2018-05-10,180,319,7,7
+Hot Streak (4),rogue,4,2016-11-10,127,205,72,120
+Crystallizer of Dreams,rogue,0,2019-09-27,181,304,14,20
+Second Wind,guardian,0,2018-07-19,182,318,4,4
+Money Talks,rogue,0,2019-01-31,168,310,6,10
+.18 Derringer,survivor,0,2020-08-28,173,306,8,13
+Crystal Pendulum,mystic,0,2020-08-28,182,306,9,11
+Wither,mystic,0,2019-04-04,183,300,10,17
+Delay the Inevitable,guardian,0,2019-01-31,173,304,7,11
+Lonnie Ritter,rogue,0,2020-08-28,175,298,10,16
+Grisly Totem,survivor,0,2019-03-14,184,306,4,7
+Studious (3),seeker,3,2019-07-05,97,165,85,148
+Pickpocketing (2),rogue,2,2017-12-21,118,198,66,115
+Nimble,rogue,0,2020-08-28,190,297,12,16
+Scout Ahead,rogue,0,2021-09-10,196,295,11,16
+Sneak By,rogue,0,2020-08-28,165,294,10,16
+Runic Axe,guardian,0,2022-09-30,153,297,7,11
+Eldritch Inspiration,mystic,0,2019-01-31,164,301,5,7
+Clean Them Out,guardian,0,2020-08-28,164,299,6,8
+Kicking the Hornet's Nest,rogue,0,2022-09-30,170,293,9,14
+Brute Force (1),survivor,1,2019-12-13,105,194,62,113
+Brand of Cthugha (1),guardian,1,2021-09-10,106,172,79,134
+Talisman of Protection,mystic,0,2021-09-10,190,293,9,13
+Versatile (2),neutral,2,2019-12-13,206,253,44,52
+Occult Invocation,seeker,0,2020-08-28,149,283,14,22
+A Test of Will,survivor,0,2020-08-28,165,297,5,7
+Wolf Mask,guardian,0,2023-02-16,198,289,9,14
+Emergency Cache (3),neutral,3,2018-01-25,111,172,80,131
+Tennessee Sour Mash,rogue,0,2019-03-14,175,280,12,20
+Empirical Hypothesis,seeker,0,2022-09-30,173,281,13,18
+"""Get over here!""",guardian,0,2020-08-28,163,292,4,6
+Sharp Vision (1),survivor,1,2020-01-10,94,179,62,116
+Swift Reflexes,rogue,0,2019-04-04,160,284,7,11
+Trial by Fire,survivor,0,2019-07-05,154,287,4,7
+Waylay,survivor,0,2018-01-25,171,280,8,12
+Daring Maneuver,rogue,0,2017-09-14,161,286,4,6
+Cryptic Research (4),seeker,4,2016-11-10,99,167,70,123
+Perseverance,survivor,0,2018-06-14,182,283,5,6
+First Watch,guardian,0,2019-11-15,148,259,17,30
+Prophesy,mystic,0,2019-01-31,154,286,1,2
+Streetwise (3),rogue,3,2017-04-13,188,192,88,93
+Medical Student,guardian,0,2021-09-10,160,266,12,17
+Heroic Rescue,guardian,0,2017-10-26,165,274,5,8
+"""I've had worse…"" (2)",guardian,2,2019-07-26,95,170,64,110
+Friends in Low Places,rogue,0,2022-09-30,130,241,23,36
+Lucky Cigarette Case (3),rogue,3,2020-08-28,87,135,85,142
+Arcane Enlightenment,seeker,0,2020-08-28,175,261,10,15
+Dream-Enhancing Serum,seeker,0,2019-12-13,172,266,8,9
+Trusted,guardian,0,2018-05-10,156,267,6,8
+Short Supply,survivor,0,2021-09-10,266,266,7,7
+Alchemical Transmutation,mystic,0,2017-09-14,154,261,7,12
+Whitton Greene,seeker,0,2020-08-28,156,260,10,12
+"""I'm outta here!""",rogue,0,2017-03-16,212,261,8,10
+Dario El-Amin,rogue,0,2017-11-24,156,259,9,11
+Heavy Furs,neutral,0,2021-09-10,161,256,9,13
+Motivational Speech,guardian,0,2022-09-30,139,257,4,7
+Charon's Obol (1),rogue,1,2018-03-22,205,205,59,59
+True Understanding,seeker,0,2018-07-19,139,249,10,15
+Moonstone,survivor,0,2020-01-10,161,256,5,7
+Mauser C96,rogue,0,2020-08-28,139,248,9,15
+Forewarned (1),seeker,1,2017-11-24,95,158,61,104
+Eon Chart (1),seeker,1,2021-09-10,74,114,89,148
+Connect the Dots,seeker,0,2019-01-31,150,252,6,10
+Jessica Hyde (1),survivor,1,2019-11-15,109,182,50,79
+Newspaper,survivor,0,2017-03-16,163,251,5,9
+Flesh Ward,guardian,0,2020-08-28,150,249,7,10
+Rite of Sanctification,guardian,0,2020-10-02,134,253,3,6
+Prescient,mystic,0,2020-08-28,135,251,6,8
+Cornered (2),survivor,2,2018-07-19,120,206,31,52
+Overpower (2),guardian,2,2020-08-28,61,109,80,148
+Four of Cups (1),mystic,1,2019-01-31,163,202,44,54
+Pilfer,rogue,0,2020-08-28,144,237,11,19
+Shrewd Analysis,seeker,0,2018-06-14,245,245,8,8
+Run For Your Life,neutral,0,2017-10-26,149,244,5,8
+Lola Santiago (3),rogue,3,2018-08-16,96,147,67,104
+Solemn Vow,guardian,0,2019-09-27,102,239,5,8
+Grim Memoir,seeker,0,2022-09-30,128,238,7,9
+Lucky! (3),survivor,3,2020-08-28,54,100,76,144
+Favor of the Sun (1),neutral,1,2021-03-19,82,148,56,96
+Ice Pick (3),seeker,3,2021-09-10,60,110,75,134
+Higher Education (3),seeker,3,2017-04-13,143,148,89,95
+A Chance Encounter,survivor,0,2017-06-08,133,232,5,10
+Monster Slayer,guardian,0,2020-08-28,125,236,3,5
+Small Favor,rogue,0,2019-07-05,130,231,6,10
+Scroll of Prophecies,mystic,0,2019-11-15,138,234,6,7
+Sweeping Kick (1),guardian,1,2021-09-10,86,146,55,92
+Teamwork,guardian,0,2017-01-12,170,236,2,2
+Astral Travel,mystic,0,2017-09-14,182,231,4,6
+Plan of Action,seeker,0,2020-10-02,113,211,16,26
+Anatomical Diagrams,seeker,0,2017-10-26,135,230,4,7
+"""I'll take that!""",rogue,0,2022-09-30,130,217,13,19
+Something Worth Fighting For,guardian,0,2019-03-14,147,227,7,9
+Switchblade (2),rogue,2,2017-03-16,107,171,38,65
+Curiosity,seeker,0,2019-01-31,121,220,9,15
+Dream Diary,seeker,0,2019-11-15,134,218,12,16
+Will to Survive (3),survivor,3,2016-11-10,102,154,50,80
+Down the Rabbit Hole,mystic,0,2021-09-10,222,222,9,9
+Enchant Weapon (3),guardian,3,2021-03-19,73,108,75,123
+Police Badge (2),guardian,2,2016-11-10,103,149,51,82
+Counterpunch,guardian,0,2020-08-28,121,225,3,5
+Bandolier (2),guardian,2,2019-01-10,95,138,59,92
+Kukri,neutral,0,2017-01-12,154,227,1,2
+Reliable (1),guardian,1,2018-05-10,95,161,43,67
+Brand of Cthugha (4),guardian,4,2021-09-10,45,76,83,152
+Vantage Point,seeker,0,2018-11-15,129,223,4,5
+At a Crossroads (1),survivor,1,2022-09-30,89,160,38,64
+Shrivelling (3),mystic,3,2017-03-16,84,133,54,91
+"Another Day, Another Dollar (3)",rogue,3,2019-07-05,73,110,70,113
+Black Market (2),rogue,2,2021-09-10,75,130,57,90
+Ward of Radiance,mystic,0,2020-10-02,110,208,7,12
+Hiking Boots (1),seeker,1,2021-09-10,81,108,78,109
+Gumption (1),survivor,1,2022-09-30,59,109,56,107
+Haste (2),rogue,2,2020-02-07,96,124,65,91
+Dragon Pole,mystic,0,2021-09-10,113,213,0,0
+Ornate Bow (3),neutral,3,2018-08-16,97,167,27,45
+Prophetic (3),guardian,3,2021-09-10,59,97,70,115
+Truth from Fiction,seeker,0,2018-07-19,117,199,8,11
+Death • XIII (1),seeker,1,2019-01-31,124,150,45,59
+Shed a Light,survivor,0,2022-09-30,87,172,19,36
+"""Not without a fight!""",survivor,0,2018-02-22,118,205,2,3
+Blessed Blade,guardian,0,2020-10-02,109,204,2,2
+Sign Magick,mystic,0,2019-03-14,125,196,7,10
+Thieves' Kit,rogue,0,2022-09-30,106,187,10,18
+Scavenging (2),survivor,2,2020-06-05,73,120,51,85
+Grotesque Statue (4),mystic,4,2016-11-10,96,140,40,65
+Eucatastrophe (3),survivor,3,2019-07-26,57,98,60,106
+Fearless (2),mystic,2,2017-06-08,61,99,55,103
+Guts (2),mystic,2,2020-08-28,42,77,66,124
+Long Shot,survivor,0,2023-02-16,96,186,9,15
+Boxing Gloves,guardian,0,2020-08-28,109,199,1,2
+Eavesdrop,rogue,0,2018-05-10,114,200,1,1
+Cat Burglar (1),rogue,1,2020-10-01,91,139,37,62
+Gregory Gry,rogue,0,2019-12-13,114,183,11,18
+Cunning,rogue,0,2019-01-31,105,194,3,5
+Safeguard (2),guardian,2,2020-01-10,54,76,83,122
+Brother Xavier (1),guardian,1,2017-02-16,87,149,32,49
+Investments,rogue,0,2019-06-06,123,191,4,6
+Deny Existence (5),mystic,5,2019-07-05,41,67,76,129
+Eon Chart (4),seeker,4,2021-09-10,32,48,91,148
+Leather Jacket,rogue,0,2020-08-28,118,188,6,8
+Decorated Skull,rogue,0,2018-05-10,123,193,3,3
+Obfuscation,rogue,0,2020-10-02,113,183,8,12
+Living Ink,mystic,0,2022-09-30,94,176,11,18
+Favor of the Moon (1),neutral,1,2021-03-19,84,144,31,49
+Ethereal Form,mystic,0,2019-12-13,115,180,9,12
+Sledgehammer,guardian,0,2021-09-10,106,183,5,8
+Well Prepared (2),guardian,2,2018-07-19,81,133,41,58
+String of Curses,mystic,0,2022-09-30,96,182,5,8
+Grisly Totem (3),seeker,3,2019-05-02,78,106,54,84
+Pocket Telescope,seeker,0,2021-09-10,128,177,7,12
+Coup de Grâce,rogue,0,2018-10-11,106,175,8,14
+Crafty (3),seeker,3,2021-09-10,50,77,68,111
+True Survivor (3),survivor,3,2018-02-22,70,113,45,75
+Hiding Spot,survivor,0,2017-09-14,117,185,1,2
+Decoy,rogue,0,2019-06-06,103,183,3,4
+Strange Solution (4),seeker,4,2019-01-10,45,66,72,118
+Jury-Rig,survivor,0,2021-09-10,105,178,3,6
+Unearth the Ancients,seeker,0,2018-05-10,101,178,4,6
+.25 Automatic,rogue,0,2020-10-02,98,170,8,14
+Bait and Switch,survivor,0,2017-01-12,109,180,2,4
+Archaic Glyphs (3),seeker,3,2017-12-21,67,100,54,83
+Hunter's Armor,guardian,0,2022-09-30,83,157,15,26
+Bank Job,rogue,0,2023-02-16,101,165,10,17
+Whitton Greene (2),seeker,2,2020-08-28,58,100,52,82
+Book of Psalms,guardian,0,2020-10-02,102,175,6,7
+Flare (1),survivor,1,2017-02-16,82,135,27,46
+Ace of Swords (1),guardian,1,2019-01-31,108,121,45,60
+Call for Backup (2),neutral,2,2021-09-10,50,85,57,96
+Flashlight (3),neutral,3,2022-09-30,41,76,55,103
+Three Aces (1),rogue,1,2020-01-10,44,132,16,46
+Streetwise,rogue,0,2020-08-28,111,163,10,15
+Familiar Spirit,mystic,0,2020-08-28,97,170,4,6
+Divination (1),seeker,1,2021-09-10,50,81,55,95
+Ancient Stone (4),seeker,4,2018-09-13,59,101,42,75
+"""Look what I found!"" (2)",survivor,2,2020-08-28,41,79,51,96
+Jeremiah Kirby,seeker,0,2021-09-10,94,148,21,27
+Timeworn Brand (5),neutral,5,2018-10-11,74,109,43,66
+Armageddon,mystic,0,2020-11-06,97,168,4,7
+Delilah O'Rourke (3),rogue,3,2020-03-06,65,98,47,76
+A Chance Encounter (2),survivor,2,2018-01-25,74,125,31,49
+Well-Maintained (1),guardian,1,2019-04-04,78,131,26,43
+Impromptu Barrier,survivor,0,2018-11-15,101,167,5,7
+Sixth Sense (4),mystic,4,2019-07-26,62,99,43,74
+Cheat the System (1),rogue,1,2021-09-10,63,109,37,64
+Cyclopean Hammer (5),guardian,5,2021-09-10,45,74,54,98
+High Roller (2),rogue,2,2018-07-19,85,134,23,37
+Holy Rosary (2),guardian,2,2021-02-19,41,67,61,103
+Belly of the Beast,survivor,0,2019-04-04,91,163,4,7
+Mysterious Raven,survivor,0,2020-08-28,82,149,16,20
+Survival Knife (2),guardian,2,2020-08-07,61,102,37,67
+Oops!,survivor,0,2017-02-16,102,167,1,2
+Close the Circle (1),mystic,1,2021-09-10,67,127,26,42
+Scrying Mirror,mystic,0,2020-08-28,98,160,6,8
+Hand of Fate,guardian,0,2020-10-02,92,162,2,4
+Power Word,mystic,0,2022-09-30,64,143,16,23
+Spirit of Humanity (2),survivor,2,2021-02-19,58,98,43,66
+Shrivelling (5),mystic,5,2017-07-06,54,88,44,76
+Breach the Door,guardian,0,2022-09-30,87,154,5,8
+Ace in the Hole (3),rogue,3,2017-06-08,90,90,71,71
+Mariner's Compass,survivor,0,2020-11-06,85,156,2,4
+"Charles Ross, Esq.",seeker,0,2017-11-24,90,157,2,3
+Counterespionage (1),rogue,1,2021-09-10,55,84,44,76
+Eldritch Sophist,seeker,0,2020-11-06,84,147,8,12
+Shortcut (2),seeker,2,2018-01-25,56,89,41,69
+Analysis,seeker,0,2022-09-30,80,152,5,6
+Granny Orne,survivor,0,2020-08-28,85,145,9,13
+Sacrifice (1),mystic,1,2018-09-13,67,110,27,47
+Plucky (3),survivor,3,2021-09-10,45,65,62,92
+Thermos,neutral,0,2018-10-11,110,151,5,6
+Old Keyring (3),survivor,3,2022-09-30,47,84,40,72
+Fox Mask,rogue,0,2023-02-16,106,149,4,6
+Matchbox,survivor,0,2023-02-16,82,139,10,15
+Encyclopedia (2),seeker,2,2020-10-01,84,112,28,41
+Chainsaw (4),survivor,4,2020-08-28,49,89,36,63
+Divination (4),seeker,4,2021-09-10,31,49,57,103
+Eye of Chaos,mystic,0,2020-11-06,81,148,3,3
+Adaptable (1),rogue,1,2017-02-16,93,109,39,42
+Guard Dog (2),guardian,2,2022-09-30,36,65,44,84
+Gené Beauregard (3),seeker,3,2021-09-10,34,49,69,100
+Leadership,guardian,0,2017-06-08,81,139,5,10
+Sparrow Mask,survivor,0,2023-02-16,100,134,9,14
+Astronomical Atlas (3),mystic,3,2021-09-10,63,107,24,41
+Alter Fate (3),survivor,3,2018-11-15,39,53,55,95
+Ethereal Slip,rogue,0,2021-09-10,90,131,10,16
+Mind's Eye (2),mystic,2,2020-06-05,45,134,5,13
+Able Bodied,survivor,0,2019-01-31,77,144,2,3
+Encyclopedia,seeker,0,2020-08-28,88,142,4,5
+Bulletproof Vest (3),neutral,3,2016-11-10,83,107,27,40
+Rod of Animalism (1),neutral,1,2021-09-10,67,109,23,37
+Captivating Discovery,seeker,0,2022-09-30,71,137,6,9
+Key of Ys (5),neutral,5,2018-03-22,63,82,51,64
+Elder Sign Amulet (3),neutral,3,2016-11-10,74,94,37,52
+Disc of Itzamna,seeker,0,2020-08-28,78,134,7,11
+Bizarre Diagnosis,seeker,0,2022-09-30,82,134,7,10
+Cryptic Writings (2),seeker,2,2020-08-28,26,47,51,97
+.41 Derringer (2),rogue,2,2018-01-25,50,81,33,63
+Stealth,rogue,0,2017-09-14,91,138,4,6
+No Stone Unturned (5),seeker,5,2018-03-22,43,75,39,68
+Seeking Answers (2),seeker,2,2020-08-28,31,55,50,87
+The Raven Quill,seeker,0,2022-09-30,73,121,13,21
+On the Hunt (3),guardian,3,2021-09-10,23,31,66,110
+Disc of Itzamna (2),seeker,2,2016-11-10,67,97,27,44
+Spirit Athame (1),mystic,1,2017-09-14,67,112,18,29
+Sure Gamble (3),rogue,3,2016-11-10,64,89,30,52
+Honed Instinct,rogue,0,2022-09-30,59,117,14,23
+Radiant Smite (1),guardian,1,2020-12-04,37,67,39,73
+Handcuffs,guardian,0,2018-10-11,82,131,5,9
+Geared Up,guardian,0,2021-09-10,136,136,3,3
+Summoned Hound (1),mystic,1,2020-03-06,57,102,24,37
+Torrent of Power,mystic,0,2018-01-25,76,136,2,3
+Grete Wagner (3),guardian,3,2020-08-28,37,61,47,77
+Manual Dexterity (2),rogue,2,2020-08-28,37,61,42,76
+Written in the Stars,seeker,0,2021-09-10,74,131,4,6
+Blur (1),rogue,1,2021-09-10,53,75,38,61
+Crystalline Elder Sign (3),mystic,3,2018-09-13,55,87,35,49
+The Moon • XVIII (1),rogue,1,2019-01-31,80,101,26,34
+Bruiser (3),guardian,3,2021-09-10,36,59,48,76
+Dream Diary (3),seeker,3,2020-02-07,44,52,51,82
+In the Know (1),seeker,1,2017-09-14,60,101,23,33
+Cryptographic Cipher,seeker,0,2020-10-02,70,122,6,11
+Pushed to the Limit,survivor,0,2023-02-16,70,125,5,7
+Grit Your Teeth,survivor,0,2020-08-28,67,123,5,9
+The Red Clock (2),rogue,2,2021-09-10,50,50,81,81
+Rite of Seeking (2),mystic,2,2020-10-01,40,63,38,68
+Miss Doyle (1),survivor,1,2019-09-27,104,104,26,26
+Underworld Support,rogue,0,2021-09-10,128,128,2,2
+Ancestral Token,guardian,0,2023-02-16,72,122,5,8
+Girish Kadakia (4),guardian,4,2022-09-30,44,70,39,60
+.35 Winchester,guardian,0,2020-01-10,69,127,3,3
+Ineffable Truth,mystic,0,2020-08-28,81,128,2,2
+Sledgehammer (4),guardian,4,2021-09-10,33,55,46,74
+Stirring Up Trouble (1),seeker,1,2020-11-06,37,65,36,64
+Forced Learning,seeker,0,2021-09-10,126,126,2,2
+Momentum (1),rogue,1,2019-11-15,47,79,28,49
+Quick Study (2),seeker,2,2018-07-19,41,70,33,58
+Pay Day (1),rogue,1,2018-09-13,45,75,30,53
+Granny Orne (3),survivor,3,2020-08-28,39,63,36,65
+"Joey ""The Rat"" Vigil",rogue,0,2017-06-08,78,120,4,7
+Song of the Dead (2),mystic,2,2017-02-16,62,102,16,25
+Dirty Fighting (2),rogue,2,2022-09-30,67,76,39,50
+Old Book of Lore (3),seeker,3,2020-03-06,43,68,36,58
+Hyperphysical Shotcaster,neutral,0,2022-09-30,55,101,14,25
+Stargazing (1),mystic,1,2019-09-27,46,72,31,54
+Strength in Numbers (1),survivor,1,2021-09-10,35,62,33,64
+A Test of Will (1),survivor,1,2017-11-24,54,94,18,31
+Scroll of Secrets (3),seeker,3,2019-05-02,42,70,31,55
+Ancient Covenant (2),survivor,2,2020-11-06,83,83,42,42
+Dayana Esperence (3),mystic,3,2019-07-05,50,84,23,41
+21 or Bust,rogue,0,2021-09-10,79,120,4,5
+Dumb Luck,survivor,0,2018-05-10,73,118,4,7
+Relentless,guardian,0,2020-08-28,71,118,4,6
+Scrapper (3),survivor,3,2017-04-13,77,79,41,45
+Grizzled,survivor,0,2022-09-30,52,104,11,20
+The Red-Gloved Man (5),neutral,5,2017-07-06,49,77,28,47
+Enchanted Blade (3),guardian,3,2019-05-02,43,72,29,52
+Pocket Multi Tool,survivor,0,2022-09-30,67,114,5,9
+Gang Up (1),guardian,1,2021-09-10,44,79,25,43
+Foresight (1),mystic,1,2021-09-10,37,68,29,54
+Exploit Weakness,survivor,0,2022-09-30,58,110,7,12
+Custom Modifications,guardian,0,2022-09-30,64,106,10,15
+Persuasion,seeker,0,2018-06-14,71,115,4,6
+Tinker,guardian,0,2023-02-16,66,114,4,6
+Mouse Mask,seeker,0,2023-02-16,83,113,6,7
+British Bull Dog,rogue,0,2023-02-16,65,112,6,8
+Disguise,rogue,0,2022-09-30,70,108,9,12
+Refine,neutral,0,2022-09-30,82,103,14,17
+Daredevil,rogue,0,2020-08-28,62,115,3,3
+Survey the Area (1),seeker,1,2021-09-10,24,40,43,76
+Preposterous Sketches (2),seeker,2,2019-01-10,34,60,31,56
+Grift,rogue,0,2023-02-16,63,107,6,8
+Riot Whistle,guardian,0,2020-11-06,66,108,4,6
+Sign Magick (3),mystic,3,2021-06-24,38,65,28,48
+Field Agent (2),guardian,2,2022-09-30,37,65,27,48
+Higher Education,seeker,0,2020-08-28,71,104,8,9
+.45 Automatic (2),guardian,2,2017-12-21,44,66,25,47
+Strong-Armed (1),guardian,1,2023-02-16,27,49,35,63
+Hidden Pocket,rogue,0,2022-09-30,61,95,13,17
+Keen Eye (3),guardian,3,2017-04-13,62,64,44,48
+Jewel of Aureolus (3),mystic,3,2017-06-08,61,70,30,42
+.45 Thompson (3),rogue,3,2019-05-02,37,64,26,48
+Cleaning Kit,guardian,0,2023-02-16,57,103,6,8
+"Double, Double (4)",rogue,4,2019-07-26,67,67,44,44
+Occult Theory (1),mystic,1,2021-09-10,30,49,35,62
+Lupara (3),rogue,3,2018-03-22,44,72,23,39
+Earthly Serenity (1),mystic,1,2021-09-10,38,54,41,57
+Fey (1),seeker,1,2021-02-19,29,53,31,58
+Makeshift Trap,survivor,0,2022-09-30,50,98,7,12
+Read the Signs (2),mystic,2,2023-02-16,31,52,33,58
+Spectral Razor (2),mystic,2,2023-02-16,25,46,36,64
+Thorough Inquiry,seeker,0,2023-02-16,68,105,5,5
+Opportunist (2),rogue,2,2017-05-11,35,57,28,53
+Boxing Gloves (3),guardian,3,2020-08-28,42,74,21,36
+Seal of the Elder Sign (5),mystic,5,2018-03-22,31,51,32,58
+Research Notes,seeker,0,2022-09-30,55,107,2,2
+Signum Crucis (2),survivor,2,2021-01-08,46,89,10,19
+.25 Automatic (2),rogue,2,2021-05-21,35,62,25,46
+Cat Mask,mystic,0,2023-02-16,72,103,2,4
+Counterpunch (2),guardian,2,2020-08-28,31,58,28,48
+Dynamite Blast (3),guardian,3,2020-08-28,26,37,48,69
+Enchanted Bow (2),mystic,2,2021-09-10,39,61,26,45
+Mauser C96 (2),rogue,2,2020-08-28,30,53,29,53
+Quick Learner (4),survivor,4,2020-08-28,28,54,31,52
+Surprising Find (1),seeker,1,2020-03-06,21,63,16,43
+Trench Knife,guardian,0,2017-11-24,61,106,0,0
+Self-Sacrifice,guardian,0,2019-12-13,56,99,4,6
+Sneak Attack (2),rogue,2,2017-11-24,38,63,24,42
+Tool Belt,neutral,0,2022-09-30,59,93,7,11
+Unearth the Ancients (2),seeker,2,2021-09-10,33,51,28,53
+Map the Area,seeker,0,2022-09-30,54,99,4,5
+Fence (1),rogue,1,2018-06-14,49,80,16,24
+Extensive Research,seeker,0,2020-08-28,53,99,3,5
+Blessing of Isis (3),guardian,3,2021-01-08,30,47,34,57
+Shotgun (4),guardian,4,2016-11-10,49,66,23,38
+Hot Streak (2),rogue,2,2018-06-28,42,70,21,34
+Celaeno Fragments,seeker,0,2020-08-28,65,101,2,2
+Miskatonic Archaeology Funding (4),seeker,4,2020-08-28,54,54,49,49
+Breaking and Entering (2),rogue,2,2022-09-30,31,44,34,59
+Colt Vest Pocket,rogue,0,2018-10-11,60,99,2,4
+"""Let God sort them out...""",rogue,0,2019-12-13,66,92,6,10
+Ancient Stone (1),seeker,1,2018-05-10,38,67,20,34
+Professor William Webb,seeker,0,2021-09-10,63,94,5,6
+Righteous Hunt (1),guardian,1,2020-11-06,27,44,31,56
+Blackjack,guardian,0,2017-01-12,69,98,1,2
+"""I'll see you in hell!""",guardian,0,2017-12-21,73,98,1,2
+Hallowed Mirror (3),guardian,3,2021-06-24,46,46,53,53
+Unscrupulous Loan (3),rogue,3,2021-09-10,40,47,43,52
+Ancestral Knowledge (3),seeker,3,2021-05-21,39,39,60,60
+Chuck Fergus (5),rogue,5,2020-08-28,29,42,36,57
+"""I've got a plan!"" (2)",seeker,2,2020-08-28,26,40,33,58
+First Aid (3),guardian,3,2018-01-25,35,53,25,45
+Priest of Two Faiths (1),rogue,1,2020-12-04,36,62,22,36
+Nephthys (4),guardian,4,2021-03-19,28,41,36,57
+Savant (1),rogue,1,2021-09-10,34,55,26,43
+Yaotl (1),survivor,1,2018-05-10,51,89,5,9
+Obsidian Bracelet,guardian,0,2022-09-30,48,91,5,7
+Guidance,seeker,0,2018-02-22,59,94,3,3
+Mind over Matter (2),seeker,2,2020-08-28,24,41,34,56
+Interrogate,guardian,0,2019-01-31,55,95,2,2
+Salvage (2),survivor,2,2022-09-30,37,58,24,39
+Hemispheric Map (3),neutral,3,2018-10-11,37,61,22,35
+Blood Pact (3),mystic,3,2017-04-13,61,69,25,27
+Ghastly Possession (1),mystic,1,2022-09-30,30,56,22,40
+Rite of Seeking (4),mystic,4,2017-05-11,28,42,31,54
+Parallel Fates (2),mystic,2,2021-09-10,24,41,30,54
+"""Get over here!"" (2)",guardian,2,2020-08-28,22,41,32,54
+Beloved,survivor,0,2020-10-02,47,90,3,5
+Eye of the Djinn (2),rogue,2,2021-02-19,50,50,45,45
+Meditative Trance,mystic,0,2021-09-10,59,95,0,0
+"""Get behind me!""",guardian,0,2021-09-10,56,88,5,6
+Sacred Covenant (2),guardian,2,2020-11-06,54,54,40,40
+Chemistry Set,seeker,0,2023-02-16,49,90,3,4
+Blessed Blade (4),guardian,4,2023-02-16,25,45,27,48
+Fang of Tyr'thrha (4),guardian,4,2021-09-10,21,35,39,58
+"""I've had worse…"" (4)",guardian,4,2017-06-08,29,42,30,50
+Ice Pick (1),seeker,1,2021-09-10,31,55,23,37
+Drain Essence,mystic,0,2023-02-16,45,78,9,14
+Steady-Handed (1),seeker,1,2023-02-16,41,60,21,32
+Defensive Stance (1),guardian,1,2021-09-10,21,32,33,59
+Nothing Left to Lose (3),survivor,3,2020-03-06,38,62,16,29
+The Star • XVII (3),guardian,3,2021-06-24,41,51,31,40
+On Your Own (3),survivor,3,2020-08-07,57,68,18,22
+Lesson Learned (2),guardian,2,2020-08-28,14,27,36,62
+Ariadne's Twine (3),seeker,3,2021-05-21,36,46,29,43
+Pilfer (3),rogue,3,2020-08-28,30,44,26,45
+Counterspell (2),mystic,2,2018-06-14,37,60,18,29
+.18 Derringer (2),survivor,2,2020-08-28,26,48,22,41
+Mano a Mano (2),guardian,2,2020-08-28,18,31,32,57
+Press Pass (2),seeker,2,2022-09-30,29,48,24,40
+Time Warp (2),mystic,2,2018-03-22,32,49,25,39
+Intrepid,guardian,0,2018-08-16,54,86,1,2
+Knuckleduster,rogue,0,2017-10-26,53,88,0,0
+Uncage the Soul (3),mystic,3,2022-09-30,13,23,35,64
+Hit and Run,rogue,0,2022-09-30,45,84,2,3
+"""Hit me!""",rogue,0,2021-09-10,54,81,4,6
+Summoned Servitor,mystic,0,2022-09-30,42,74,8,13
+Chicago Typewriter (4),rogue,4,2017-07-06,36,62,15,25
+Recall the Future (2),mystic,2,2018-07-19,34,57,19,29
+Word of Command (2),mystic,2,2020-01-10,37,58,19,28
+Lucid Dreaming (2),neutral,2,2020-01-10,31,55,18,31
+One in the Chamber,guardian,0,2022-09-30,46,82,3,4
+Flamethrower (5),guardian,5,2018-11-15,36,65,12,21
+Old Hunting Rifle (3),survivor,3,2018-10-11,35,64,12,22
+"Joey ""The Rat"" Vigil (3)",rogue,3,2020-06-05,34,54,18,31
+Predestined,survivor,0,2020-10-02,41,77,5,8
+Well Connected (3),rogue,3,2021-06-24,27,36,30,49
+Occult Reliquary (3),neutral,3,2023-02-16,35,35,49,49
+The Skeleton Key (2),rogue,2,2018-10-11,42,42,42,42
+Defiance (2),mystic,2,2018-08-16,26,43,24,41
+Snitch (2),rogue,2,2023-02-16,23,43,24,41
+Pitchfork,survivor,0,2023-02-16,42,77,4,6
+Fire Extinguisher (3),survivor,3,2021-09-10,21,33,30,50
+The Necronomicon (5),seeker,5,2020-08-28,49,49,34,34
+On the Trail (3),guardian,3,2021-09-10,12,14,42,69
+Book of Shadows (3),mystic,3,2016-11-10,45,62,13,21
+Dowsing Rod,mystic,0,2022-09-30,45,77,3,6
+Eldritch Tongue,neutral,0,2023-02-16,51,78,3,5
+Newspaper (2),survivor,2,2018-03-22,31,49,18,34
+Armageddon (4),mystic,4,2021-02-19,23,39,27,44
+Damning Testimony,rogue,0,2022-09-30,40,76,5,6
+Michael Leigh (5),guardian,5,2021-09-10,25,36,30,46
+Backstab (3),rogue,3,2020-08-28,22,31,28,51
+Recharge (2),mystic,2,2017-12-21,36,57,14,25
+Scrapper,survivor,0,2020-08-28,49,75,3,6
+"""Fool me once..."" (1)",guardian,1,2019-12-13,32,49,21,32
+Bangle of Jinxes (1),survivor,1,2021-09-10,32,57,14,24
+Prepared for the Worst (2),guardian,2,2022-09-30,20,25,40,56
+Vamp (3),rogue,3,2023-02-16,22,42,22,39
+Ceremonial Sickle,mystic,0,2022-09-30,45,79,2,2
+Blasphemous Covenant (2),seeker,2,2020-11-06,45,45,36,36
+Custom Ammunition (3),guardian,3,2018-08-16,41,54,21,27
+Clairvoyance (5),mystic,5,2020-08-28,24,39,23,41
+Parallel Fates,mystic,0,2020-08-28,45,78,1,2
+Scientific Theory (3),seeker,3,2021-09-10,25,33,34,47
+Clairvoyance (3),mystic,3,2020-08-28,19,32,27,48
+Earthly Serenity (4),mystic,4,2021-09-10,12,15,43,65
+Protective Incantation (1),mystic,1,2018-05-10,41,67,9,13
+Stroke of Luck (2),survivor,2,2017-06-08,25,42,20,38
+Shrine of the Moirai (3),survivor,3,2021-05-21,31,50,17,29
+Embezzled Treasure,rogue,0,2022-09-30,50,64,9,15
+Butterfly Swords (2),guardian,2,2021-09-10,25,47,17,32
+Blinding Light (2),mystic,2,2016-11-10,39,53,13,25
+Lightning Gun (5),guardian,5,2017-07-06,33,48,18,30
+Winds of Power (1),mystic,1,2021-09-10,26,40,24,38
+Close Call (2),survivor,2,2016-11-10,33,45,20,33
+Stylish Coat (1),rogue,1,2022-09-30,39,53,14,24
+Will to Survive,survivor,0,2020-08-28,38,69,5,8
+Hunting Jacket (2),survivor,2,2023-02-16,21,30,27,46
+The Black Fan (3),rogue,3,2021-09-10,31,31,45,45
+Survival Instinct (2),survivor,2,2017-05-11,24,42,19,34
+Hallowed Chalice,mystic,0,2022-09-30,51,73,2,2
+Unexpected Courage (2),survivor,2,2020-08-28,13,25,27,50
+Grimm's Fairy Tales,survivor,0,2020-08-28,45,71,3,4
+Explosive Ward,mystic,0,2022-09-30,37,72,2,3
+Robes of Endless Night (2),mystic,2,2020-08-28,27,41,20,34
+A Test of Will (2),survivor,2,2020-08-28,16,28,25,47
+Eye of Chaos (4),mystic,4,2021-02-19,16,26,28,49
+Underworld Market (2),rogue,2,2022-09-30,49,49,25,25
+End of the Road,survivor,0,2022-09-30,37,66,5,8
+Marksmanship (1),guardian,1,2018-06-14,36,60,7,14
+Feed the Mind,seeker,0,2020-08-28,43,70,3,4
+Arcane Initiate (3),mystic,3,2018-02-22,23,36,20,38
+Cheap Shot (2),rogue,2,2020-08-28,21,30,25,44
+Seal of the Seventh Sign (5),mystic,5,2018-11-15,36,49,17,24
+On the Trail (1),guardian,1,2021-09-10,12,16,34,57
+Join the Caravan (1),seeker,1,2021-09-10,20,33,22,40
+Storm of Spirits (3),mystic,3,2019-09-06,20,34,26,39
+Empower Self (2),mystic,2,2020-02-07,67,67,6,6
+One-Two Punch (5),guardian,5,2020-08-28,17,26,29,46
+Aquinnah (3),survivor,3,2017-07-06,21,35,24,37
+Eyes of the Dreamer,mystic,0,2025-02-07,39,71,1,1
+Observed (4),neutral,4,2021-06-24,24,24,48,48
+Moxie (3),rogue,3,2021-09-10,15,20,37,52
+Leadership (2),guardian,2,2020-02-07,25,42,18,30
+Evidence! (1),guardian,1,2020-08-28,17,28,25,43
+Blood Pact,mystic,0,2020-12-04,41,63,6,8
+Dr. William T. Maleson (2),seeker,2,2022-09-30,20,34,21,37
+"""You owe me one!""",rogue,0,2019-07-26,41,67,2,4
+Followed,rogue,0,2019-11-15,38,65,3,6
+Extensive Research (1),seeker,1,2020-01-10,21,37,17,33
+Alchemical Distillation,seeker,0,2022-09-30,28,54,11,16
+Liquid Courage (1),rogue,1,2020-08-28,35,46,14,24
+Wither (4),mystic,4,2019-07-26,28,43,17,27
+Ward of Protection (5),mystic,5,2017-07-06,11,20,27,50
+Astral Mirror (2),mystic,2,2022-09-30,30,48,13,21
+Bewitching (3),rogue,3,2023-02-16,37,37,32,32
+Fingerprint Kit (4),seeker,4,2022-09-30,18,29,23,39
+Cherished Keepsake (1),survivor,1,2020-08-28,22,38,18,30
+Healing Words,mystic,0,2019-12-13,44,64,3,4
+Aquinnah (1),survivor,1,2020-10-01,38,56,10,11
+Vamp,rogue,0,2023-02-16,34,60,4,7
+Eldritch Initiation,mystic,0,2022-09-30,34,64,1,2
+The Key of Solomon (4),mystic,4,2023-02-16,15,20,27,46
+The Red Clock (5),rogue,5,2021-09-10,16,16,50,50
+Stir the Pot,rogue,0,2023-02-16,35,57,5,9
+Protective Gear (2),guardian,2,2021-09-10,13,21,29,45
+Tennessee Sour Mash (3),rogue,3,2019-05-02,22,33,20,33
+Protecting the Anirniq (2),seeker,2,2021-09-10,18,33,22,32
+"""Where's the party?""",rogue,0,2025-02-07,37,60,3,5
+Grotesque Statue (2),mystic,2,2020-08-28,16,24,28,41
+De Vermis Mysteriis (2),mystic,2,2019-06-06,31,47,14,18
+Dissection Tools,seeker,0,2022-09-30,37,61,4,4
+Antiquary (3),seeker,3,2021-09-10,27,44,16,21
+Alter Fate (1),survivor,1,2020-08-07,18,25,25,40
+The Eye of Truth (5),seeker,5,2020-06-05,15,22,26,42
+Purified,guardian,0,2023-02-16,35,62,1,2
+Pelt Shipment,survivor,0,2023-02-16,30,48,9,16
+Spectral Shield,mystic,0,2025-02-07,35,62,1,2
+Persistence (1),survivor,1,2023-02-16,18,30,19,34
+The Gold Pocket Watch (4),rogue,4,2017-07-06,31,31,33,33
+Swift Reload (2),rogue,2,2019-12-13,25,42,12,22
+Scrying (3),mystic,3,2018-01-25,19,33,16,31
+Cleaning Kit (3),guardian,3,2023-02-16,17,29,17,34
+Hand-Eye Coordination (1),guardian,1,2023-02-16,14,28,20,35
+Olive McBride (2),mystic,2,2023-02-16,17,29,19,34
+Geas (2),rogue,2,2021-03-19,37,37,26,26
+Elle Rubash (2),mystic,2,2022-09-30,20,34,15,29
+Task Force,guardian,0,2023-02-16,34,60,2,3
+Precious Memento (4),rogue,4,2021-09-10,21,21,42,42
+Five of Pentacles (1),survivor,1,2019-01-31,32,49,9,14
+Nkosi Mabati (3),guardian,3,2021-09-10,22,31,22,32
+Idol of Xanatos,survivor,0,2022-09-30,40,59,3,3
+Holy Spear (5),guardian,5,2021-05-21,16,26,22,36
+Binder's Jar (1),mystic,1,2022-09-30,31,47,10,15
+Well-Dressed,neutral,0,2023-02-16,33,56,3,6
+Glimpse the Unthinkable (1),seeker,1,2020-08-28,27,43,10,19
+Eidetic Memory (3),seeker,3,2018-03-22,29,43,12,19
+Hired Muscle (1),rogue,1,2017-01-12,29,53,5,9
+Rabbit's Foot (3),survivor,3,2018-06-28,20,33,16,29
+Ever Vigilant (4),guardian,4,2022-09-30,14,15,38,46
+Combat Training (3),guardian,3,2021-09-10,17,23,26,38
+Tides of Fate,mystic,0,2020-10-02,37,57,3,4
+Anna Kaslow (4),neutral,4,2019-07-05,28,47,11,14
+Microscope,seeker,0,2023-02-16,33,58,2,3
+Thieves' Kit (3),rogue,3,2022-09-30,10,16,24,44
+Burn After Reading (1),survivor,1,2021-09-10,12,20,24,40
+Professor William Webb (2),seeker,2,2021-09-10,13,19,27,41
+The Black Cat (5),neutral,5,2020-03-06,25,32,22,28
+Chuck Fergus (2),rogue,2,2022-09-30,21,34,16,26
+Well-Funded,seeker,0,2023-02-16,29,56,2,4
+Kerosene (1),guardian,1,2018-11-15,29,43,12,17
+All In (5),rogue,5,2018-11-15,23,38,14,22
+Blur (4),rogue,4,2021-09-10,16,20,24,40
+Guided by Faith,guardian,0,2023-02-16,31,56,2,4
+Nature of the Beast (1),survivor,1,2022-09-30,23,40,12,20
+Calculated Risk,rogue,0,2022-09-30,31,52,4,7
+Contraband (2),rogue,2,2019-01-10,19,30,17,29
+Dynamite Blast (2),guardian,2,2018-06-28,26,39,14,20
+Leather Coat (1),survivor,1,2020-08-28,18,28,19,31
+Existential Riddle (1),seeker,1,2022-09-30,20,29,19,30
+Surgical Kit (3),seeker,3,2022-09-30,17,22,26,37
+A Glimmer of Hope (2),survivor,2,2025-02-07,9,27,11,31
+Fighting Lessons,guardian,0,2022-09-30,30,54,2,4
+Moment of Respite (3),neutral,3,2017-06-08,26,32,21,26
+Arcane Insight (4),seeker,4,2018-02-22,24,43,10,15
+Ríastrad (1),rogue,1,2021-01-08,19,33,13,25
+Hatchet (1),survivor,1,2023-02-16,18,35,13,23
+Bestow Resolve (2),guardian,2,2022-09-30,22,39,11,19
+Stealth (3),rogue,3,2019-09-06,21,33,15,25
+Gaze of Ouraxsh (2),seeker,2,2020-12-04,12,22,19,35
+Mk 1 Grenades (4),guardian,4,2019-07-05,23,40,11,17
+Feed the Mind (3),seeker,3,2018-10-11,25,45,6,12
+Predator or Prey,survivor,0,2022-09-30,29,50,4,7
+Galvanize (1),guardian,1,2020-08-28,17,27,17,29
+The Truth Beckons,seeker,0,2020-12-04,35,51,4,5
+Farsight (4),seeker,4,2020-08-28,24,35,15,21
+Warning Shot,guardian,0,2019-06-06,36,54,1,2
+True Awakening (2),neutral,2,2025-02-07,13,24,16,31
+Enraptured (2),mystic,2,2025-02-07,12,24,16,31
+Gabriel Carillo (1),seeker,1,2023-02-16,21,34,12,21
+Springfield M1903 (4),guardian,4,2017-05-11,23,42,7,13
+Deciphered Reality (5),seeker,5,2017-07-06,24,31,16,24
+True Magick (5),mystic,5,2021-09-10,26,31,16,23
+Occult Lexicon (3),seeker,3,2021-06-24,26,26,28,28
+Diabolical Luck,rogue,0,2023-02-16,24,45,6,9
+Rise to the Occasion (3),survivor,3,2019-01-10,17,31,12,23
+Fine Tuning (1),seeker,1,2023-02-16,20,30,15,23
+Forbidden Tome,seeker,0,2020-08-28,32,51,2,2
+Token of Faith,survivor,0,2020-10-02,32,47,4,6
+"""Eat lead!""",guardian,0,2019-09-06,28,48,3,5
+Old Shotgun (2),guardian,2,2021-09-10,20,33,12,20
+Contemplative,survivor,0,2025-02-07,26,51,1,1
+Survival Technique (2),survivor,2,2023-02-16,22,37,9,15
+Transmogrify,seeker,0,2023-02-16,28,46,3,6
+Prophesiae Profana (5),seeker,5,2021-09-10,15,17,27,35
+Money Talks (2),rogue,2,2021-09-10,11,19,21,33
+Borrowed Time (3),rogue,3,2018-11-15,35,36,16,16
+Taunt (3),guardian,3,2020-08-28,13,23,17,28
+Sin-Eater (3),mystic,3,2022-09-30,34,34,17,17
+Logical Reasoning (4),seeker,4,2019-09-06,13,18,20,33
+Mano a Mano (1),guardian,1,2018-01-25,20,32,12,19
+Improvised Shield,survivor,0,2022-09-30,29,45,4,6
+Azure Flame (3),mystic,3,2020-08-28,14,21,18,30
+Azure Flame (5),mystic,5,2020-08-28,15,23,15,27
+Keep Faith (2),survivor,2,2023-02-16,8,14,19,36
+Accursed,mystic,0,2023-02-16,25,47,2,3
+Artistic Inspiration,seeker,0,2025-02-07,31,49,1,1
+Nautical Charts,survivor,0,2025-02-07,26,47,2,3
+Testing Sprint,seeker,0,2023-02-16,28,48,2,2
+Eldritch Inspiration (1),mystic,1,2020-08-28,19,29,11,21
+Suggestion (4),rogue,4,2018-02-22,21,29,13,21
+Helping Hand,guardian,0,2022-09-30,29,47,2,3
+Fickle Fortune (3),survivor,3,2022-09-30,9,13,24,37
+Physical Training (4),guardian,4,2020-08-28,14,21,19,29
+Plucky (1),survivor,1,2017-10-26,26,35,11,15
+Alchemical Transmutation (2),mystic,2,2019-09-06,21,37,8,13
+Devil's Luck (1),survivor,1,2017-11-24,23,33,13,16
+Abigail Foreman (4),seeker,4,2020-06-05,23,28,16,21
+Arcane Studies (4),mystic,4,2020-08-28,16,22,18,27
+Library Docent (1),seeker,1,2020-08-28,17,32,11,17
+Slip Away (2),rogue,2,2020-08-28,16,23,16,26
+Moonlight Ritual (2),mystic,2,2022-09-30,11,20,14,28
+Dauntless Spirit (1),survivor,1,2021-09-10,9,15,19,33
+Pnakotic Manuscripts (5),seeker,5,2018-11-15,22,31,15,17
+Fake Credentials,rogue,0,2023-02-16,22,41,4,7
+M1918 BAR (4),guardian,4,2018-09-13,23,37,7,11
+Henry Wan,rogue,0,2019-04-04,24,43,2,4
+Katana,guardian,0,2023-02-16,27,47,0,0
+Shards of the Void (3),mystic,3,2018-11-15,18,29,12,18
+Telescopic Sight (3),guardian,3,2019-06-06,17,32,10,15
+Truth from Fiction (2),seeker,2,2020-08-07,17,28,10,18
+The Great Work,mystic,0,2025-02-07,43,43,3,3
+Transfiguration (2),mystic,2,2025-02-07,23,36,7,10
+Cheat Death (5),rogue,5,2018-03-22,15,21,20,25
+Lucky Dice (2),rogue,2,2017-05-11,36,36,10,10
+The Hierophant • V (3),mystic,3,2021-06-24,21,27,15,19
+Fire Extinguisher (1),survivor,1,2017-02-16,22,43,2,3
+Bind Monster (2),mystic,2,2017-01-12,17,28,11,18
+Taunt (2),guardian,2,2017-01-12,17,26,11,20
+The Fool • 0 (3),neutral,3,2021-06-24,19,31,11,15
+Otherworldly Compass (2),seeker,2,2018-08-16,19,26,12,20
+The Book of War,guardian,0,2025-02-07,23,45,0,0
+Twila Katherine Price (3),mystic,3,2020-02-07,17,23,13,22
+Hypnotic Gaze (2),mystic,2,2020-08-28,12,19,15,26
+Agency Backup (5),guardian,5,2019-07-05,20,28,12,17
+Daring Maneuver (2),rogue,2,2020-08-28,11,17,16,28
+Lawrence Carlisle,survivor,0,2025-02-07,24,42,1,2
+Rite of Equilibrium (5),mystic,5,2021-05-21,14,22,14,22
+Forbidden Tome (3),seeker,3,2020-08-28,16,24,12,20
+Empty Vessel (4),guardian,4,2020-03-06,19,19,24,24
+Control Variable,seeker,0,2023-02-16,20,39,2,4
+Combat Training (1),guardian,1,2017-10-26,18,31,8,12
+Archive of Conduits,seeker,0,2021-09-10,38,38,5,5
+Blood Eclipse (3),guardian,3,2018-10-11,14,27,10,16
+Justify the Means (3),rogue,3,2021-05-21,8,13,17,29
+Recharge (4),mystic,4,2020-08-28,8,13,17,29
+Moxie (1),rogue,1,2017-10-26,20,28,10,14
+Abyssal Tome (2),mystic,2,2020-12-04,14,21,13,20
+"Wrong Place, Right Time",survivor,0,2023-02-16,25,41,0,0
+Microscope (4),seeker,4,2023-02-16,8,13,15,28
+Colt Vest Pocket (2),rogue,2,2020-08-07,10,19,14,22
+Ace of Rods (1),neutral,1,2019-01-31,18,28,7,13
+Guidance (1),seeker,1,2022-09-30,11,19,14,22
+Ambush (1),guardian,1,2017-11-24,13,20,11,21
+Correlate All Its Contents,seeker,0,2025-02-07,21,38,1,2
+Soul Sanctification (3),neutral,3,2022-09-30,18,18,22,22
+Paradoxical Covenant (2),mystic,2,2020-11-06,21,21,19,19
+Guided by the Unseen (3),seeker,3,2021-02-19,12,22,13,18
+Garrote Wire (2),rogue,2,2020-03-06,21,30,10,10
+Elaborate Distraction,survivor,0,2023-02-16,24,34,3,5
+Jacob Morrison (3),survivor,3,2021-05-21,9,13,17,26
+Manipulate Destiny (2),neutral,2,2020-12-04,8,15,14,24
+Luger P08,rogue,0,2025-02-07,22,39,0,0
+Try and Try Again (3),survivor,3,2017-07-06,12,21,11,18
+Gravedigger's Shovel (2),survivor,2,2019-09-06,10,17,13,22
+Guiding Spirit (1),survivor,1,2019-06-06,18,30,5,9
+Unknown_01117,Unknown,0,Unknown,37,37,2,2
+Beretta M1918 (4),rogue,4,2020-08-28,12,18,11,20
+Physical Training (2),guardian,2,2018-06-28,17,29,6,9
+Shroud of Shadows,mystic,0,2020-11-06,23,37,1,1
+Making Preparations,survivor,0,2022-09-30,21,36,1,2
+Fortune or Fate (2),survivor,2,2019-06-06,11,13,16,25
+Dodge (2),guardian,2,2021-09-10,7,11,14,26
+"Bianca ""Die Katz""",rogue,0,2023-02-16,35,35,2,2
+Good Weather (2),survivor,2,2025-02-07,8,24,5,13
+Expeditious Retreat (1),survivor,1,2020-02-07,14,24,7,13
+Dumb Luck (2),survivor,2,2020-08-28,7,13,13,24
+Armor of Ardennes (5),guardian,5,2018-03-22,20,35,2,2
+Remington Model 1858,guardian,0,2025-02-07,20,36,0,0
+"""Throw the Book at Them!""",seeker,0,2023-02-16,19,35,1,1
+Spiritual Resolve (5),guardian,5,2020-06-05,6,18,8,18
+Hallow (3),guardian,3,2021-05-21,14,20,11,16
+A Watchful Peace (3),survivor,3,2021-03-19,6,11,14,25
+Lightfooted,rogue,0,2023-02-16,20,33,2,3
+Breath of the Sleeper,mystic,0,2025-02-07,20,34,1,1
+Gift of Nodens (5),survivor,5,2025-02-07,12,17,15,18
+Ravenous Myconid (4),seeker,4,2023-02-16,17,17,18,18
+Grounded (1),mystic,1,2017-10-26,14,27,4,8
+Archive of Conduits (4),seeker,4,2021-09-10,15,15,20,20
+Snipe (1),guardian,1,2021-09-10,9,15,11,20
+Skeptic (1),rogue,1,2020-11-06,10,19,8,16
+Cryptic Grimoire (4),seeker,4,2021-01-08,12,23,8,12
+Quick Getaway,rogue,0,2022-09-30,20,34,1,1
+Keen Eye,guardian,0,2020-12-04,19,26,8,9
+Sharpshooter (3),rogue,3,2020-08-28,13,19,10,16
+Blood Eclipse (1),guardian,1,2020-08-07,9,17,10,18
+Ready for Anything,guardian,0,2025-02-07,20,32,1,2
+Déjà Vu (5),survivor,5,2020-08-28,10,16,13,18
+British Bull Dog (2),rogue,2,2023-02-16,6,10,13,24
+Quickdraw Holster (4),guardian,4,2021-09-10,10,10,20,24
+Ghastly Revelation,seeker,0,2019-07-05,27,33,1,1
+Moon Pendant (2),neutral,2,2021-06-24,15,23,9,11
+Unknown_02040,Unknown,0,Unknown,34,34,0,0
+Clarity of Mind (3),mystic,3,2019-01-10,12,13,13,20
+"""Watch this!"" (3)",rogue,3,2025-02-07,6,11,11,22
+Dawn Star (1),neutral,1,2023-02-16,12,23,6,10
+Baseball Bat (2),survivor,2,2022-09-30,7,14,10,19
+Sleuth (3),guardian,3,2021-09-10,9,13,15,20
+Ethereal Slip (2),rogue,2,2021-09-10,7,10,17,23
+Unknown_03227,Unknown,0,Unknown,33,33,0,0
+Try and Try Again (1),survivor,1,2018-07-19,12,18,10,15
+Mind Wipe (1),mystic,1,2016-11-10,22,29,3,4
+Shield of Faith (2),guardian,2,2021-02-19,5,8,13,24
+Tristan Botley (2),rogue,2,2021-01-08,11,15,11,17
+Wicked Athame,mystic,0,2023-02-16,16,29,2,2
+Heroic Rescue (2),guardian,2,2020-02-07,9,18,8,13
+Ikiaq (3),mystic,3,2021-03-19,12,16,11,15
+Onyx Pentacle,mystic,0,2022-09-30,18,31,0,0
+Cryptic Grimoire,seeker,0,2020-10-02,17,28,2,3
+"""You've had worse...""",rogue,0,2025-02-07,18,30,0,0
+Daredevil (2),rogue,2,2020-02-07,10,17,8,13
+Katarina Sojka,mystic,0,2025-02-07,16,29,1,1
+False Covenant (2),rogue,2,2020-11-06,15,15,15,15
+Lab Coat (1),seeker,1,2022-09-30,12,17,11,13
+Confound (3),seeker,3,2023-02-16,6,8,12,22
+Against All Odds (2),survivor,2,2018-08-16,11,18,8,12
+.32 Colt (2),guardian,2,2019-09-06,16,24,4,6
+The Chthonian Stone (3),mystic,3,2020-08-07,4,6,15,24
+Absolution,guardian,0,2023-02-16,17,28,1,2
+Book of Shadows (1),mystic,1,2017-11-24,18,24,4,6
+Suggestion (1),rogue,1,2019-09-06,16,22,5,8
+Lantern (2),survivor,2,2019-09-06,5,8,13,21
+Prismatic Spectacles (2),seeker,2,2023-02-16,8,12,10,17
+Scrimshaw Charm,rogue,0,2023-02-16,19,29,0,0
+"""Devil"" (2)",survivor,2,2023-02-16,6,9,11,19
+Scientific Theory (1),seeker,1,2017-10-26,14,19,7,9
+The World • XXI (3),seeker,3,2021-06-24,9,9,15,19
+Oops! (2),survivor,2,2019-01-10,11,18,6,10
+Purifying Corruption (4),neutral,4,2021-03-19,5,6,13,22
+Stall for Time,survivor,0,2023-02-16,15,25,1,2
+Alton O'Connell,seeker,0,2025-02-07,14,26,1,1
+Fake Credentials (4),rogue,4,2023-02-16,4,6,12,21
+Call the Beyond (2),mystic,2,2023-02-16,9,14,7,13
+Orphic Theory (1),seeker,1,2022-09-30,7,11,11,16
+"""Eat lead!"" (2)",guardian,2,2018-03-22,13,20,4,7
+Banish (1),mystic,1,2019-03-14,12,20,4,7
+Crowbar,guardian,0,2025-02-07,15,26,0,0
+Dark Horse (5),survivor,5,2023-02-16,12,12,14,14
+Uncanny Specimen,seeker,0,2025-02-07,11,26,0,0
+The Hungering Blade (1),guardian,1,2019-09-27,21,21,5,5
+Hand Hook,survivor,0,2025-02-07,13,25,1,1
+Dr. Charles West III,seeker,0,2023-02-16,13,23,3,3
+Ravenous Myconid,seeker,0,2023-02-16,23,23,3,3
+Grievous Wound,guardian,0,2022-09-30,15,26,0,0
+Gray's Anatomy (5),seeker,5,2022-09-30,7,9,14,17
+Sawed-Off Shotgun (5),rogue,5,2020-06-05,10,12,10,14
+Butterfly Effect (1),survivor,1,2020-12-04,10,18,4,8
+Barricade (3),seeker,3,2018-06-28,14,20,3,6
+Monster Slayer (5),guardian,5,2017-07-06,7,11,10,15
+Enchanted Armor (2),guardian,2,2021-01-08,7,13,7,13
+Unknown_02080,Unknown,0,Unknown,26,26,0,0
+Last Chance (3),survivor,3,2025-02-07,5,10,8,15
+Primed for Action,guardian,0,2025-02-07,13,25,0,0
+Under Surveillance (1),rogue,1,2020-12-04,7,10,8,15
+Nine of Rods (3),survivor,3,2021-06-24,9,11,10,14
+Butterfly Swords (5),guardian,5,2021-09-10,6,10,9,15
+Ineffable Truth (3),mystic,3,2020-08-28,8,13,7,12
+Ascetic,neutral,0,2025-02-07,24,24,0,0
+Bide Your Time,neutral,0,2023-02-16,14,22,1,2
+Ofuda,guardian,0,2023-02-16,14,20,3,4
+Infighting (3),survivor,3,2018-03-22,7,10,8,14
+Unknown_03059,Unknown,0,Unknown,24,24,0,0
+Snare Trap (2),survivor,2,2017-12-21,8,12,7,12
+Rod of Carnamagos (2),mystic,2,2023-02-16,10,16,4,8
+Decorated Skull (3),rogue,3,2020-08-07,9,13,7,11
+Trial by Fire (3),survivor,3,2021-06-24,5,8,9,16
+Cosmic Revelation (1),seeker,1,2025-02-07,9,14,5,9
+Memories of Another Life (5),neutral,5,2025-02-07,6,9,7,14
+Doppelgänger (1),rogue,1,2025-02-07,5,14,3,9
+Expose Weakness (1),seeker,1,2017-05-11,10,16,4,7
+Seal of the Elders (5),mystic,5,2023-02-16,5,5,12,18
+Unknown_02061,Unknown,0,Unknown,21,22,1,1
+Speak to the Dead,mystic,0,2023-02-16,12,21,2,2
+Expose Weakness (3),seeker,3,2018-08-16,8,16,4,6
+Improvised Weapon (2),survivor,2,2025-02-07,3,5,10,17
+Dowsing Rod (4),mystic,4,2022-09-30,3,6,8,16
+Hard Knocks (2),rogue,2,2018-06-28,13,19,2,3
+Hard Knocks (4),rogue,4,2021-03-19,8,10,8,12
+False Surrender,rogue,0,2023-02-16,12,19,2,3
+Ceremonial Sickle (4),mystic,4,2022-09-30,3,5,9,17
+Knight of Swords (3),rogue,3,2021-06-24,7,9,8,13
+Treasure Hunter (1),rogue,1,2018-05-10,10,18,3,4
+Grounded (3),mystic,3,2021-09-10,4,7,10,15
+Trigger Man (3),rogue,3,2022-09-30,4,5,9,16
+Curse of Aeons (3),mystic,3,2021-01-08,4,7,9,14
+Ineffable Truth (5),mystic,5,2020-08-28,6,11,6,10
+Copycat (3),rogue,3,2020-08-28,5,9,6,12
+Clean Sneak (4),rogue,4,2022-09-30,3,4,10,16
+Antikythera (5),seeker,5,2025-02-07,11,14,4,6
+Remington Model 1858 (4),guardian,4,2025-02-07,4,6,8,14
+Esoteric Method (1),seeker,1,2023-02-16,4,8,6,12
+Crack Shot,rogue,0,2025-02-07,13,20,0,0
+Hunter's Mark (1),guardian,1,2025-02-07,7,11,5,9
+Mists of R'lyeh (4),mystic,4,2018-10-11,8,13,5,7
+Nightmare Bauble (3),survivor,3,2020-06-05,8,8,12,12
+Lure (2),survivor,2,2019-07-26,6,11,5,9
+Dig Deep (4),survivor,4,2021-03-19,1,1,11,19
+Esoteric Atlas (2),seeker,2,2020-08-28,3,4,11,16
+Third Time's a Charm (2),survivor,2,2020-12-04,6,11,5,9
+Locked and Loaded (3),guardian,3,2025-02-07,9,9,10,10
+Gatling Gun (5),rogue,5,2025-02-07,4,6,8,13
+Burglary (2),rogue,2,2020-01-10,9,14,4,5
+Robert Castaigne,rogue,0,2025-02-07,10,18,1,1
+Hyperawareness (4),seeker,4,2021-03-19,3,4,13,15
+Rod of Carnamagos,mystic,0,2023-02-16,16,16,3,3
+Mists of R'lyeh (2),mystic,2,2020-08-07,6,10,7,9
+Hyperawareness (2),seeker,2,2018-06-28,5,8,7,10
+Harmony Restored (2),survivor,2,2021-02-19,5,8,6,10
+Fend Off (3),survivor,3,2021-09-10,1,2,9,16
+Ethereal Form (2),mystic,2,2023-02-16,3,4,7,13
+The Stygian Eye (3),seeker,3,2021-03-19,3,5,7,12
+Bound for the Horizon (2),neutral,2,2025-02-07,5,5,9,12
+Bum's Rush,rogue,0,2025-02-07,9,17,0,0
+Otherworld Codex (2),seeker,2,2019-12-13,9,14,3,3
+Robert Castaigne (4),rogue,4,2025-02-07,3,5,7,12
+Dark Ritual,rogue,0,2020-10-02,10,14,2,3
+Fire Axe (2),survivor,2,2023-02-16,4,7,5,10
+Unknown_02140,Unknown,0,Unknown,17,17,0,0
+Token of Faith (3),survivor,3,2023-02-16,3,3,10,13
+Sound Support (3),neutral,3,2025-02-07,4,4,8,12
+Lure (1),survivor,1,2017-03-16,10,11,3,5
+Whispers of Doom,mystic,0,2025-02-07,10,16,0,0
+Ample Supplies (2),survivor,2,2025-02-07,6,8,4,7
+Inspiring Presence (2),guardian,2,2025-02-07,2,4,6,11
+Unconventional Method,survivor,0,2025-02-07,9,15,0,0
+Eyes of Valusia (4),guardian,4,2023-02-16,4,7,7,8
+Profane Idol,survivor,0,2025-02-07,9,13,1,1
+"""Lucky"" Penny (2)",rogue,2,2021-02-19,10,10,4,4
+Medical Texts (2),seeker,2,2021-09-10,5,7,6,7
+Unknown_03142,Unknown,0,Unknown,14,14,0,0
+Anchor Chain,survivor,0,2025-02-07,4,7,4,6
+Bolas,guardian,0,2022-09-30,9,13,0,0
+Second Wind (2),guardian,2,2023-02-16,0,0,8,13
+Walter Fitzpatrick (2),neutral,2,2025-02-07,5,8,3,5
+Blackmail File,rogue,0,2023-02-16,8,11,1,2
+Martyr's Vambrace (3),guardian,3,2022-09-30,5,7,4,6
+Dig Deep (2),survivor,2,2018-06-28,3,4,6,9
+Arcane Studies (2),mystic,2,2018-06-28,7,11,1,2
+Healing Words (3),mystic,3,2021-09-10,5,6,5,6
+Forensic Kit,seeker,0,2025-02-07,6,12,0,0
+Library Pass (5),neutral,5,2025-02-07,11,11,1,1
+"""I'll Pay You Back!""",rogue,0,2023-02-16,9,12,0,0
+Dakota Garofalo (3),neutral,3,2025-02-07,3,6,5,6
+String Along,rogue,0,2025-02-07,8,12,0,0
+Sign of Xelotaph,mystic,0,2025-02-07,4,12,0,0
+Unknown_04148,Unknown,0,Unknown,12,12,0,0
+Blood Will Have Blood (2),survivor,2,2021-09-10,3,6,4,6
+Lifeline (1),survivor,1,2022-09-30,3,4,5,8
+Mariner's Compass (2),survivor,2,2023-02-16,1,1,5,10
+Flurry of Blows (5),guardian,5,2023-02-16,2,3,4,8
+Double Down (2),neutral,2,2025-02-07,2,3,5,8
+Inquisitive (1),neutral,1,2025-02-07,5,8,2,3
+Dirty Deeds (3),rogue,3,2023-02-16,3,5,4,6
+Antediluvian Hymn,mystic,0,2023-02-16,6,11,0,0
+Eye of Ghatanothoa (2),mystic,2,2025-02-07,6,6,5,5
+Blood of K'n-yan (3),neutral,3,2025-02-07,5,10,1,1
+Handcuffs (2),guardian,2,2022-09-30,4,6,3,5
+Mortar and Pestle,seeker,0,2025-02-07,6,11,0,0
+Bulwark (2),guardian,2,2025-02-07,4,5,4,6
+Shining Trapezohedron (4),mystic,4,2020-06-05,3,5,4,6
+Glimpse the Unthinkable (5),seeker,5,2019-07-26,3,4,5,7
+Unknown_81030,Unknown,0,Unknown,10,10,1,1
+Sword Cane (2),mystic,2,2025-02-07,2,3,4,7
+Mauser Tankgewehr M1918 (5),neutral,5,2025-02-07,2,3,5,7
+Blackjack (2),guardian,2,2019-01-10,3,4,4,6
+Unknown_05150,Unknown,0,Unknown,10,10,0,0
+Broken Diadem (5),neutral,5,2023-02-16,5,5,5,5
+Think on Your Feet (2),rogue,2,2019-01-10,2,3,4,7
+Unknown_02218,Unknown,0,Unknown,10,10,0,0
+Lucky Dice (3),rogue,3,2021-05-21,4,4,6,6
+Untimely Transaction (1),rogue,1,2021-09-10,5,8,2,2
+Unknown_02178,Unknown,0,Unknown,9,10,0,0
+Katja Eastbank (2),survivor,2,2022-09-30,3,4,3,5
+Quick-Witted (1),seeker,1,2025-02-07,2,6,1,3
+Mob Connections (2),rogue,2,2025-02-07,3,3,6,6
+Quick Shot (3),guardian,3,2025-02-07,2,6,1,3
+Short Rest,neutral,0,2025-02-07,2,6,1,3
+Unknown_07083,Unknown,0,Unknown,9,9,0,0
+Unknown_82025,Unknown,0,Unknown,9,9,0,0
+Unknown_81029,Unknown,0,Unknown,9,9,0,0
+Onyx Pentacle (4),mystic,4,2022-09-30,2,3,3,6
+Unknown_02217,Unknown,0,Unknown,9,9,0,0
+Unknown_09767,Unknown,0,Unknown,8,8,0,0
+Confidence,neutral,0,2025-02-07,4,8,0,0
+Esoteric Atlas (1),seeker,1,2019-06-06,4,5,2,3
+Stir the Pot (5),rogue,5,2023-02-16,0,0,4,8
+On Their Heels (5),neutral,5,2025-02-07,0,0,5,8
+Working a Hunch (2),seeker,2,2025-02-07,3,6,1,2
+Unknown_04147,Unknown,0,Unknown,8,8,0,0
+Shroud of Shadows (4),mystic,4,2021-02-19,1,2,4,6
+Unknown_03143,Unknown,0,Unknown,8,8,0,0
+The Council's Coffer (2),neutral,2,2019-05-02,3,6,1,2
+Unknown_81019,Unknown,0,Unknown,8,8,0,0
+Blood of Thoth,mystic,0,2025-02-07,4,7,0,0
+Flute of the Outer Gods (4),mystic,4,2021-03-19,0,0,7,7
+Deliverance (3),mystic,3,2025-02-07,2,2,3,5
+Eldritch Brand (5),mystic,5,2025-02-07,5,5,2,2
+Unknown_07179,Unknown,0,Unknown,7,7,0,0
+Library Pass (1),neutral,1,2025-02-07,3,3,3,3
+Motivational Speech (4),neutral,4,2025-02-07,2,4,2,2
+Hold Up,guardian,0,2023-02-16,3,5,1,1
+Unknown_04061,Unknown,0,Unknown,6,6,0,0
+Unknown_07180,Unknown,0,Unknown,6,6,0,0
+Unknown_06079,Unknown,0,Unknown,6,6,0,0
+Heed the Dream (2),survivor,2,2022-09-30,2,2,2,4
+Unknown_07181,Unknown,0,Unknown,6,6,0,0
+Unknown_02219,Unknown,0,Unknown,6,6,0,0
+Sacred Oath (5),neutral,5,2025-02-07,3,3,3,3
+Hardboiled,guardian,0,2025-02-07,3,5,0,0
+Providential (2),survivor,2,2023-02-16,0,0,3,5
+Intimidation,rogue,0,2025-02-07,4,4,1,1
+Unknown_53037,Unknown,0,Unknown,5,5,0,0
+Unknown_08723,Unknown,0,Unknown,3,5,0,0
+Unknown_08618,Unknown,0,Unknown,5,5,0,0
+Unknown_82022,Unknown,0,Unknown,4,4,1,1
+Unknown_82024,Unknown,0,Unknown,4,4,1,1
+Bait and Switch (3),survivor,3,2019-07-05,0,0,3,5
+Unknown_83055,Unknown,0,Unknown,5,5,0,0
+Unknown_04191,Unknown,0,Unknown,5,5,0,0
+Nose to the Grindstone (3),neutral,3,2025-02-07,0,0,2,4
+Scientific Studies Grant (2),seeker,2,2025-02-07,1,1,2,3
+Oculus Mortuum,seeker,0,2025-02-07,3,4,0,0
+Mesmeric Influence (1),mystic,1,2023-02-16,2,2,1,2
+Captivating Performance (3),neutral,3,2025-02-07,1,1,3,3
+Unknown_08733,Unknown,0,Unknown,4,4,0,0
+Cowl of Sekhmet (3),neutral,3,2025-02-07,2,4,0,0
+Forbidden Sutra (2),neutral,2,2025-02-07,2,3,1,1
+Unknown_08614,Unknown,0,Unknown,4,4,0,0
+Unknown_83057,Unknown,0,Unknown,4,4,0,0
+Unknown_82023,Unknown,0,Unknown,4,4,0,0
+Unknown_04051,Unknown,0,Unknown,4,4,0,0
+Mind Wipe (3),mystic,3,2018-06-28,2,3,1,1
+Alice Luxley (2),guardian,2,2025-02-07,1,1,2,2
+Dial of Ancients (4),seeker,4,2025-02-07,2,2,1,1
+Archibald MacVeigh (5),neutral,5,2025-02-07,1,2,1,1
+Spiritual Healing (4),neutral,4,2025-02-07,0,0,3,3
+Lost Arcana (3),mystic,3,2025-02-07,2,3,0,0
+"""Catch!""",survivor,0,2025-02-07,2,3,0,0
+Unknown_08647,Unknown,0,Unknown,3,3,0,0
+Dreams of the Clay (1),neutral,1,2025-02-07,1,2,1,1
+Unknown_10702,Unknown,0,Unknown,3,3,0,0
+Unknown_10685,Unknown,0,Unknown,3,3,0,0
+Unknown_08619,Unknown,0,Unknown,3,3,0,0
+Unknown_08730,Unknown,0,Unknown,3,3,0,0
+Unknown_07151,Unknown,0,Unknown,3,3,0,0
+Unknown_08616,Unknown,0,Unknown,3,3,0,0
+Unknown_08735,Unknown,0,Unknown,2,2,1,1
+Unknown_04102,Unknown,0,Unknown,3,3,0,0
+Unknown_83058,Unknown,0,Unknown,1,1,1,1
+Unknown_86052,Unknown,0,Unknown,1,1,1,1
+Name Your Price (2),neutral,2,2025-02-07,1,1,1,1
+Dimensional Vortex (5),neutral,5,2025-02-07,1,1,1,1
+Unknown_08615,Unknown,0,Unknown,2,2,0,0
+Unknown_08620,Unknown,0,Unknown,2,2,0,0
+Unknown_08728,Unknown,0,Unknown,2,2,0,0
+Dial of Ancients,seeker,0,2025-02-07,1,1,1,1
+Miracle Wish (5),guardian,5,2023-02-16,0,0,2,2
+Unknown_09762,Unknown,0,Unknown,2,2,0,0
+Unknown_04303,Unknown,0,Unknown,2,2,0,0
+Unknown_84007,Unknown,0,Unknown,1,1,1,1
+Unknown_08726,Unknown,0,Unknown,2,2,0,0
+Unknown_06059,Unknown,0,Unknown,0,0,1,1
+Unknown_83056,Unknown,0,Unknown,1,1,0,0
+Unknown_11760a,Unknown,0,Unknown,1,1,0,0
+Unknown_08646,Unknown,0,Unknown,1,1,0,0
+"""You've had worse..."" (4)",rogue,4,2025-02-07,0,0,1,1
+Unknown_09764,Unknown,0,Unknown,1,1,0,0
+Unknown_88043,Unknown,0,Unknown,1,1,0,0
+Unknown_08724,Unknown,0,Unknown,1,1,0,0
+Unknown_08727,Unknown,0,Unknown,1,1,0,0
+Unknown_08738,Unknown,0,Unknown,1,1,0,0
+Unknown_10703,Unknown,0,Unknown,1,1,0,0
+Unknown_10713,Unknown,0,Unknown,1,1,0,0
+Unknown_10642,Unknown,0,Unknown,1,1,0,0
+Unknown_08734,Unknown,0,Unknown,1,1,0,0
+Unknown_08736,Unknown,0,Unknown,1,1,0,0
+Unknown_08737,Unknown,0,Unknown,1,1,0,0
+Unknown_08617,Unknown,0,Unknown,1,1,0,0
+Unknown_85032,Unknown,0,Unknown,1,1,0,0
+Unknown_85031,Unknown,0,Unknown,1,1,0,0
+Unknown_84006,Unknown,0,Unknown,1,1,0,0
+Unknown_84008,Unknown,0,Unknown,1,1,0,0
+Unknown_86051,Unknown,0,Unknown,1,1,0,0
+Unknown_82026,Unknown,0,Unknown,1,1,0,0
+Unknown_06275,Unknown,0,Unknown,1,1,0,0
+Unknown_05260,Unknown,0,Unknown,1,1,0,0
+Unknown_04264,Unknown,0,Unknown,1,1,0,0
+Unknown_05261,Unknown,0,Unknown,1,1,0,0
+Spiritual Echo (2),mystic,2,2025-02-07,1,1,0,0

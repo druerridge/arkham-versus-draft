@@ -1,0 +1,589 @@
+Name,Rating
+Zoey Samaras,5
+Roland Banks,5
+Daisy Walker,5
+"""Ashcan"" Pete",5
+Jenny Barnes,5
+Gloria Goldberg,5
+Agnes Baker,5
+Wendy Adams,4
+William Yorick,4
+Rex Murphy,4
+Norman Withers,4
+"""Skids"" O'Toole",4
+Lola Hayes,4
+Mark Harrigan,4
+Leo Anderson,4
+Jim Culver,4
+Lily Chen,4
+Preston Fairmont,4
+Carolyn Fern,4
+Finn Edwards,4
+Ursula Downs,4
+Joe Diamond,4
+Sefina Rousseau,4
+Agatha Crane,4
+Dexter Drake,4
+Minh Thi Phan,4
+George Barnaby,4
+Charlie Kane,4
+Michael McGlen,4
+Diana Stanley,4
+Darrell Simmons,4
+Silas Marsh,4
+Trish Scarborough,4
+Patrice Hathaway,4
+Marion Tavares,4
+Kymani Jones,4
+Akachi Onyele,4
+Tony Morgan,4
+Jacqueline Fine,4
+Nathaniel Cho,4
+Luke Robinson,4
+Winifred Habbamock,4
+Tommy Muldoon,4
+Mandy Thompson,4
+Vincent Lee,4
+Father Mateo,4
+Monterey Jack,4
+Carson Sinclair,4
+Sister Mary,4
+Rita Young,4
+Stella Clark,4
+Daniela Reyes,4
+Amanda Sharpe,4
+Harvey Walters,4
+Calvin Wright,4
+Bob Jenkins,3
+Alessandra Zorzi,3
+Kate Winthrop,3
+Marie Lambeau,3
+Wilson Richards,3
+Lucius Galloway,3
+Kōhaku Narukami,3
+Amina Zidane,3
+Hank Samson,3
+Subject 5U-21,3
+Emergency Cache,4
+Unexpected Courage,4
+Guts,4
+Perception,4
+Overpower,4
+Flashlight,4
+Manual Dexterity,4
+Knife,3
+In the Thick of It,3
+Calling in Favors,3
+Backpack,3
+Fine Clothes,3
+Painkillers,3
+Sled Dog,2
+Tempt Fate,2
+Smoking Pipe,2
+Trench Coat,2
+Say Your Prayers,2
+Reckless Assault,2
+Desperate Search,2
+Heavy Furs,1
+Run For Your Life,1
+Kukri,1
+Thermos,1
+Refine,1
+Hyperphysical Shotcaster,1
+Tool Belt,1
+Eldritch Tongue,1
+Well-Dressed,0
+Ascetic,0
+Bide Your Time,0
+Confidence,0
+Short Rest,0
+Vicious Blow,4
+Machete,4
+Dodge,4
+Beat Cop,4
+Guard Dog,3
+Prepared for the Worst,3
+.45 Automatic,3
+Evidence!,3
+Take the Initiative,3
+Scene of the Crime,3
+Dynamite Blast,3
+Physical Training,3
+"""Let me handle this!""",3
+First Aid,2
+Daring,2
+Stand Together,2
+Inspiring Presence,2
+On the Hunt,2
+Bandolier,2
+Glory,2
+Emergency Aid,2
+Steadfast,2
+Survival Knife,2
+Hallowed Mirror,2
+Safeguard,2
+Grete Wagner,2
+.32 Colt,2
+Tetsuo Mori,2
+Toe to Toe,2
+Taunt,2
+"""If it bleeds...""",2
+Venturer,2
+.45 Thompson,2
+One-Two Punch,2
+True Grit,2
+Alice Luxley,2
+Second Wind,2
+Delay the Inevitable,2
+Clean Them Out,2
+Runic Axe,2
+"""Get over here!""",2
+Wolf Mask,2
+Heroic Rescue,2
+Trusted,2
+Medical Student,2
+First Watch,2
+Motivational Speech,2
+Rite of Sanctification,2
+Flesh Ward,2
+Solemn Vow,2
+Monster Slayer,2
+Teamwork,2
+Something Worth Fighting For,2
+Counterpunch,2
+Blessed Blade,2
+Boxing Gloves,2
+Sledgehammer,2
+Book of Psalms,2
+Hand of Fate,2
+Hunter's Armor,2
+Breach the Door,2
+Leadership,2
+Geared Up,2
+Handcuffs,2
+.35 Winchester,2
+Ancestral Token,2
+Relentless,2
+Tinker,2
+Riot Whistle,2
+Custom Modifications,2
+Trench Knife,2
+Cleaning Kit,2
+Self-Sacrifice,1
+Blackjack,1
+"""I'll see you in hell!""",1
+Interrogate,1
+Obsidian Bracelet,1
+"""Get behind me!""",1
+Intrepid,1
+One in the Chamber,1
+Purified,1
+Task Force,1
+Guided by Faith,1
+Fighting Lessons,1
+Warning Shot,1
+"""Eat lead!""",1
+Helping Hand,1
+Katana,1
+The Book of War,1
+Remington Model 1858,0
+Ready for Anything,0
+Absolution,0
+Keen Eye,0
+Crowbar,0
+Grievous Wound,0
+Primed for Action,0
+Ofuda,0
+Bolas,0
+Hold Up,0
+Hardboiled,0
+Ward of Protection,4
+Shrivelling,4
+Drawn to the Flame,4
+Holy Rosary,4
+Deny Existence,4
+Arcane Initiate,4
+Uncage the Soul,3
+Fearless,3
+Rite of Seeking,3
+Spectral Razor,3
+Delve Too Deep,3
+Read the Signs,3
+St. Hubert's Key,3
+Promise of Power,3
+Forbidden Knowledge,2
+Enchanted Blade,2
+Arcane Research,2
+Sixth Sense,2
+Arcane Studies,2
+Storm of Spirits,2
+Scrying,2
+David Renfield,2
+Blinding Light,2
+Ritual Candles,2
+Enraptured,2
+Voice of Ra,2
+Premonition,2
+Dark Prophecy,2
+Hypnotic Gaze,2
+Alyssa Graham,2
+Defiance,2
+Olive McBride,2
+Clairvoyance,2
+Moonlight Ritual,2
+Mists of R'lyeh,2
+Clarity of Mind,2
+Robes of Endless Night,2
+Quantum Flux,2
+Azure Flame,2
+The Chthonian Stone,2
+Open Gate,2
+Sword Cane,2
+Crystal Pendulum,2
+Eldritch Inspiration,2
+Wither,2
+Talisman of Protection,2
+Prophesy,2
+Alchemical Transmutation,2
+Prescient,2
+Scroll of Prophecies,2
+Astral Travel,2
+Down the Rabbit Hole,2
+Dragon Pole,2
+Ward of Radiance,2
+Sign Magick,2
+String of Curses,2
+Ethereal Form,2
+Living Ink,2
+Familiar Spirit,2
+Armageddon,2
+Scrying Mirror,2
+Eye of Chaos,2
+Power Word,2
+Torrent of Power,2
+Ineffable Truth,2
+Cat Mask,2
+Meditative Trance,1
+Ceremonial Sickle,1
+Drain Essence,1
+Parallel Fates,1
+Dowsing Rod,1
+Summoned Servitor,1
+Hallowed Chalice,1
+Explosive Ward,1
+Eyes of the Dreamer,1
+Healing Words,1
+Eldritch Initiation,1
+Blood Pact,1
+Spectral Shield,1
+Tides of Fate,1
+Accursed,1
+The Great Work,1
+Shroud of Shadows,1
+Breath of the Sleeper,1
+Onyx Pentacle,0
+Wicked Athame,0
+Katarina Sojka,0
+Speak to the Dead,0
+Rod of Carnamagos,0
+Whispers of Doom,0
+Sign of Xelotaph,0
+Antediluvian Hymn,0
+Blood of Thoth,0
+Deduction,4
+Magnifying Glass,4
+Shortcut,4
+Dr. Milan Christopher,4
+Working a Hunch,4
+Eureka!,4
+Inquiring Mind,4
+Crack the Case,3
+Mind over Matter,3
+"""I've got a plan!""",3
+Logical Reasoning,3
+Preposterous Sketches,3
+Old Book of Lore,3
+Astounding Revelation,3
+Research Librarian,3
+Practice Makes Perfect,2
+Laboratory Assistant,2
+Fieldwork,2
+No Stone Unturned,2
+Hawk-Eye Folding Camera,2
+Hyperawareness,2
+Burning the Midnight Oil,2
+Strange Solution,2
+Scroll of Secrets,2
+"Mr. ""Rook""",2
+Deep Knowledge,2
+Fingerprint Kit,2
+Seeking Answers,2
+Tooth of Eztli,2
+Art Student,2
+Medical Texts,2
+Cryptic Writings,2
+Dr. William T. Maleson,2
+Archaic Glyphs,2
+Barricade,2
+Occult Lexicon,2
+Dr. Elli Horowitz,2
+Occult Invocation,2
+Empirical Hypothesis,2
+Knowledge is Power,2
+Dream-Enhancing Serum,2
+Arcane Enlightenment,2
+Whitton Greene,2
+Connect the Dots,2
+True Understanding,2
+Shrewd Analysis,2
+Grim Memoir,2
+Anatomical Diagrams,2
+Vantage Point,2
+Curiosity,2
+Dream Diary,2
+Plan of Action,2
+Truth from Fiction,2
+Unearth the Ancients,2
+Pocket Telescope,2
+"Charles Ross, Esq.",2
+Analysis,2
+Jeremiah Kirby,2
+Eldritch Sophist,2
+Encyclopedia,2
+Captivating Discovery,2
+Disc of Itzamna,2
+Bizarre Diagnosis,2
+Written in the Stars,2
+Forced Learning,2
+Cryptographic Cipher,2
+The Raven Quill,2
+Persuasion,2
+Mouse Mask,2
+Research Notes,2
+Thorough Inquiry,2
+Higher Education,2
+Celaeno Fragments,2
+Map the Area,1
+Extensive Research,1
+Professor William Webb,1
+Guidance,1
+Chemistry Set,1
+Feed the Mind,1
+Dissection Tools,1
+Microscope,1
+Well-Funded,1
+Alchemical Distillation,1
+The Truth Beckons,1
+Forbidden Tome,1
+Artistic Inspiration,1
+Testing Sprint,1
+Transmogrify,1
+Control Variable,1
+Archive of Conduits,1
+Correlate All Its Contents,1
+"""Throw the Book at Them!""",0
+Ghastly Revelation,0
+Cryptic Grimoire,0
+Alton O'Connell,0
+Uncanny Specimen,0
+Dr. Charles West III,0
+Ravenous Myconid,0
+Forensic Kit,0
+Mortar and Pestle,0
+Oculus Mortuum,0
+Dial of Ancients,0
+Lucky!,4
+Resourceful,4
+"""Look what I found!""",4
+Take Heart,4
+Peter Sylvestre,4
+Fire Axe,4
+Leather Coat,3
+Scavenging,3
+Rabbit's Foot,3
+Dark Horse,2
+Cherished Keepsake,3
+Live and Learn,3
+Winging It,3
+Track Shoes,3
+Rise to the Occasion,3
+Madame Labranche,2
+Scrounge for Supplies,2
+Baseball Bat,3
+Old Keyring,2
+Drawing Thin,2
+Meat Cleaver,2
+Schoffner's Catalogue,2
+Gravedigger's Shovel,2
+Lantern,2
+Act of Desperation,2
+Survival Instinct,2
+Stray Cat,2
+Dig Deep,2
+Fight or Flight,2
+A Glimmer of Hope,2
+Last Chance,2
+Bandages,2
+Stunning Blow,2
+Improvised Weapon,2
+Keep Faith,2
+Cunning Distraction,2
+.18 Derringer,2
+Grisly Totem,2
+Fortuitous Discovery,2
+A Test of Will,2
+Trial by Fire,2
+Perseverance,2
+Waylay,2
+Short Supply,2
+Moonstone,2
+Newspaper,2
+A Chance Encounter,2
+"""Not without a fight!""",2
+Long Shot,2
+Hiding Spot,2
+Bait and Switch,2
+Jury-Rig,2
+Shed a Light,2
+Impromptu Barrier,2
+Oops!,2
+Belly of the Beast,2
+Mariner's Compass,2
+Mysterious Raven,2
+Granny Orne,2
+Able Bodied,2
+Matchbox,2
+Sparrow Mask,2
+Pushed to the Limit,2
+Grit Your Teeth,2
+Dumb Luck,2
+Pocket Multi Tool,2
+Exploit Weakness,2
+Grizzled,2
+Makeshift Trap,1
+Beloved,1
+Predestined,1
+Pitchfork,1
+Scrapper,1
+Grimm's Fairy Tales,1
+Will to Survive,1
+End of the Road,1
+Idol of Xanatos,1
+Contemplative,1
+Predator or Prey,1
+Pelt Shipment,1
+Token of Faith,1
+Nautical Charts,1
+Improvised Shield,1
+Lawrence Carlisle,1
+"Wrong Place, Right Time",1
+Making Preparations,0
+Elaborate Distraction,0
+Stall for Time,0
+Hand Hook,0
+Unconventional Method,0
+Profane Idol,0
+Anchor Chain,0
+"""Catch!""",0
+Leo De Luca,4
+Lone Wolf,4
+Quick Thinking,4
+Elusive,4
+Backstab,4
+"""Watch this!""",4
+Sneak Attack,4
+Lucky Cigarette Case,3
+.41 Derringer,3
+Pickpocketing,3
+Faustian Bargain,3
+"""You handle this one!""",3
+Hard Knocks,3
+Double or Nothing,3
+Intel Report,3
+Burglary,3
+Liquid Courage,2
+Sleight of Hand,2
+Think on Your Feet,2
+Narrow Escape,2
+Opportunist,2
+Lockpicks,3
+Cheap Shot,2
+Well Connected,2
+Breaking and Entering,2
+Switchblade,2
+Slip Away,2
+Hatchet Man,2
+Contraband,2
+Money Talks,2
+Crystallizer of Dreams,2
+Lonnie Ritter,2
+Nimble,2
+Scout Ahead,2
+Sneak By,2
+Kicking the Hornet's Nest,2
+Daring Maneuver,2
+Swift Reflexes,2
+Tennessee Sour Mash,2
+"""I'm outta here!""",2
+Dario El-Amin,2
+Mauser C96,2
+Friends in Low Places,2
+Pilfer,2
+Small Favor,2
+"""I'll take that!""",2
+Eavesdrop,2
+Cunning,2
+Decorated Skull,2
+Investments,2
+Leather Jacket,2
+Thieves' Kit,2
+Gregory Gry,2
+Obfuscation,2
+Decoy,2
+Coup de Grâce,2
+.25 Automatic,2
+Bank Job,2
+Streetwise,2
+Fox Mask,2
+Stealth,2
+Ethereal Slip,2
+Underworld Support,2
+"Joey ""The Rat"" Vigil",2
+21 or Bust,2
+Honed Instinct,2
+Daredevil,2
+British Bull Dog,2
+Disguise,2
+Grift,2
+Colt Vest Pocket,1
+Hidden Pocket,1
+"""Let God sort them out...""",1
+Knuckleduster,1
+Hit and Run,1
+"""Hit me!""",1
+Damning Testimony,1
+"""You owe me one!""",1
+Followed,1
+Embezzled Treasure,1
+Vamp,1
+"""Where's the party?""",1
+Stir the Pot,1
+Calculated Risk,1
+Diabolical Luck,1
+Henry Wan,1
+Fake Credentials,1
+Luger P08,1
+"Bianca ""Die Katz""",1
+Quick Getaway,1
+Lightfooted,1
+"""You've had worse...""",1
+Scrimshaw Charm,0
+Crack Shot,0
+False Surrender,0
+Robert Castaigne,0
+Bum's Rush,0
+Dark Ritual,0
+"""I'll Pay You Back!""",0
+String Along,0
+Blackmail File,0
+Intimidation,0

@@ -346,13 +346,14 @@ def remove_low_value_decklists(decklists, decklist_stats, min_likes):
     print(f"  - {removed_for_previous_next} with previous_deck or next_deck values")
     print(f"  - {removed_for_duplicate_slots} with duplicate slots")
 
-def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popularity.csv"):
+def generate_card_popularity_csv(decklists, arkham_cards, arkham_packs, output_path="card_popularity.csv"):
     """
     Generate a CSV file with card popularity statistics.
     
     Args:
         decklists (dict): Dictionary of filtered decklists keyed by 'id'.
         arkham_cards (dict): Dictionary of card data keyed by 'code'.
+        arkham_packs (dict): Dictionary of pack data keyed by 'code'.
         output_path (str): Path where the CSV file should be saved.
     """
     # Initialize counters for each card (by name instead of code)
@@ -363,7 +364,8 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
         'side_deck_occurances': 0,
         'card_codes': [],
         'faction_code': '',
-        'xp': 0
+        'xp': 0,
+        'date_released': ''
     })
     
     processed_decks = 0
@@ -391,10 +393,15 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
                         card_stats_by_name[card_name]['main_deck_occurances'] += quantity
                         card_stats_by_name[card_name]['card_codes'].append(card_code)
                         
-                        # Store faction and xp info (use first encountered)
+                        # Store faction, xp, and date info (use first encountered)
                         if not card_stats_by_name[card_name]['faction_code']:
+                            pack_code = card_info.get('pack_code', '')
+                            pack_info = arkham_packs.get(pack_code, {})
+                            date_released = pack_info.get('available', 'Unknown')
+                            
                             card_stats_by_name[card_name]['faction_code'] = card_info.get('faction_code', 'Unknown')
                             card_stats_by_name[card_name]['xp'] = xp
+                            card_stats_by_name[card_name]['date_released'] = date_released
                             
                 except (json.JSONDecodeError, ValueError) as e:
                     print(f"Warning: Could not parse slots for decklist {decklist_id}: {e}")
@@ -419,10 +426,15 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
                         card_stats_by_name[card_name]['side_deck_occurances'] += quantity
                         card_stats_by_name[card_name]['card_codes'].append(card_code)
                         
-                        # Store faction and xp info (use first encountered)
+                        # Store faction, xp, and date info (use first encountered)
                         if not card_stats_by_name[card_name]['faction_code']:
+                            pack_code = card_info.get('pack_code', '')
+                            pack_info = arkham_packs.get(pack_code, {})
+                            date_released = pack_info.get('available', 'Unknown')
+                            
                             card_stats_by_name[card_name]['faction_code'] = card_info.get('faction_code', 'Unknown')
                             card_stats_by_name[card_name]['xp'] = xp
+                            card_stats_by_name[card_name]['date_released'] = date_released
                             
                 except (json.JSONDecodeError, ValueError) as e:
                     print(f"Warning: Could not parse sideSlots for decklist {decklist_id}: {e}")
@@ -440,6 +452,7 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
                 'name',
                 'faction_code',
                 'xp',
+                'date_released',
                 'main_decks_including_once', 
                 'main_deck_occurances', 
                 'side_decks_including_once', 
@@ -499,6 +512,7 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
                     'name': card_name,
                     'faction_code': stats['faction_code'],
                     'xp': stats['xp'],
+                    'date_released': stats['date_released'],
                     'main_decks_including_once': stats['main_decks_including_once'],
                     'main_deck_occurances': stats['main_deck_occurances'],
                     'side_decks_including_once': stats['side_decks_including_once'],
@@ -524,7 +538,7 @@ def main():
     
     # Generate card popularity CSV
     output_path = Path(__file__).parent.parent / "card_evaluations" / "card_popularity.csv"
-    generate_card_popularity_csv(decklists, arkham_cards, str(output_path))
+    generate_card_popularity_csv(decklists, arkham_cards, arkham_packs, str(output_path))
     
     # Generate investigator occurrence CSV
     investigator_output_path = Path(__file__).parent.parent / "card_evaluations" / "investigator_occurrences.csv"
