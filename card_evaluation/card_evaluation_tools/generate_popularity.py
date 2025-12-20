@@ -109,6 +109,178 @@ def load_arkham_cards_cache():
     
     return arkham_cards
 
+def generate_investigator_occurrence_csv(decklists, arkham_cards, arkham_packs, output_path="investigator_occurrences.csv"):
+    """
+    Generate a CSV file with investigator occurrence statistics.
+    
+    Args:
+        decklists (dict): Dictionary of filtered decklists keyed by 'id'.
+        arkham_cards (dict): Dictionary of card data keyed by 'code'.
+        arkham_packs (dict): Dictionary of pack data keyed by 'code'.
+        output_path (str): Path where the CSV file should be saved.
+    """
+    # Count investigator occurrences
+    investigator_counts = defaultdict(int)
+    investigator_info = {}
+    
+    processed_decks = 0
+    skipped_decks = 0
+    
+    for decklist_id, decklist in decklists.items():
+        try:
+            investigator_code = decklist.get('investigator_code', '').strip()
+            investigator_name = decklist.get('investigator_name', '').strip()
+            
+            if investigator_code and investigator_name:
+                investigator_counts[investigator_name] += 1
+                
+                # Store investigator info (use first encountered)
+                if investigator_name not in investigator_info:
+                    # Get investigator card info to find pack_code
+                    card_info = arkham_cards.get(investigator_code, {})
+                    pack_code = card_info.get('pack_code', '')
+                    
+                    # Get release date from pack info
+                    pack_info = arkham_packs.get(pack_code, {})
+                    date_released = pack_info.get('available', 'Unknown')
+                    
+                    investigator_info[investigator_name] = {
+                        'investigator_code': investigator_code,
+                        'pack_code': pack_code,
+                        'date_released': date_released
+                    }
+            
+            processed_decks += 1
+            
+        except Exception as e:
+            print(f"Error processing investigator for decklist {decklist_id}: {e}")
+            skipped_decks += 1
+    
+    # Write results to CSV
+    try:
+        with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['investigator_name', 'occurances', 'date_released']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            
+            # Sort investigators by occurrence count (descending)
+            sorted_investigators = sorted(
+                investigator_counts.items(), 
+                key=lambda x: x[1], 
+                reverse=True
+            )
+            
+            for investigator_name, count in sorted_investigators:
+                info = investigator_info.get(investigator_name, {})
+                writer.writerow({
+                    'investigator_name': investigator_name,
+                    'occurances': count,
+                    'date_released': info.get('date_released', 'Unknown')
+                })
+        
+        print(f"Generated investigator occurrence CSV with {len(investigator_counts)} investigators")
+        print(f"Processed {processed_decks} decklists, skipped {skipped_decks} due to errors")
+        print(f"Output saved to: {output_path}")
+        
+    except Exception as e:
+        print(f"Error writing investigator CSV file: {e}")
+
+def remove_low_value_decklists(decklists, decklist_stats, min_likes):
+    """
+    Remove decklists that have fewer than min_likes, have previous_deck/next_deck values,
+    or have duplicate slots from both decklists and decklist_stats.
+    
+    Args:
+        decklists (dict): Dictionary of decklists keyed by 'id'.
+        decklist_stats (dict): Dictionary of decklist stats keyed by 'decklist_id'.
+        min_likes (int): Minimum number of likes required to keep a decklist.
+    """
+    to_remove = []
+    removed_for_likes = 0
+    removed_for_previous_next = 0
+    removed_for_duplicate_slots = 0
+    seen_slots_hashes = set()
+    
+    for decklist_id, stats in decklist_stats.items():
+        should_remove = False
+        
+        # Check if likes are below minimum
+        try:
+            likes = int(stats.get('likes', 0))
+            if likes < min_likes:
+                should_remove = True
+                removed_for_likes += 1
+        except ValueError:
+            print(f"Warning: Invalid likes value for decklist_id {decklist_id}: {stats.get('likes')}")
+        
+        # Check if decklist has previous_deck or next_deck values
+        if decklist_id in decklists:
+            decklist = decklists[decklist_id]
+            previous_deck = decklist.get('previous_deck', '').strip()
+            next_deck = decklist.get('next_deck', '').strip()
+            
+            if previous_deck or next_deck:
+                should_remove = True
+                removed_for_previous_next += 1
+            
+            # Check for duplicate slots
+            if not should_remove:  # Only check if not already marked for removal
+                slots = decklist.get('slots', '').strip()
+                if slots:
+                    # Create hash of the slots field
+                    slots_hash = hashlib.md5(slots.encode('utf-8')).hexdigest()
+                    
+                    if slots_hash in seen_slots_hashes:
+                        should_remove = True
+                        removed_for_duplicate_slots += 1
+                    else:
+                        seen_slots_hashes.add(slots_hash)
+        
+        if should_remove:
+            to_remove.append(decklist_id)
+    
+    for decklist_id in to_remove:
+        if decklist_id in decklists:
+            del decklists[decklist_id]
+        if decklist_id in decklist_stats:
+            del decklist_stats[decklist_id]
+    
+    print(f"Removed {len(to_remove)} decklists:")
+    print(f"  - {removed_for_likes} with fewer than {min_likes} likes")
+    print(f"  - {removed_for_previous_next} with previous_deck or next_deck values")
+    print(f"  - {removed_for_duplicate_slots} with duplicate slots")
+
+def load_arkham_packs_cache():
+    """
+    Load arkham packs cache data from JSON file into a dictionary keyed by 'code'.
+    
+    Returns:
+        dict: Dictionary with pack codes as keys and pack data as values
+    """
+    arkham_packs = {}
+    
+    # Get the path to the JSON file
+    current_dir = Path(__file__).parent
+    json_path = current_dir.parent.parent / "arkham_packs_cache.json"
+    
+    try:
+        with open(json_path, 'r', encoding='utf-8') as file:
+            packs_list = json.load(file)
+            for pack in packs_list:
+                code = pack.get('code')
+                if code:
+                    arkham_packs[code] = pack
+        
+        print(f"Loaded {len(arkham_packs)} packs from arkham_packs_cache.json")
+        
+    except FileNotFoundError:
+        print(f"Error: Could not find arkham_packs_cache.json at {json_path}")
+    except Exception as e:
+        print(f"Error loading arkham packs cache: {e}")
+    
+    return arkham_packs
+
 def remove_low_value_decklists(decklists, decklist_stats, min_likes):
     """
     Remove decklists that have fewer than min_likes, have previous_deck/next_deck values,
@@ -346,12 +518,17 @@ def main():
     """
     decklists, decklist_stats = load_popularity_data()
     arkham_cards = load_arkham_cards_cache()
+    arkham_packs = load_arkham_packs_cache()
 
     remove_low_value_decklists(decklists, decklist_stats, min_likes=1)
     
     # Generate card popularity CSV
     output_path = Path(__file__).parent.parent / "card_evaluations" / "card_popularity.csv"
     generate_card_popularity_csv(decklists, arkham_cards, str(output_path))
+    
+    # Generate investigator occurrence CSV
+    investigator_output_path = Path(__file__).parent.parent / "card_evaluations" / "investigator_occurrences.csv"
+    generate_investigator_occurrence_csv(decklists, arkham_cards, arkham_packs, str(investigator_output_path))
 
     # Print some sample data to verify loading
     if decklists:
