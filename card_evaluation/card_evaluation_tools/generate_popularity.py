@@ -183,12 +183,15 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
         arkham_cards (dict): Dictionary of card data keyed by 'code'.
         output_path (str): Path where the CSV file should be saved.
     """
-    # Initialize counters for each card
-    card_stats = defaultdict(lambda: {
+    # Initialize counters for each card (by name instead of code)
+    card_stats_by_name = defaultdict(lambda: {
         'main_decks_including_once': 0,
         'main_deck_occurances': 0,
         'side_decks_including_once': 0,
-        'side_deck_occurances': 0
+        'side_deck_occurances': 0,
+        'card_codes': [],
+        'faction_code': '',
+        'xp': 0
     })
     
     processed_decks = 0
@@ -203,8 +206,24 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
                     slots = json.loads(slots_str)
                     for card_code, quantity in slots.items():
                         quantity = int(quantity)
-                        card_stats[card_code]['main_decks_including_once'] += 1
-                        card_stats[card_code]['main_deck_occurances'] += quantity
+                        # Get card info to determine name
+                        card_info = arkham_cards.get(card_code, {})
+                        card_name = card_info.get('name', f'Unknown_{card_code}')
+                        
+                        # Append XP cost to name if xp > 0
+                        xp = card_info.get('xp', 0)
+                        if xp > 0:
+                            card_name = f"{card_name} ({xp})"
+                        
+                        card_stats_by_name[card_name]['main_decks_including_once'] += 1
+                        card_stats_by_name[card_name]['main_deck_occurances'] += quantity
+                        card_stats_by_name[card_name]['card_codes'].append(card_code)
+                        
+                        # Store faction and xp info (use first encountered)
+                        if not card_stats_by_name[card_name]['faction_code']:
+                            card_stats_by_name[card_name]['faction_code'] = card_info.get('faction_code', 'Unknown')
+                            card_stats_by_name[card_name]['xp'] = xp
+                            
                 except (json.JSONDecodeError, ValueError) as e:
                     print(f"Warning: Could not parse slots for decklist {decklist_id}: {e}")
             
@@ -215,8 +234,24 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
                     side_slots = json.loads(side_slots_str)
                     for card_code, quantity in side_slots.items():
                         quantity = int(quantity)
-                        card_stats[card_code]['side_decks_including_once'] += 1
-                        card_stats[card_code]['side_deck_occurances'] += quantity
+                        # Get card info to determine name
+                        card_info = arkham_cards.get(card_code, {})
+                        card_name = card_info.get('name', f'Unknown_{card_code}')
+                        
+                        # Append XP cost to name if xp > 0
+                        xp = card_info.get('xp', 0)
+                        if xp > 0:
+                            card_name = f"{card_name} ({xp})"
+                        
+                        card_stats_by_name[card_name]['side_decks_including_once'] += 1
+                        card_stats_by_name[card_name]['side_deck_occurances'] += quantity
+                        card_stats_by_name[card_name]['card_codes'].append(card_code)
+                        
+                        # Store faction and xp info (use first encountered)
+                        if not card_stats_by_name[card_name]['faction_code']:
+                            card_stats_by_name[card_name]['faction_code'] = card_info.get('faction_code', 'Unknown')
+                            card_stats_by_name[card_name]['xp'] = xp
+                            
                 except (json.JSONDecodeError, ValueError) as e:
                     print(f"Warning: Could not parse sideSlots for decklist {decklist_id}: {e}")
             
@@ -230,7 +265,6 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
     try:
         with open(output_path, 'w', newline='', encoding='utf-8') as csvfile:
             fieldnames = [
-                'card_code',
                 'name',
                 'faction_code',
                 'xp',
@@ -245,7 +279,7 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
             
             # Sort cards by total occurrences (main + side) for consistent output
             sorted_cards = sorted(
-                card_stats.items(), 
+                card_stats_by_name.items(), 
                 key=lambda x: x[1]['main_deck_occurances'] + x[1]['side_deck_occurances'], 
                 reverse=True
             )
@@ -255,50 +289,44 @@ def generate_card_popularity_csv(decklists, arkham_cards, output_path="card_popu
             weakness_count = 0
             investigator_restricted_count = 0
             investigator_count = 0
-            for card_code, stats in sorted_cards:
-                card_info = arkham_cards.get(card_code, {})
-                subtype_code = card_info.get('subtype_code', '')
-                type_code = card_info.get('type_code', '')
-                restrictions = card_info.get('restrictions', {})
-                
+            for card_name, stats in sorted_cards:
                 should_filter = False
                 
-                # Filter weakness cards
-                if subtype_code in ['weakness', 'basicweakness']:
-                    weakness_count += 1
-                    should_filter = True
-                
-                # Filter investigator-restricted cards
-                elif 'investigator' in restrictions:
-                    investigator_restricted_count += 1
-                    should_filter = True
-                
-                # Filter investigator cards
-                elif type_code == 'investigator':
-                    investigator_count += 1
-                    should_filter = True
+                # Check all card codes for this name to see if any should be filtered
+                for card_code in stats['card_codes']:
+                    card_info = arkham_cards.get(card_code, {})
+                    subtype_code = card_info.get('subtype_code', '')
+                    type_code = card_info.get('type_code', '')
+                    restrictions = card_info.get('restrictions', {})
+                    
+                    # Filter weakness cards
+                    if subtype_code in ['weakness', 'basicweakness']:
+                        weakness_count += 1
+                        should_filter = True
+                        break
+                    
+                    # Filter investigator-restricted cards
+                    elif 'investigator' in restrictions:
+                        investigator_restricted_count += 1
+                        should_filter = True
+                        break
+                    
+                    # Filter investigator cards
+                    elif type_code == 'investigator':
+                        investigator_count += 1
+                        should_filter = True
+                        break
                 
                 if not should_filter:
-                    filtered_cards.append((card_code, stats))
+                    filtered_cards.append((card_name, stats))
             
             print(f"Filtered out {weakness_count} weakness cards, {investigator_restricted_count} investigator-restricted cards, and {investigator_count} investigator cards")
             
-            for card_code, stats in filtered_cards:
-                # Get card info from arkham_cards_cache
-                card_info = arkham_cards.get(card_code, {})
-                card_name = card_info.get('name', 'Unknown')
-                faction_code = card_info.get('faction_code', 'Unknown')
-                xp = card_info.get('xp', 0)
-                
-                # Append XP cost to name if xp > 0
-                if xp > 0:
-                    card_name = f"{card_name} ({xp})"
-                
+            for card_name, stats in filtered_cards:
                 writer.writerow({
-                    'card_code': card_code,
                     'name': card_name,
-                    'faction_code': faction_code,
-                    'xp': xp,
+                    'faction_code': stats['faction_code'],
+                    'xp': stats['xp'],
                     'main_decks_including_once': stats['main_decks_including_once'],
                     'main_deck_occurances': stats['main_deck_occurances'],
                     'side_decks_including_once': stats['side_decks_including_once'],
