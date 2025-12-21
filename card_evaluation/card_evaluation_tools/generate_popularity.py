@@ -134,7 +134,7 @@ def generate_investigator_occurrence_csv(decklists, arkham_cards, arkham_packs, 
             if investigator_code and investigator_name:
                 investigator_counts[investigator_name] += 1
                 
-                # Store investigator info (use first encountered)
+                # Store investigator info (use oldest date encountered)
                 if investigator_name not in investigator_info:
                     # Get investigator card info to find pack_code
                     card_info = arkham_cards.get(investigator_code, {})
@@ -149,6 +149,17 @@ def generate_investigator_occurrence_csv(decklists, arkham_cards, arkham_packs, 
                         'pack_code': pack_code,
                         'date_released': date_released
                     }
+                else:
+                    # Check if this printing has an older release date
+                    card_info = arkham_cards.get(investigator_code, {})
+                    pack_code = card_info.get('pack_code', '')
+                    pack_info = arkham_packs.get(pack_code, {})
+                    current_date = pack_info.get('available', 'Unknown')
+                    existing_date = investigator_info[investigator_name]['date_released']
+                    
+                    # Use the older date (handles 'Unknown' by keeping existing if current is 'Unknown')
+                    if current_date != 'Unknown' and (existing_date == 'Unknown' or current_date < existing_date):
+                        investigator_info[investigator_name]['date_released'] = current_date
             
             processed_decks += 1
             
@@ -393,15 +404,20 @@ def generate_card_popularity_csv(decklists, arkham_cards, arkham_packs, output_p
                         card_stats_by_name[card_name]['main_deck_occurances'] += quantity
                         card_stats_by_name[card_name]['card_codes'].append(card_code)
                         
-                        # Store faction, xp, and date info (use first encountered)
+                        # Store faction, xp, and date info (use oldest date encountered)
+                        pack_code = card_info.get('pack_code', '')
+                        pack_info = arkham_packs.get(pack_code, {})
+                        current_date = pack_info.get('available', 'Unknown')
+                        
                         if not card_stats_by_name[card_name]['faction_code']:
-                            pack_code = card_info.get('pack_code', '')
-                            pack_info = arkham_packs.get(pack_code, {})
-                            date_released = pack_info.get('available', 'Unknown')
-                            
                             card_stats_by_name[card_name]['faction_code'] = card_info.get('faction_code', 'Unknown')
                             card_stats_by_name[card_name]['xp'] = xp
-                            card_stats_by_name[card_name]['date_released'] = date_released
+                            card_stats_by_name[card_name]['date_released'] = current_date
+                        else:
+                            # Check if this printing has an older release date
+                            existing_date = card_stats_by_name[card_name]['date_released']
+                            if current_date != 'Unknown' and (existing_date == 'Unknown' or current_date < existing_date):
+                                card_stats_by_name[card_name]['date_released'] = current_date
                             
                 except (json.JSONDecodeError, ValueError) as e:
                     print(f"Warning: Could not parse slots for decklist {decklist_id}: {e}")
@@ -426,15 +442,20 @@ def generate_card_popularity_csv(decklists, arkham_cards, arkham_packs, output_p
                         card_stats_by_name[card_name]['side_deck_occurances'] += quantity
                         card_stats_by_name[card_name]['card_codes'].append(card_code)
                         
-                        # Store faction, xp, and date info (use first encountered)
+                        # Store faction, xp, and date info (use oldest date encountered)
+                        pack_code = card_info.get('pack_code', '')
+                        pack_info = arkham_packs.get(pack_code, {})
+                        current_date = pack_info.get('available', 'Unknown')
+                        
                         if not card_stats_by_name[card_name]['faction_code']:
-                            pack_code = card_info.get('pack_code', '')
-                            pack_info = arkham_packs.get(pack_code, {})
-                            date_released = pack_info.get('available', 'Unknown')
-                            
                             card_stats_by_name[card_name]['faction_code'] = card_info.get('faction_code', 'Unknown')
                             card_stats_by_name[card_name]['xp'] = xp
-                            card_stats_by_name[card_name]['date_released'] = date_released
+                            card_stats_by_name[card_name]['date_released'] = current_date
+                        else:
+                            # Check if this printing has an older release date
+                            existing_date = card_stats_by_name[card_name]['date_released']
+                            if current_date != 'Unknown' and (existing_date == 'Unknown' or current_date < existing_date):
+                                card_stats_by_name[card_name]['date_released'] = current_date
                             
                 except (json.JSONDecodeError, ValueError) as e:
                     print(f"Warning: Could not parse sideSlots for decklist {decklist_id}: {e}")

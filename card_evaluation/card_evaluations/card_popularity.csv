@@ -1,20 +1,20 @@
 name,faction_code,xp,date_released,main_decks_including_once,main_deck_occurances,side_decks_including_once,side_deck_occurances
-Emergency Cache,neutral,0,2020-10-01,4423,8114,43,63
-Unexpected Courage,neutral,0,2020-10-01,3759,6957,32,53
-Guts,neutral,0,2020-10-01,3166,5708,35,56
-Perception,neutral,0,2020-10-01,3014,5537,42,70
-Overpower,neutral,0,2020-10-01,2693,4865,38,63
+Emergency Cache,neutral,0,2016-11-10,4423,8114,43,63
+Unexpected Courage,neutral,0,2016-11-10,3759,6957,32,53
+Guts,neutral,0,2016-11-10,3166,5708,35,56
+Perception,neutral,0,2016-11-10,3014,5537,42,70
+Overpower,neutral,0,2016-11-10,2693,4865,38,63
 Flashlight,neutral,0,2016-11-10,2536,4640,27,44
 Vicious Blow,guardian,0,2016-11-10,2334,4306,28,46
 Ward of Protection,mystic,0,2016-11-10,2202,3985,25,39
-Deduction,seeker,0,2020-10-01,2072,3778,30,49
-Manual Dexterity,neutral,0,2020-10-01,2005,3484,31,50
+Deduction,seeker,0,2016-11-10,2072,3778,30,49
+Manual Dexterity,neutral,0,2016-11-10,2005,3484,31,50
 Lucky!,survivor,0,2016-11-10,1931,3479,20,32
-Magnifying Glass,seeker,0,2020-10-01,1730,2914,20,30
+Magnifying Glass,seeker,0,2016-11-10,1730,2914,20,30
 Shortcut,seeker,0,2017-01-12,1508,2778,35,53
 Resourceful,survivor,0,2017-09-14,1369,2650,14,25
 """Look what I found!""",survivor,0,2016-11-10,1418,2509,19,35
-Dr. Milan Christopher,seeker,0,2020-10-01,1485,2461,29,42
+Dr. Milan Christopher,seeker,0,2016-11-10,1485,2461,29,42
 Shrivelling,mystic,0,2016-11-10,1397,2459,16,26
 Machete,guardian,0,2016-11-10,1419,2437,17,26
 Drawn to the Flame,mystic,0,2016-11-10,1353,2357,20,30
@@ -24,7 +24,7 @@ Leo De Luca,rogue,0,2016-11-10,1285,2074,36,48
 Dodge,guardian,0,2016-11-10,1179,1970,12,18
 Eureka!,seeker,0,2018-01-25,1021,1943,26,42
 Inquiring Mind,seeker,0,2017-05-11,1047,1933,25,40
-Beat Cop,guardian,0,2020-10-01,1118,1876,24,35
+Beat Cop,guardian,0,2016-11-10,1118,1876,24,35
 Guard Dog,guardian,0,2016-11-10,1113,1856,19,29
 Prepared for the Worst,guardian,0,2017-04-13,1245,1844,20,30
 Lone Wolf,rogue,0,2017-04-13,1162,1814,20,24
@@ -32,13 +32,13 @@ Quick Thinking,rogue,0,2017-05-11,973,1799,22,37
 Deny Existence,mystic,0,2019-01-31,956,1765,20,30
 Take Heart,survivor,0,2018-08-16,924,1751,17,28
 Peter Sylvestre,survivor,0,2017-01-12,968,1736,18,27
-.45 Automatic,guardian,0,2020-10-01,1069,1738,9,14
+.45 Automatic,guardian,0,2016-11-10,1069,1738,9,14
 Evidence!,guardian,0,2016-11-10,1017,1722,16,23
 Fire Axe,survivor,0,2017-01-12,933,1704,11,19
-Elusive,rogue,0,2020-10-01,1059,1646,12,19
+Elusive,rogue,0,2016-11-10,1059,1646,12,19
 Charisma (3),neutral,3,2017-03-16,946,1107,466,545
 Knife,neutral,0,2016-11-10,914,1622,3,4
-Backstab,rogue,0,2020-10-01,917,1533,15,19
+Backstab,rogue,0,2016-11-10,917,1533,15,19
 Arcane Initiate,mystic,0,2016-11-10,883,1522,16,25
 Leather Coat,survivor,0,2016-11-10,996,1497,14,21
 Crack the Case,seeker,0,2019-03-14,764,1424,14,18
@@ -50,7 +50,7 @@ In the Thick of It,neutral,0,2021-09-10,1291,1291,27,27
 Rite of Seeking,mystic,0,2017-01-12,707,1276,10,18
 """I've got a plan!""",seeker,0,2017-02-16,702,1261,9,11
 Delve Too Deep,mystic,0,2017-02-16,713,1194,45,77
-Sneak Attack,rogue,0,2020-10-01,744,1251,12,19
+Sneak Attack,rogue,0,2016-11-10,744,1251,12,19
 Scavenging,survivor,0,2016-11-10,785,1226,30,43
 Take the Initiative,guardian,0,2018-07-19,657,1227,17,30
 Spectral Razor,mystic,0,2020-01-10,660,1220,18,31
@@ -73,8 +73,8 @@ Astounding Revelation,seeker,0,2019-09-27,381,949,14,31
 Easy Mark (1),rogue,1,2019-09-27,276,823,51,147
 Backpack,neutral,0,2018-05-10,558,907,33,54
 """Let me handle this!""",guardian,0,2017-09-14,515,922,14,24
-.41 Derringer,rogue,0,2020-10-01,588,940,4,6
-Pickpocketing,rogue,0,2020-10-01,609,926,12,19
+.41 Derringer,rogue,0,2016-11-10,588,940,4,6
+Pickpocketing,rogue,0,2016-11-10,609,926,12,19
 Forbidden Knowledge,mystic,0,2016-11-10,562,927,6,7
 Faustian Bargain,rogue,0,2020-10-02,493,885,29,48
 Enchanted Blade,mystic,0,2019-03-14,484,888,17,30
@@ -106,7 +106,7 @@ David Renfield,mystic,0,2017-10-26,402,709,14,21
 Painkillers,neutral,0,2017-02-16,491,711,9,11
 Madame Labranche,survivor,0,2017-12-21,394,709,6,11
 Relic Hunter (3),neutral,3,2017-03-16,355,412,260,308
-Burglary,rogue,0,2020-10-01,496,703,9,13
+Burglary,rogue,0,2016-11-10,496,703,9,13
 Deduction (2),seeker,2,2017-03-16,190,353,185,359
 Hyperawareness,seeker,0,2016-11-10,526,707,2,3
 Scrounge for Supplies,survivor,0,2019-12-13,376,671,20,36
@@ -146,7 +146,7 @@ Ward of Protection (2),mystic,2,2018-02-22,159,288,143,268
 Sled Dog,neutral,0,2021-09-10,148,544,4,10
 Voice of Ra,mystic,0,2020-08-28,298,543,4,8
 Premonition,mystic,0,2018-08-16,288,536,6,12
-Dark Prophecy,mystic,0,2020-08-28,283,529,5,7
+Dark Prophecy,mystic,0,2018-05-10,283,529,5,7
 Seeking Answers,seeker,0,2017-01-12,300,523,6,8
 Ever Vigilant (1),guardian,1,2017-09-14,275,352,128,178
 Tooth of Eztli,seeker,0,2018-05-10,306,506,7,9
@@ -167,7 +167,7 @@ Cryptic Writings,seeker,0,2020-08-28,236,451,8,15
 .32 Colt,guardian,0,2017-09-14,273,457,6,8
 Magnifying Glass (1),seeker,1,2016-11-10,204,300,98,163
 Smoking Pipe,neutral,0,2017-02-16,310,443,12,16
-Medical Texts,seeker,0,2020-10-01,358,458,1,1
+Medical Texts,seeker,0,2016-11-10,358,458,1,1
 Dig Deep,survivor,0,2016-11-10,323,448,7,10
 Cheap Shot,rogue,0,2017-12-21,257,441,6,9
 Trench Coat,neutral,0,2018-08-16,284,424,13,17
@@ -198,15 +198,15 @@ Segment of Onyx (1),seeker,1,2019-09-27,107,313,28,77
 Bandages,survivor,0,2021-09-10,219,377,9,11
 Venturer,guardian,0,2018-05-10,208,374,6,9
 Stunning Blow,survivor,0,2018-06-14,212,365,9,15
-Barricade,seeker,0,2020-10-01,286,373,2,3
+Barricade,seeker,0,2016-11-10,286,373,2,3
 .45 Thompson,guardian,0,2019-03-14,206,360,10,14
 Say Your Prayers,neutral,0,2017-10-26,226,370,3,3
 Improvised Weapon,survivor,0,2018-05-10,203,362,4,7
 Keep Faith,survivor,0,2020-10-02,188,355,8,12
-Slip Away,rogue,0,2020-08-28,207,351,9,15
+Slip Away,rogue,0,2018-09-13,207,351,9,15
 Azure Flame,mystic,0,2020-08-28,211,356,7,10
 Reckless Assault,neutral,0,2017-10-26,202,361,2,4
-Cunning Distraction,survivor,0,2020-10-01,282,352,6,10
+Cunning Distraction,survivor,0,2016-11-10,282,352,6,10
 The Chthonian Stone,mystic,0,2018-05-10,219,349,8,11
 One-Two Punch,guardian,0,2020-08-28,190,352,4,5
 Occult Lexicon,seeker,0,2019-07-26,332,332,19,19
@@ -353,7 +353,7 @@ Guts (2),mystic,2,2020-08-28,42,77,66,124
 Long Shot,survivor,0,2023-02-16,96,186,9,15
 Boxing Gloves,guardian,0,2020-08-28,109,199,1,2
 Eavesdrop,rogue,0,2018-05-10,114,200,1,1
-Cat Burglar (1),rogue,1,2020-10-01,91,139,37,62
+Cat Burglar (1),rogue,1,2016-11-10,91,139,37,62
 Gregory Gry,rogue,0,2019-12-13,114,183,11,18
 Cunning,rogue,0,2019-01-31,105,194,3,5
 Safeguard (2),guardian,2,2020-01-10,54,76,83,122
@@ -377,7 +377,7 @@ Crafty (3),seeker,3,2021-09-10,50,77,68,111
 True Survivor (3),survivor,3,2018-02-22,70,113,45,75
 Hiding Spot,survivor,0,2017-09-14,117,185,1,2
 Decoy,rogue,0,2019-06-06,103,183,3,4
-Strange Solution (4),seeker,4,2019-01-10,45,66,72,118
+Strange Solution (4),seeker,4,2017-06-08,45,66,72,118
 Jury-Rig,survivor,0,2021-09-10,105,178,3,6
 Unearth the Ancients,seeker,0,2018-05-10,101,178,4,6
 .25 Automatic,rogue,0,2020-10-02,98,170,8,14
@@ -434,7 +434,7 @@ Thermos,neutral,0,2018-10-11,110,151,5,6
 Old Keyring (3),survivor,3,2022-09-30,47,84,40,72
 Fox Mask,rogue,0,2023-02-16,106,149,4,6
 Matchbox,survivor,0,2023-02-16,82,139,10,15
-Encyclopedia (2),seeker,2,2020-10-01,84,112,28,41
+Encyclopedia (2),seeker,2,2016-11-10,84,112,28,41
 Chainsaw (4),survivor,4,2020-08-28,49,89,36,63
 Divination (4),seeker,4,2021-09-10,31,49,57,103
 Eye of Chaos,mystic,0,2020-11-06,81,148,3,3
@@ -485,7 +485,7 @@ Cryptographic Cipher,seeker,0,2020-10-02,70,122,6,11
 Pushed to the Limit,survivor,0,2023-02-16,70,125,5,7
 Grit Your Teeth,survivor,0,2020-08-28,67,123,5,9
 The Red Clock (2),rogue,2,2021-09-10,50,50,81,81
-Rite of Seeking (2),mystic,2,2020-10-01,40,63,38,68
+Rite of Seeking (2),mystic,2,2019-01-10,40,63,38,68
 Miss Doyle (1),survivor,1,2019-09-27,104,104,26,26
 Underworld Support,rogue,0,2021-09-10,128,128,2,2
 Ancestral Token,guardian,0,2023-02-16,72,122,5,8
@@ -622,7 +622,7 @@ Steady-Handed (1),seeker,1,2023-02-16,41,60,21,32
 Defensive Stance (1),guardian,1,2021-09-10,21,32,33,59
 Nothing Left to Lose (3),survivor,3,2020-03-06,38,62,16,29
 The Star • XVII (3),guardian,3,2021-06-24,41,51,31,40
-On Your Own (3),survivor,3,2020-08-07,57,68,18,22
+On Your Own (3),survivor,3,2018-09-13,57,68,18,22
 Lesson Learned (2),guardian,2,2020-08-28,14,27,36,62
 Ariadne's Twine (3),seeker,3,2021-05-21,36,46,29,43
 Pilfer (3),rogue,3,2020-08-28,30,44,26,45
@@ -730,7 +730,7 @@ Bewitching (3),rogue,3,2023-02-16,37,37,32,32
 Fingerprint Kit (4),seeker,4,2022-09-30,18,29,23,39
 Cherished Keepsake (1),survivor,1,2020-08-28,22,38,18,30
 Healing Words,mystic,0,2019-12-13,44,64,3,4
-Aquinnah (1),survivor,1,2020-10-01,38,56,10,11
+Aquinnah (1),survivor,1,2016-11-10,38,56,10,11
 Vamp,rogue,0,2023-02-16,34,60,4,7
 Eldritch Initiation,mystic,0,2022-09-30,34,64,1,2
 The Key of Solomon (4),mystic,4,2023-02-16,15,20,27,46
