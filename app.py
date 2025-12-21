@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import requests
 import json
 import os
+import csv
 from datetime import datetime, timedelta
 import threading
 from collections import defaultdict
@@ -664,8 +665,36 @@ def get_arkham_cards():
     print("Unable to load cards data")
     return []
 
+def load_card_evaluations():
+    """Load card evaluations from CSV file and return a mapping from name to rating."""
+    evaluations = {}
+    csv_path = os.path.join('card_evaluation', 'card_evaluations', 'CardEvaluations.csv')
+    
+    try:
+        with open(csv_path, 'r', encoding='utf-8') as file:
+            csv_reader = csv.DictReader(file)
+            for row in csv_reader:
+                name = row.get('Name', '').strip()
+                rating_str = row.get('Rating', '0').strip()
+                try:
+                    rating = int(float(rating_str))  # Convert to float first then to int to handle decimal values
+                    evaluations[name] = rating
+                except ValueError:
+                    # If rating can't be converted to int, default to 0
+                    evaluations[name] = 0
+        print(f"Loaded {len(evaluations)} card evaluations")
+    except FileNotFoundError:
+        print(f"Warning: Could not find CardEvaluations.csv at {csv_path}")
+    except Exception as e:
+        print(f"Error loading card evaluations: {e}")
+    
+    return evaluations
+
 def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
     """Convert Arkham cards to Draftmancer custom card list format."""
+    # Load card evaluations
+    card_evaluations = load_card_evaluations()
+    
     # Get pack data to map pack names to pack codes
     packs_data = get_packs()
     if not packs_data:
@@ -779,6 +808,9 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             # This is a bonded card with a name conflict, make it unique by appending the code
             card_name = f"{card_name} ({card.get('code', '')})"
                 
+        # Get rating from card evaluations, default to 0 if not found
+        card_rating = card_evaluations.get(card_name, 0)
+        
         draftmancer_card = {
             "name": card_name,
             "image": format_image_url(card.get('imagesrc', '')),
@@ -787,7 +819,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant'),
             "set": f"AH{card.get('pack_code', '').upper()}",
             "collector_number": str(card.get('code', '')),
-            "rating": 0
+            "rating": card_rating
         }
 
         # Add layout field for investigator cards
