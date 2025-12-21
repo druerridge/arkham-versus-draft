@@ -42,6 +42,36 @@ TYPE_CODE_MAP = {
     'treachery': 'Enchantment',
 }
 
+def get_investigator_colors(card):
+    """Get colors for an investigator based on deck_options instead of faction_code."""
+    if card.get('type_code') != 'investigator':
+        # For non-investigators, use the original faction_code logic
+        return FACTION_COLOR_MAP.get(card.get('faction_code', 'neutral'), [])
+    
+    # For investigators, extract factions from deck_options
+    deck_options = card.get('deck_options', [])
+    unique_factions = set()
+    
+    for option in deck_options:
+        factions = option.get('faction', [])
+        for faction in factions:
+            if faction != 'neutral':  # Exclude neutral as specified
+                unique_factions.add(faction)
+    
+    # Convert factions to colors and sort for consistency
+    colors = []
+    for faction in sorted(unique_factions):
+        faction_colors = FACTION_COLOR_MAP.get(faction, [])
+        colors.extend(faction_colors)
+    
+    # Remove duplicates while preserving order
+    unique_colors = []
+    for color in colors:
+        if color not in unique_colors:
+            unique_colors.append(color)
+    
+    return unique_colors
+
 def format_image_url(image_src):
     """Format image URL by prepending ArkhamDB base URL if needed."""
     if not image_src:
@@ -197,7 +227,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
             custom_card = {
                 "name": card_name,
                 "image": format_image_url(card_data.get('imagesrc', '')),
-                "colors": FACTION_COLOR_MAP.get(card_data.get('faction_code', 'neutral'), []),
+                "colors": get_investigator_colors(card_data),
                 "mana_cost": mana_cost_str,
                 "type": TYPE_CODE_MAP.get(card_data.get('type_code'), 'Instant'),
                 "set": f"AH{card_data.get('pack_code', '').upper()}",
@@ -307,7 +337,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                 related_custom_card = {
                     "name": related_card_data.get('name', ''),
                     "image": format_image_url(related_card_data.get('imagesrc', '')),
-                    "colors": FACTION_COLOR_MAP.get(related_card_data.get('faction_code', 'neutral'), []),
+                    "colors": get_investigator_colors(related_card_data),
                     "mana_cost": related_mana_cost_str,
                     "type": TYPE_CODE_MAP.get(related_card_data.get('type_code'), 'Instant'),
                     "set": f"AH{related_card_data.get('pack_code', '').upper()}",
@@ -814,7 +844,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
         draftmancer_card = {
             "name": card_name,
             "image": format_image_url(card.get('imagesrc', '')),
-            "colors": FACTION_COLOR_MAP.get(card.get('faction_code', 'neutral'), []),
+            "colors": get_investigator_colors(card),
             "mana_cost": mana_cost_str,
             "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant'),
             "set": f"AH{card.get('pack_code', '').upper()}",
