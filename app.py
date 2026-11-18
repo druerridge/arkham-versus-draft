@@ -80,6 +80,24 @@ def format_image_url(image_src):
         return image_src  # Already a full URL
     return ARKHAMDB_BASE_URL + image_src
 
+def card_display_name(card):
+    """Name used in Draftmancer output: 'Name: Subname' when ArkhamDB has a subname.
+
+    Draftmancer treats custom cards sharing a name as printings of one card and copies
+    fields between them, so distinct cards (e.g. Jim Culver the investigator vs. the
+    asset) must get distinct names.
+    """
+    name = card.get('name', '')
+    subname = (card.get('subname') or '').strip()
+    return f"{name}: {subname}" if name and subname else name
+
+def is_card_excluded(card, excluded_cards):
+    """Match exclusions against either the plain name or the 'Name: Subname' form."""
+    if not excluded_cards:
+        return False
+    return (card.get('name', '').lower() in excluded_cards
+            or card_display_name(card).lower() in excluded_cards)
+
 def parse_excluded_cards(excluded_text):
     """Parse the excluded cards text and return a set of normalized card names."""
     if not excluded_text:
@@ -127,6 +145,10 @@ def parse_cards_to_include(include_text):
         card_name_to_data = {}
         if arkham_cards:
             for card in arkham_cards:
+                # Allow lookup by the 'Name: Subname' form (exact card)
+                display_key = card_display_name(card).lower()
+                if display_key and display_key != card.get('name', '').lower():
+                    card_name_to_data.setdefault(display_key, card)
                 card_name = card.get('name', '').lower()
                 if card_name:
                     # Prioritize main cards over bonded cards
@@ -169,7 +191,7 @@ def parse_cards_to_include(include_text):
                                 card_type = 'player'
                         
                         cards_to_include[card_name.lower()] = {
-                            'name': card_name,
+                            'name': card_display_name(card_data) if card_data else card_name,
                             'quantity': quantity,
                             'type': card_type,
                             'data': card_data
@@ -256,7 +278,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                         for code in related_card_codes:
                             related_card = next((c for c in arkham_cards if c.get('code') == code), None)
                             if related_card:
-                                related_card_name = related_card.get('name', '')
+                                related_card_name = card_display_name(related_card)
                                 # Only add if not already added
                                 if related_card_name.lower() not in added_card_names:
                                     related_cards.append(related_card_name)
@@ -275,7 +297,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                     if bonded_code:
                         bonded_card = next((c for c in arkham_cards if c.get('code') == bonded_code), None)
                         if bonded_card:
-                            bonded_name = bonded_card.get('name', '')
+                            bonded_name = card_display_name(bonded_card)
                             # Only add if not already added
                             if bonded_name.lower() not in added_card_names:
                                 related_cards.append(bonded_name)
@@ -335,7 +357,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                 
                 # Create custom card entry for related card
                 related_custom_card = {
-                    "name": related_card_data.get('name', ''),
+                    "name": card_display_name(related_card_data),
                     "image": format_image_url(related_card_data.get('imagesrc', '')),
                     "colors": get_investigator_colors(related_card_data),
                     "mana_cost": related_mana_cost_str,
@@ -363,7 +385,7 @@ def add_cards_to_include_to_lists(cards_to_include, investigators_cards, basic_w
                 # Handle back image for related cards
                 if related_card_data.get('backimagesrc'):
                     related_back_card_data = {
-                        "name": related_card_data.get('name', '') + " - back",
+                        "name": card_display_name(related_card_data) + " - back",
                         "image": format_image_url(related_card_data.get('backimagesrc', '')),
                         "type": TYPE_CODE_MAP.get(related_card_data.get('type_code'), 'Instant')
                     }
@@ -812,7 +834,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
     name_count = {}
     for card in filtered_cards:
         if card.get('bonded_to'):
-            name = card.get('name', '')
+            name = card_display_name(card)
             name_count[name] = name_count.get(name, 0) + 1
     
     # Mark names that have conflicts (appear more than once)
@@ -833,13 +855,14 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             mana_cost_str = "0"
                 
         # Generate unique name for bonded cards only if there are name conflicts
-        card_name = card.get('name', '')
+        card_name = card_display_name(card)
         if card.get('bonded_to') and card_name in bonded_name_conflicts:
             # This is a bonded card with a name conflict, make it unique by appending the code
             card_name = f"{card_name} ({card.get('code', '')})"
                 
         # Get rating from card evaluations, default to 0 if not found
-        card_rating = card_evaluations.get(card_name, 0)
+        # CardEvaluations.csv is keyed by plain name; prefer a 'Name: Subname' row if present
+        card_rating = card_evaluations.get(card_name, card_evaluations.get(card.get('name', ''), 0))
         
         draftmancer_card = {
             "name": card_name,
@@ -872,10 +895,10 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                     for code in related_card_codes:
                         related_card = next((c for c in arkham_cards if c.get('code') == code), None)
                         if related_card:
-                            card_name = related_card.get('name', '')
-                            related_cards.append(card_name)
+                            related_name = card_display_name(related_card)
+                            related_cards.append(related_name)
                             # Add to draft effects so they're added to drafter's pool
-                            draft_effect_cards.append(card_name)
+                            draft_effect_cards.append(related_name)
         
         # Add bonded cards to related_cards (for any card type that has them)
         bonded_cards = card.get('bonded_cards', [])
@@ -886,7 +909,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
                     bonded_card = next((c for c in arkham_cards if c.get('code') == bonded_code), None)
                     if bonded_card:
                         # Always use the unique name for bonded cards (check if they have name conflicts)
-                        bonded_name = bonded_card.get('name', '')
+                        bonded_name = card_display_name(bonded_card)
                         if bonded_card.get('bonded_to') and bonded_name in bonded_name_conflicts:
                             bonded_name = f"{bonded_name} ({bonded_code})"
                         related_cards.append(bonded_name)
@@ -921,7 +944,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
             # Use the linked back card's image
             back_card = linked_back_lookup[card_code]
             back_card_data = {
-                "name": card.get('name', '') + " - back",
+                "name": card_display_name(card) + " - back",
                 "image": format_image_url(back_card.get('imagesrc', '')),
                 "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant')
             }
@@ -932,7 +955,7 @@ def convert_to_draftmancer_format(arkham_cards, selected_pack_names):
         elif card.get('backimagesrc'):
             # Use the standard backimagesrc
             back_card_data = {
-                "name": card.get('name', '') + " - back",
+                "name": card_display_name(card) + " - back",
                 "image": format_image_url(card.get('backimagesrc', '')),
                 "type": TYPE_CODE_MAP.get(card.get('type_code'), 'Instant')
             }
@@ -1009,10 +1032,10 @@ def generate_player_cards(selected_pack_codes, pack_quantities=None, excluded_ca
             if xp is not None and xp > 0:
                 continue
             
-            card_name = card.get('name', '')
+            card_name = card_display_name(card)
             
             # Skip excluded cards
-            if excluded_cards and card_name.lower() in excluded_cards:
+            if is_card_excluded(card, excluded_cards):
                 continue
             
             collector_number = str(card.get('code', ''))
@@ -1181,12 +1204,12 @@ def generate_investigators_cards(selected_pack_codes, pack_quantities=None, excl
             if card.get('type_code') != 'investigator':
                 continue
             
-            card_name = card.get('name', '')
+            card_name = card_display_name(card)
             if not card_name:
                 continue
             
             # Skip excluded cards
-            if excluded_cards and card_name.lower() in excluded_cards:
+            if is_card_excluded(card, excluded_cards):
                 continue
             
             # Normalize the pack code (core/rcore treated as same)
@@ -1298,12 +1321,12 @@ def generate_basic_weaknesses_cards(selected_pack_codes, pack_quantities=None, e
             if card.get('subtype_code') != 'basicweakness':
                 continue
             
-            card_name = card.get('name', '')
+            card_name = card_display_name(card)
             if not card_name:
                 continue
             
             # Skip excluded cards
-            if excluded_cards and card_name.lower() in excluded_cards:
+            if is_card_excluded(card, excluded_cards):
                 continue
             
             # Check if this is a better version than what we have
@@ -1585,7 +1608,16 @@ def api_cards():
             if xp > 0:
                 xp_name = f"{name} ({xp})"
                 name_to_code[xp_name] = card['code']
-    
+
+    # Draftmancer files use 'Name: Subname' for cards that have a subname
+    for card in sorted(arkham_cards, key=lambda c: c.get('xp') or 0):
+        if card.get('subname') and card.get('code'):
+            display = card_display_name(card)
+            name_to_code.setdefault(display, card['code'])
+            xp = card.get('xp') or 0
+            if xp > 0:
+                name_to_code.setdefault(f"{display} ({xp})", card['code'])
+
     return {"cards": name_to_code}
 
 @app.route('/draft', methods=['POST'])

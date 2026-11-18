@@ -116,6 +116,14 @@
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
+            line-height: 1.2;
+        }
+        .convert-button small {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+            opacity: 0.8;
+            margin-top: 2px;
         }
         .convert-button:hover {
             background-color: #008000;
@@ -227,9 +235,11 @@ William Yorick
         </div>
     </div>
     
-    <div class="button-group" style="display: flex; gap: 10px; justify-content: center; margin: 20px 0;">
-        <button class="convert-button" onclick="convertDeck()">Convert to ArkhamDB Format</button>
-        <button class="convert-button" onclick="generateCSV()" style="background-color: #8b4513;">Create CSV for arkham.build 'Sealed'</button>
+    <div class="button-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; justify-content: center; margin: 20px 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <button class="convert-button" onclick="exportPoolToBuild()" style="background-color: #8b4513;">↗ arkham.build<br><small>Pool</small></button>
+        <button class="convert-button" onclick="exportDeckToBuild()" style="background-color: #8b4513;">↗ arkham.build<br><small>Deck</small></button>
+        <button class="convert-button" onclick="exportPoolToDb()" style="background-color: #006400;">↗ arkhamdb<br><small>Pool</small></button>
+        <button class="convert-button" onclick="exportDeckToDb()" style="background-color: #006400;">↗ arkhamdb<br><small>Deck</small></button>
     </div>
 
     <div class="footer">
@@ -429,6 +439,35 @@ William Yorick
             }
         }
         
+        
+        function exportPoolToBuild() {
+            // This would be the same as the current generateCSV function
+            generateCSV();
+        }
+        
+        function exportDeckToBuild() {
+            // Convert to ArkhamDB format first, then could export to arkham.build
+            convertDeck();
+            // For now, just copy the result - could be enhanced later to directly export
+            setTimeout(() => {
+                copyToClipboard();
+            }, 100);
+        }
+        
+        function exportPoolToDb() {
+            // This would export pool data to ArkhamDB format
+            // For now, same as generateCSV but could be modified for ArkhamDB specific format
+            generateCSV();
+        }
+        
+        function exportDeckToDb() {
+            // Convert to ArkhamDB format and copy to clipboard
+            convertDeck();
+            setTimeout(() => {
+                copyToClipboard();
+            }, 100);
+        }
+
         function copyToClipboard() {
             const output = document.getElementById('arkhamdbOutput');
             if (!output.value.trim()) {
